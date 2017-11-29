@@ -1,44 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/fullcalendar/dist/fullcalendar.min.css";
 body{
-  /* background: #ddd;  */
+  background: #eeeeee;
   margin:0px !important;
   padding: 0 !important;
 }
 
 /* Modal */
 /*.modal-header{
-background: #303342;
+background: #9A9A9A;
 }*/
 .modal-title{
  float: left;
 }
 
+
 /* Active list color */
 ul.nav.nav-tabs{
- border: 1px solid #303342 !important;
+ border: 1px solid #9A9A9A!important;
 }
 ul.nav.nav-tabs li a{
- color:black;
+ color:#9A9A9A;
 }
 li.active a{
- background: #303342 !important;
+ background: #9A9A9A!important;
  color:white !important;
  font-weight:bold;
 }
 .nav>li>a:focus, .nav>li>a:hover{
- background: #303342 !important; /* Light Red Color */
+ background: #9A9A9A!important; /* Light Red Color */
  color:white !important;
 }
 .panel-default>.panel-heading{
  color: #fff;
- background-color: #303342;
+ background-color: #9A9A9A;
 }
 .pagination>li>a, .pagination>li>span{
- color:#303342;
+ color:#9A9A9A;
 }
 a{
- color:#303342;
+ color:#9A9A9A;
 }
 
 /*modal css*/
@@ -94,7 +95,7 @@ border-radius: 15px;
  padding-right: 10px;
 }
 .badge{
- background-color: #303342;
+ background-color: #9A9A9A;
 }
 .img-center{
  position:absolute;
@@ -155,7 +156,7 @@ border-radius: 15px;
  padding-right: 2%;
 }
 .expand:hover{
- color:#303342;
+ color:#9A9A9A;
 }
 
 .name{

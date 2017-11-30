@@ -4,6 +4,7 @@ body{
   background: #eeeeee;
   margin:0px !important;
   padding: 0 !important;
+  font-family:"Roboto", "Helvetica", "Arial", sans-serif!important;
 }
 
 /* Modal */
@@ -23,12 +24,17 @@ ul.nav.nav-tabs li a{
  color:#9A9A9A;
 }
 li.active a{
- background: #9A9A9A!important;
- color:white !important;
- font-weight:bold;
+    background-color: #9c27b0;
+    box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28),
+     0 4px 20px 0px rgba(0, 0, 0, 0.12),
+      0 7px 8px -5px rgba(156, 39, 176, 0.2);
+      color:white;
 }
 .nav>li>a:focus, .nav>li>a:hover{
- background: #9A9A9A!important; /* Light Red Color */
+ background: #9c27b0;
+ box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 
+ 0 4px 20px 0px rgba(0, 0, 0, 0.12), 
+ 0 7px 8px -5px rgba(156, 39, 176, 0.2);
  color:white !important;
 }
 .panel-default>.panel-heading{

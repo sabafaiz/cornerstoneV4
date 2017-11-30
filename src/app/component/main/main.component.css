@@ -225,11 +225,11 @@ color: grey;
 .school-img{
     height: 97%;
 }
-.sidebar-background{
+#sidebar-wrapper img{
     position: relative;
 
 }
-.sidebar-background .overlay{
+#sidebar-wrapper .overlay{
 width:100%;
 height: 100%;
 position: absolute;
@@ -254,6 +254,10 @@ background: hsla(0, 0%, 100%, 0.81);
     0 4px 25px 0px rgba(0, 0, 0, 0.12), 
      0 8px 10px -5px rgba(0, 0, 0, 0.2);
     background:#9a9a9aeb;
+}
+
+#sidebar-wrapper:focus{
+    outline: 0;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -285,8 +289,9 @@ background: hsla(0, 0%, 100%, 0.81);
     padding: 0;
     list-style: none;
     background: #ffffff03;
-    font-size: 13px;
-    font-weight: 100;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: Raleway
 
 } 
 
@@ -299,8 +304,16 @@ background: hsla(0, 0%, 100%, 0.81);
     display: block;
     text-decoration: none;
     color: #3C4858;
+    font-family: Raleway;
+    font-weight: 700;
+  
     /* border-right: solid 4px white; */
 } */
+.
+
+active{
+    background: purple;
+}
 
 .sidebar-nav > .sidebar-brand {
     height: 65px;
@@ -445,9 +458,12 @@ div,table,a{
 }
 
  .active{
-     background: white; 
-    color: #303342 !important;
-    /* border-right: 4px solid #303342; */
+     background: #9c27b0!important; 
+    color: white!important;
+    padding: 7px 15px;
+    border-radius: 3px;
+    margin: 10px;
+    
 }
 
 .modal-footer{

@@ -65,11 +65,10 @@
   </div>
 
   <!-- Sidebar -->
-  <div id="sidebar-wrapper">
-   <div class="sidebar-background">
+  <div id="sidebar-wrapper" data-color="purple">
     <img src="/assets/school.jpg" class="school-img" alt="school-img">
     <div class="overlay"></div>
-  </div>
+  
     <ul class="sidebar-nav">
       <li class="sidebar-items" *ngIf="role=='admin'">
        
@@ -98,7 +97,8 @@
       <!-- new code -->
       <li class="side-items" *ngIf="role=='admin'">
       <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-        add
+        <button type="button" class="btn btn-secondary">
+          <i class="material-icons"></i>add</button>
     </a>
     <ul class="collapse list-unstyled" id="pageSubmenu">
         <li class="sidebar-items" *ngIf="role=='admin'"> 

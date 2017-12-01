@@ -25,7 +25,7 @@ main{
     top:0px;
     left:5px;
     border-style: none;
-    background-color: inherit !important;
+    background-color: red !important;
 }
 .glyphicon-menu-hamburger{
     font-size:20px;
@@ -234,14 +234,14 @@ width:100%;
 height: 100%;
 position: absolute;
 top: 0;
-background: hsla(0, 0%, 100%, 0.81);
+background: hsla(0, 0%, 100%, 0.93);
 }
 #sidebar-wrapper {
     /* margin-top: 34px; */
     z-index:1000;
     position: fixed;
     left: 250px;
-    top: 18px;
+    top: 0px;
     width: 0;
     height: 100%;
     margin-left: -250px;
@@ -254,6 +254,19 @@ background: hsla(0, 0%, 100%, 0.81);
     0 4px 25px 0px rgba(0, 0, 0, 0.12), 
      0 8px 10px -5px rgba(0, 0, 0, 0.2);
     background:#9a9a9aeb;
+}
+.sidebar-nav li a span{
+    top: -6px;
+    left: 15px;
+    position: relative;
+}
+
+.sidebar-nav li a{
+    padding: 10px 0 10px 25px!important;
+}
+.side
+.page-title{
+    font-size:14px;
 }
 
 #sidebar-wrapper:focus{
@@ -283,21 +296,19 @@ background: hsla(0, 0%, 100%, 0.81);
 
 .sidebar-nav {
     position: absolute;
-    top: 0;
-    width: 250px;
-    margin: 0;
-    padding: 0;
+top: 0;
     list-style: none;
     background: #ffffff03;
-    font-size: 14px;
+    font-size    : 14px;
     font-weight: 700;
-    font-family: Raleway
-
+    font-family: Raleway;
+    padding: 10px;
 } 
-
-.sidebar-nav li {
-    text-indent: 20px;
-    line-height: 40px;
+.active{
+    margin:0px!important;
+}
+.sidebar-nav li{
+    width: 100%;
 }
 
 .sidebar-nav li a {
@@ -306,14 +317,12 @@ background: hsla(0, 0%, 100%, 0.81);
     color: #3C4858;
     font-family: Raleway;
     font-weight: 700;
+    padding: 0;
   
     /* border-right: solid 4px white; */
-} */
-.
+} 
 
-active{
-    background: purple;
-}
+
 
 .sidebar-nav > .sidebar-brand {
     height: 65px;

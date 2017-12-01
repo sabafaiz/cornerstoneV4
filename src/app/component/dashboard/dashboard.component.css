@@ -18,3 +18,83 @@ h1{
     border-bottom-style: double;
     border-bottom-color: grey;
 }
+.card-panel{
+    margin: 0;
+    padding:2rem;
+    transition: box-shadow .25s;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.26)!important;
+}
+.lighten-1{
+    background-color: white!important;
+}
+.lighten-2{
+    background-color: #64B5F6!important;
+}
+.lighten-3{
+    background-color: #4db6ac!important;
+}
+.indigo-text{
+    color: #e8eaf6!important;
+}
+.stats-card {
+    display: block;
+    /* position: relative; */
+    overflow: hidden;
+    z-index: 2;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    border-radius: 3px;
+    color: rgba(0, 0, 0, 0.87);
+    margin: 25px 0;
+}
+.stats-card .card-header{
+    background: linear-gradient(60deg, #ffa726, #fb8c00);
+    box-shadow: 0 12px 20px -10px rgba(255, 152, 0, 0.28),
+     0 4px 20px 0px rgba(0, 0, 0, 0.12), 
+     0 7px 8px -5px rgba(255, 152, 0, 0.2);
+    position: absolute;
+    top:-15px;
+    z-index: 1;
+    float: left;
+    text-align: center;
+    border-radius: 3px;
+    padding: 15px;      
+}
+
+.stats-card .card-content p{
+    color: #999999;
+    margin-bottom: 0;
+    text-align: right;
+    font-weight: 300;
+
+}
+
+.title{
+    text-align: right;
+    color: black;
+    font-weight: 300;
+    margin: 0;
+}
+.footer{
+    margin: 0 20px 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eeeeee;
+}
+
+
+.stats-card .material-icons {
+   font-size: 45px;
+   color:white;
+  
+}
+.stats-card .count {
+    position: relative;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+.stats-card .name {
+    position: relative;
+    font-size: 1rem;
+    line-height: 1rem;
+}

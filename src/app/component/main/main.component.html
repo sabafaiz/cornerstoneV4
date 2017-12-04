@@ -1,28 +1,48 @@
 <div id="wrapper">
   <!-- nav bar later use -->
-  <!-- <nav class="navbar navbar-default navbar-fixed-top header" >
-      <div class="">
+  
+      <!-- <div class="">
         <div class="navbar-header" id="toggle-header">
           
-          <a class="navbar-brand" id="menu-toggle" style="cursor: pointer;float:right;padding-right: 0px;color:white"><i class="glyphicon glyphicon-menu-hamburger"></i></a>
+          <a class="navbar-brand" id="menu-toggle" ><i class="glyphicon glyphicon-menu-hamburger"></i></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-top-links navbar-right">
-             <!--<li class="brand">Cornerstone</li>-->
-  <!-- <li class="logo-list"><img src="assets/icons/logo.png" class="logo"></li>
+            <li class="brand">Cornerstone</li>
+  <li class="logo-list"><img src="assets/icons/logo.png" class="logo"></li>
              <li>
                <a class="profile-img-container" (click)="displayProfile=!displayProfile"><img class="profile-img" src="{{log.getData('picUrl')}}" *ngIf="log.getData('picUrl')"></a>
-             </li> -->
+             </li> 
 
-  <!--/.dropdown -->
-  <!-- </ul>
+
+  </ul>
         </div>
-      </div>
-    </nav> -->
+      </div> -->
+
+<!-- new code -->
+<nav class="navbar">
+  <a class="navbar-brand name" href="#">Page Title</a>
+<div style="display:-webkit-inline-box;">
+
+  <form class="form-inline">
+      <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+  </form>
+  
+      <ul class="navbar-nav">
+          <li class="nav-item active">
+              <a class="nav-link" href="#"><i class="material-icons">account_circle</i><span class="sr-only">(current)</span></a>
+            </li>
+      </ul>
+ 
+  </div>
+  
+</nav>
+
+
+<!-- new code -->
 
 
 
-  <!-- nav bar later use -->
   <!-- header end-->
   <div class="profile-card" id="profile-card" [hidden]="displayProfile" tabindex='1' (blur)="displayProfile=true">
     <div class="row">
@@ -61,44 +81,49 @@
   <div id="sidebar-wrapper" data-color="purple">
     <img src="/assets/school.jpg" class="school-img" alt="school-img">
     <div class="overlay"></div>
+    <img src="assets/icons/logo.png" class="logo">
     <ul class="sidebar-nav">
-      <li class="sidebar-list" *ngIf="role=='admin'"></li>
-      <li *ngFor="let page of pages; let i=index" class="sidebar-list">
+     <li class="sidebar-items" *ngIf="role=='admin'"></li>
+      <li *ngFor="let page of pages; let i=index" class="sidebar-items">
         <a [routerLink]="[page.url]" routerLinkActive="active" (click)="getSelectedLink(i)">
-          <div class="icon-text">
             <i class="material-icons"> {{page.icon}}</i><span class="page-title1">{{page.title}}</span>
-          </div>
         </a>
       </li>
-      <li class="sidebar-list">
-        <a [routerLink]="['/account']" routerLinkActive="active">
-          <i class="material-icons">account_box</i> Account
-                 
-        </a>
-      </li>
-      <ul class="collapse list-unstyled" id="pageSubmenu">
-        <li class="sidebar-items" *ngIf="role=='admin'">
-          <a [routerLink]="['/time-table']" routerLinkActive="active">
-            <i class="material-icons">av_timer</i>  Time Table
-          </a>
-        </li>
-        <li class="sidebar-items" *ngIf="role=='admin'">
-          <a [routerLink]="['/foodmenu']" routerLinkActive="active">
-                <i class="material-icons">room_service</i>  Food Menu
-              </a>
-        </li>
-        <li class="sidebar-items" *ngIf="role=='admin'">
-          <a [routerLink]="['/add-student']" routerLinkActive="active">
-                    <i class="material-icons">face</i> Student         
-                  </a>
-        </li>
-        <li class="sidebar-items" *ngIf="role=='admin'" style="padding-bottom: 55px;">
-          <a [routerLink]="['/add-employee']" routerLinkActive="active">
-                    <i class="material-icons">airline_seat_recline_extra</i>Employee         
-                  </a>
-        </li>
-      </ul>
 
+      <li class="sidebar-items">
+        <a [routerLink]="['/account']" routerLinkActive="active">
+            <i class="material-icons">account_box</i><span>Account</span> 
+     
+ </a>
+      </li>
+
+      <li class="side-items" *ngIf="role=='admin'">
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+          <i class="material-icons">note_add</i><span>ADD</span>
+    </a>
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+          <li class="sidebar-items" *ngIf="role=='admin'">
+            <a [routerLink]="['/time-table']" routerLinkActive="active">
+            <i class="material-icons">av_timer</i><span> Time Table</span>
+          </a>
+          </li>
+          <li class="sidebar-items" *ngIf="role=='admin'">
+            <a [routerLink]="['/foodmenu']" routerLinkActive="active">
+                <i class="material-icons">room_service</i><span> Food Menu</span> 
+              </a>
+          </li>
+          <li class="sidebar-items" *ngIf="role=='admin'">
+            <a [routerLink]="['/add-student']" routerLinkActive="active">
+                    <i class="material-icons">face</i><span>Student</span>        
+                  </a>
+          </li>
+          <li class="sidebar-items" *ngIf="role=='admin'" style="padding-bottom: 55px;">
+            <a [routerLink]="['/add-employee']" routerLinkActive="active">
+                    <i class="material-icons">airline_seat_recline_extra</i><span>Employee</span>      
+                  </a>
+          </li>
+        </ul>
+      </li>
     </ul>
 
     <!-- <ul class="sidebar-nav">

@@ -40,7 +40,7 @@ export class MainComponent implements OnInit, AfterViewInit {
     // { title: 'Food Menu', component: FoodmenuComponent, icon: 'assets/icons/food.png', url: '/foodmenu' },    
     { title: 'Circular', icon: 'autorenew', url: '/circular' },
     { title: 'Homework', icon: 'book', url: '/homework' },
-    { title: 'Student Rating', icon: 'star_rate', url: '/student-profile' },
+    { title: 'student Rating', icon:'star_rate', url: '/student-profile' },
     // { title: 'Time Table', icon : '/assets/icons/calendar.png', url:'/time-table' }
     //  { title: 'Add Employee', component: AddEmployeeComponent, icon: '', url:'/add-employee'},
     //  {title: 'Add Student', component: AddStudentComponent, icon: '', url: '/add-student'},
@@ -73,7 +73,7 @@ this.role=this.log.getData('role');
       $("#wrapper").toggleClass("toggled");
       } else if (ww < 520) {
         $('#wrapper').removeClass('toggled');
-      };
+      };    
     };
 
      var shiftLeft=function(){
@@ -87,16 +87,16 @@ this.role=this.log.getData('role');
 
   $(window).resize(function(){
     alterClass();
-    shiftLeft();
+    // shiftLeft();
         
   });
 
   alterClass();
-  shiftLeft();
+  // shiftLeft();
   
   $("#menu-toggle").click(function (e: any) {
      $("#wrapper").toggleClass("toggled");
-     shiftLeft();
+    //  shiftLeft();
   });
     
 //   $("body").mouseup(function(e:any) 

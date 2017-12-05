@@ -474,7 +474,9 @@ div,table,a{
     font-family:'Allerta';
 }
 .brand{
-    font-family:sans-serif;
+    font-family:"Roboto", "Helvetica", "Arial", sans-serif!important;
+    font-size:14px;
+    font-weight: 300;
     color: white;
 }
 
@@ -519,6 +521,10 @@ div,table,a{
 
 .name{
     color:#A88E8E;
+    font-family:"Roboto", "Helvetica", "Arial", sans-serif!important;
+    font-size:16px;
+    font-weight: 300;
+   
 }
 
 .name:hover{
@@ -527,4 +533,16 @@ div,table,a{
 
 .form-control{
     display: -webkit-inline-box;
+}
+
+.nav-item{
+    background: purple;
+    margin:6px;
+        padding: 0px 10px;
+}
+.nav-link .material-icons{
+    color: white;
+}
+.bg{
+    background: #eeeeee;
 }

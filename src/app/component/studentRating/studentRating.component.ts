@@ -3,6 +3,7 @@ import { StudentRatingService } from '../../providers/studentRating.service';
 import { FormGroup, FormControl, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoaderStop } from '../../providers/loaderstop.service';
+import { BarLoaderService } from '../../providers/bar-loader.service';
 // import * as moment_ from 'moment';
 
 
@@ -18,14 +19,22 @@ declare let $: any;
 
 export class StudentRatingComponent implements OnInit, OnDestroy{
 
-  constructor(public  srs: StudentRatingService,
-    public  fb: FormBuilder, public  ls: LoaderStop,  public  router:Router,
+  constructor(
+    public  srs: StudentRatingService,
+    public  fb: FormBuilder, 
+    public  ls: LoaderStop, 
+     public  router:Router,
+     private barLoaderService:BarLoaderService
   ) { 
      this.ls.setLoader(false);
   }
 
   ngOnInit(){
      this.getStudents();
+  }
+
+  ngAfterViewInit(){
+    this.barLoaderService.hideBarLoader();
   }
     ngOnDestroy(){
       this.ls.setLoader(true);

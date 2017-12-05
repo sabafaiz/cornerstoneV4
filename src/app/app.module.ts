@@ -6,6 +6,7 @@ import { AuthGuard } from './AuthGuard';
 import { LoaderStop } from './providers/loaderstop.service';
 // import { ROUTER_PROVIDERS } from "@angular/router";
 import { LocationStrategy, HashLocationStrategy } from "@angular/common";
+import { BarLoaderService } from './providers/bar-loader.service';
 
 @NgModule({
 		declarations : [AppComponent],
@@ -27,7 +28,7 @@ import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 	], { useHash: true }) ],
 	exports: [],
 	bootstrap : [AppComponent],
-	providers : [AuthGuard, LoaderStop]
+	providers : [AuthGuard, LoaderStop,BarLoaderService]
 })
 export class AppModule{
 

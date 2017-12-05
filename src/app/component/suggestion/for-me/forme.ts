@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ComplaintService } from '../../../providers/complaint.service';
 import { ComplaintComponent } from '../../complaint/complaint.component';
 import { LoaderStop } from '../../../providers/loaderstop.service';
+import { BarLoaderService } from '../../../providers/bar-loader.service';
 @Component({
   selector: 'for-me',
  templateUrl: './forme.html',
@@ -16,8 +17,9 @@ export class SuggestionForMe extends ComplaintComponent implements OnDestroy{
   constructor(public  cs: ComplaintService,
     public  ls : LoaderStop,
     public  router: Router,
-    public  route: ActivatedRoute) {
-    super(cs,ls,router,route);
+    public  route: ActivatedRoute,
+    public barLoaderService:BarLoaderService) {
+    super(cs,ls,router,route,barLoaderService);
     if(this.url == "/suggestion/for-me") this.url = "/suggestion";
     if(this.complaintStatus) this.url = "/suggestion/status/" + this.complaintStatus;
     this.route.params.subscribe(param => {

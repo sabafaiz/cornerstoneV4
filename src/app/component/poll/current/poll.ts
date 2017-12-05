@@ -4,6 +4,7 @@ import { CommonService } from '../../../providers/common.service';
 import { PollService } from '../../../providers/poll.service';
 import { Router } from '@angular/router';
 import { LoaderStop } from '../../../providers/loaderstop.service';
+import { BarLoaderService } from '../../../providers/bar-loader.service';
 declare let $: any;
 
 @Component({
@@ -20,13 +21,19 @@ export class CurrentPollComponent implements OnInit , OnDestroy{
   public  noMore: boolean = true;
   public  loader: boolean = false;
   public  emptyPolls: boolean = true;
-  constructor(public  ps: PollService, public  ls:LoaderStop, public  router: Router) {
+  constructor(
+    public  ps: PollService,
+     public  ls:LoaderStop,
+      public  router: Router,
+    private barLoaderService:BarLoaderService) {
     this.ls.setLoader(false);
   }
   ngOnInit() {
     this.getPolls();
   }
-
+ngAfterViewInit(){
+  this.barLoaderService.hideBarLoader();
+}
   ngOnDestroy(){
       this.ls.setLoader(true);
   }

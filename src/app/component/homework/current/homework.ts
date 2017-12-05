@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HomeworkService } from '../../../providers/homework.service';
 import { Router } from '@angular/router';
 import { LoaderStop } from '../../../providers/loaderstop.service';
+import { BarLoaderService } from '../../../providers/bar-loader.service';
 
 
 @Component({
@@ -22,14 +23,20 @@ export class CurrentHomework implements OnInit, OnDestroy {
   public  EmptyHomeworks: boolean = true;
   public  imgindex:number=0;
 
-  constructor(public homeworkService: HomeworkService, public ls : LoaderStop,
-    public  router: Router) { this.ls.setLoader(false); }
+  constructor(
+    public homeworkService: HomeworkService,
+     public ls : LoaderStop,
+    public  router: Router,
+  private barLoaderService:BarLoaderService
+) { this.ls.setLoader(false); }
 
   ngOnInit(): void {
     this.fileUrl = localStorage.getItem("fileUrl") + "/";
     this.getHomeworks();
   }
-
+ngAfterViewInit(){
+  this.barLoaderService.hideBarLoader();
+}
     ngOnDestroy(){
       this.ls.setLoader(true);
   }

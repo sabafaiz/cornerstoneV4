@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ComplaintService } from '../../../providers/complaint.service';
 import { ComplaintComponent } from '../../complaint/complaint.component';
 import { LoaderStop } from '../../../providers/loaderstop.service';
+import { BarLoaderService } from '../../../providers/bar-loader.service';
 
 @Component({
   selector:'for-me',
@@ -13,12 +14,20 @@ import { LoaderStop } from '../../../providers/loaderstop.service';
 
 export class ForMeComponent extends ComplaintComponent{
 
-  constructor(public  cs: ComplaintService,
+  constructor(
+    public  cs: ComplaintService,
   	public  ls : LoaderStop,
     public  router: Router,
-    public  route: ActivatedRoute) {
-    super(cs,ls,router,route);
+    public  route: ActivatedRoute,
+  public barLoaderService:BarLoaderService) {
+    super(cs,ls,router,route,barLoaderService);
     if(this.url == "/appreciation/for-me") this.url = "/appreciation";
     this.ls.setLoader(false);
+    
   }  
+
+  ngAfterViewInit(){
+    this.barLoaderService.hideBarLoader();
+    
+  }
 }

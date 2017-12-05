@@ -5,6 +5,7 @@ import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@ang
 import { ValidationService } from '../../../providers/formValidation.service';
 import { Router } from '@angular/router';
 import { LoaderStop } from '../../../providers/loaderstop.service';
+import { BarLoaderService } from '../../../providers/bar-loader.service';
 
 declare let $: any;
 @Component({
@@ -15,32 +16,37 @@ declare let $: any;
 
 export class NewStudentComponent implements OnDestroy {
 
-  public  loader: boolean = false;
-  public  standardLoader:boolean=false;
-  public  messages : any;
+  public loader: boolean = false;
+  public standardLoader: boolean = false;
+  public messages: any;
   //NewStudent
-  public  standards: any[];
+  public standards: any[];
   // public  parents: any[] = [{ id: 1, name: 'Father' },
   // { id: 2, name: 'Mother' },
   // { id: 3, name: 'Guardian' }];
-  public  parent: any[];
+  public parent: any[];
 
-  public  newStudentForm: FormGroup;
-  public  mes:any[];
-  public  stuId:any[]=[];
-  public  stanId:any[]=[];
-  constructor(public  _location: Location,
-    public  as: AdminService,
-    public  fb: FormBuilder,
-    public  ls : LoaderStop,
-    public  router: Router) {
+  public newStudentForm: FormGroup;
+  public mes: any[];
+  public stuId: any[] = [];
+  public stanId: any[] = [];
+  constructor(public _location: Location,
+    public as: AdminService,
+    public fb: FormBuilder,
+    public ls: LoaderStop,
+    public router: Router,
+    private barLoaderService: BarLoaderService) {
     this.getStandards();
     this.initNewStudentForm();
   }
 
+  ngAfterViewInit() {
+    this.barLoaderService.hideBarLoader();
+  }
+
   //New Student Functions
 
-  public  getStandards() {
+  public getStandards() {
     this.standardLoader = true;
     this.as.getStandards().subscribe(res => {
       this.standards = res;
@@ -56,7 +62,7 @@ export class NewStudentComponent implements OnDestroy {
 
   // }
 
-  public  initNewStudentForm() {
+  public initNewStudentForm() {
     this.newStudentForm = this.fb.group({
       name: ['', [Validators.required]],
       standardId: ['', [Validators.required]],
@@ -66,64 +72,64 @@ export class NewStudentComponent implements OnDestroy {
     });
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.ls.setLoader(true);
   }
-  public  inItParent() {
+  public inItParent() {
     return this.fb.group({
       "name": ['', [Validators.required]],
       "nickName": [''],
-      "contactNo": ['', [Validators.required, Validators.maxLength(12),Validators.minLength(9)]],
+      "contactNo": ['', [Validators.required, Validators.maxLength(12), Validators.minLength(9)]],
       "email": ['', [ValidationService.emailValidator]],
     });
   }
 
-  public  addParent(e: any) {
+  public addParent(e: any) {
     const control = <FormArray>e.controls['parent'];
     control.push(this.inItParent());
   }
 
-  public  removeParent(form: any, index: any) {
+  public removeParent(form: any, index: any) {
     const control = <FormArray>form.controls['parent'];
     control.removeAt(index);
   }
 
-  public  submitNewStudent() {
+  public submitNewStudent() {
     this.as.addStudent(this.newStudentForm.value).subscribe(res => {
-      this.loader=true;
+      this.loader = true;
       $('#addModal').modal('show');
       // this.selectedStudent = null;
       this.initNewStudentForm();
-      this.loader= false;
+      this.loader = false;
     },
       err => {
         if (err.status == 400) {
-          
+
           this.initNewStudentForm();
-          this.messages =err.json() ;
+          this.messages = err.json();
           this.mes = JSON.parse(this.messages.message);
-          for(let i=0;i<this.mes.length;i++){
-            this.stuId[i] = this.mes[i].studentId ;
-          this.stanId[i] = this.mes[i].standardId;  
+          for (let i = 0; i < this.mes.length; i++) {
+            this.stuId[i] = this.mes[i].studentId;
+            this.stanId[i] = this.mes[i].standardId;
           }
-          
+
           $('#errModal').modal('show');
         }
-        else{
+        else {
           this.errorPage();
         }
       })
   }
-  
 
-     public  errorPage() {
+
+  public errorPage() {
     this.loader = false;
-     this.router.navigate(['/error']);
+    this.router.navigate(['/error']);
   }
 
-  navigateToExisting( standardid:any,studentid:any){
-    
+  navigateToExisting(standardid: any, studentid: any) {
+
     $('#errModal').modal('hide');
-    this.router.navigate(["/add-student","existing-student",standardid,studentid]);
+    this.router.navigate(["/add-student", "existing-student", standardid, studentid]);
   }
 }

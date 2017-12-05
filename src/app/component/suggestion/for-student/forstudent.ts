@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ComplaintService } from '../../../providers/complaint.service';
 import { ComplaintComponent } from '../../complaint/complaint.component';
 import { LoaderStop } from '../../../providers/loaderstop.service';
+import { BarLoaderService } from '../../../providers/bar-loader.service';
 
 @Component({
   selector: 'for-student',
@@ -15,8 +16,9 @@ export class SuggestionForStudent extends ComplaintComponent implements OnDestro
   constructor(public  cs: ComplaintService,
   	public  ls : LoaderStop,
     public  router: Router,
-    public  route: ActivatedRoute) {
-    super(cs,ls,router,route);
+    public  route: ActivatedRoute,
+    public barLoaderService:BarLoaderService) {
+    super(cs,ls,router,route,barLoaderService);
   }  
   ngOnDestroy(){
   	this.ls.setLoader(true);

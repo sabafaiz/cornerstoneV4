@@ -7,6 +7,7 @@ import * as moment_ from 'moment';
 import { Http } from '@angular/http';
 import * as _ from 'jquery';
 import { Router } from '@angular/router';
+import { BarLoaderService } from '../../providers/bar-loader.service';
 
 
 declare let $: any;
@@ -63,6 +64,7 @@ export class EventComponent implements OnInit, AfterViewInit, OnDestroy {
     public element: ElementRef,
     public cs: CommonService,
     public router: Router,
+    private barLoaderService:BarLoaderService
   ) {
     //  
     this.getPlanner();
@@ -81,6 +83,7 @@ export class EventComponent implements OnInit, AfterViewInit, OnDestroy {
     this.ls.setLoader(true);
   }
   ngAfterViewInit() {
+    this.barLoaderService.hideBarLoader();
     _('#calendar').fullCalendar('renderEvents', this.calendarOptions.events, true);
   }
 

@@ -5,6 +5,7 @@ import { CommonService } from '../../providers/common.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../providers/auth.service';
 import { LoaderStop } from '../../providers/loaderstop.service';
+import { BarLoaderService } from '../../providers/bar-loader.service';
 
 declare let $: any;
 
@@ -35,7 +36,8 @@ export class AccountComponent implements OnInit, OnDestroy {
         public  cs: CommonService,
         public  au: AuthService,
         public  router: Router,
-        public  route: ActivatedRoute, ) {
+        public  route: ActivatedRoute,
+    private barLoaderService:BarLoaderService ) {
           
         this.url = this.router.url;
 
@@ -48,6 +50,9 @@ export class AccountComponent implements OnInit, OnDestroy {
        this.initForm();
 
     }
+    ngAfterViewInit(){
+        this.barLoaderService.hideBarLoader();
+      }
     ngOnDestroy(){
      this.ls.setLoader(true); 
     }

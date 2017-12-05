@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { CommonService } from '../../providers/common.service'
 import { Router } from '@angular/router';
 import { LoaderStop } from '../../providers/loaderstop.service';
+import { BarLoaderService } from '../../providers/bar-loader.service';
 
 declare let $: any;
 
@@ -60,7 +61,8 @@ export class MessageComponent implements AfterViewInit, OnInit {
   constructor(public  ms: MessageService, 
     public  cs: CommonService,
     public  router:Router,
-    public  ls : LoaderStop) {
+    public  ls : LoaderStop,
+  private barLoaderService:BarLoaderService) {
      
   }
 
@@ -82,7 +84,7 @@ export class MessageComponent implements AfterViewInit, OnInit {
       this.ls.setLoader(true);
   }
   ngAfterViewInit() {
-
+this.barLoaderService.hideBarLoader();
   }
 
   //Old Messages

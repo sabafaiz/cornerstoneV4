@@ -4,6 +4,7 @@ import { ComplaintService } from '../../../providers/complaint.service';
 import { ComplaintComponent } from '../../complaint/complaint.component';
 // import {AppreciationService} from './../../../providers/appreciation.service';
 import { LoaderStop } from '../../../providers/loaderstop.service';
+import { BarLoaderService } from '../../../providers/bar-loader.service';
 
 @Component({
   selector:'for-student',
@@ -16,8 +17,9 @@ export class ByMeComponent extends ComplaintComponent implements OnDestroy, OnIn
   constructor(public  cs: ComplaintService,
     public  router: Router,
     public  ls : LoaderStop,
-    public  route: ActivatedRoute) {
-    super(cs,ls,router,route);
+    public  route: ActivatedRoute,
+    public barLoaderService:BarLoaderService) {
+    super(cs,ls,router,route,barLoaderService);
     if(this.url == "/appreciation/for-student") this.url = "/appreciation/for-student";
   }  
 

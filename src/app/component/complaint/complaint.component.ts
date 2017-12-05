@@ -3,6 +3,7 @@ import { LoaderStop } from '../../providers/loaderstop.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ComplaintService } from '../../providers/complaint.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { BarLoaderService } from '../../providers/bar-loader.service';
 declare let $: any;
 
 @Component({
@@ -42,7 +43,8 @@ export class ComplaintComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(public  cs: ComplaintService,
     public  ls : LoaderStop,  
     public  router: Router,
-    public  route: ActivatedRoute ) {
+    public  route: ActivatedRoute,
+  public barLoaderService:BarLoaderService ) {
        
     this.url = this.router.url;
 
@@ -63,6 +65,9 @@ export class ComplaintComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
+
+this.barLoaderService.hideBarLoader();
+
     this.fileUrl = localStorage.getItem("fileUrl") + "/";
     this.fetchComplaints();
     this.ls.setLoader(false);

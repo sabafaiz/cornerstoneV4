@@ -2,6 +2,7 @@ import { Component, NgZone, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChartService } from "../../providers/chart.service";
 import { LoaderStop } from "../../providers/loaderstop.service";
+import { BarLoaderService } from '../../providers/bar-loader.service';
 
 @Component({
   selector: 'dashboard',
@@ -22,7 +23,7 @@ export class DashboardComponent implements OnDestroy {
   public  responseByCategoryAndStatus: any=[];
   public  responseSuggestionByStatus: any=[];
 
-  constructor(public  cs: ChartService, public router: Router, public ls : LoaderStop, public zone: NgZone) {
+  constructor(public  cs: ChartService, public router: Router, public ls : LoaderStop, public zone: NgZone,private barLoaderService:BarLoaderService) {
      this.ls.setLoader(false);
     this.loader = true;
     this.loader1 = true;
@@ -67,6 +68,10 @@ export class DashboardComponent implements OnDestroy {
     // }, (err) => {
     //   this.router.navigate(['/error']);
     // });
+  }
+
+  ngAfterViewInit() {
+    this.barLoaderService.hideBarLoader();
   }
 
   onSelected(data: any) {

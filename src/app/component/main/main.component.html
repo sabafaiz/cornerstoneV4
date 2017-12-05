@@ -1,7 +1,12 @@
+
+<div class="bar-loader" *ngIf="loaderObject?.showLoader">
+  <h4>Loading.........</h4>
+</div>
+
 <div id="wrapper">
   <!-- top nav bar -->
   <nav class="navbar bg">
-    <a class="navbar-brand name" href="#">{{selectedPage}}</a>
+    <a class="navbar-brand name" href="#">{{selectedPage | titlecase}}</a>
     <div style="display:-webkit-inline-box;">
       <form class="form-inline">
         <input class="form-control" type="text" placeholder="Search" aria-label="Search">
@@ -58,12 +63,12 @@
     <ul class="sidebar-nav">
       <li class="sidebar-items" *ngIf="role=='admin'"></li>
       <li *ngFor="let page of pages; let i=index" class="sidebar-items">
-        <a [routerLink]="[page.url]" routerLinkActive="active" (click)="getSelectedLink(page.title)">
+        <a (click)="getSelectedLink(page.title)" [routerLink]="[page.url]" routerLinkActive="active" (click)="getSelectedLink(page.title)">
             <i class="material-icons"> {{page.icon}}</i><span class="page-title1">{{page.title}}</span>
         </a>
       </li>
       <li class="sidebar-items">
-        <a [routerLink]="['/account']" routerLinkActive="active">
+        <a (click)="getSelectedLink('Account')" [routerLink]="['/account']" routerLinkActive="active">
             <i class="material-icons">account_box</i><span>Account</span> 
         </a>
       </li>
@@ -71,24 +76,24 @@
               <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
                   <i class="material-icons">note_add</i><span>ADD</span>
              </a>
-        <ul class="collapse list-unstyled" id="pageSubmenu">
-          <li class="sidebar-items" *ngIf="role=='admin'">
-              <a [routerLink]="['/time-table']" routerLinkActive="active">
+        <ul class="collapse list-unstyled" id="pageSubmenu" *ngIf="role=='admin'">
+          <li class="sidebar-items" >
+              <a (click)="getSelectedLink('Time Table')" [routerLink]="['/time-table']" routerLinkActive="active">
                  <i class="material-icons">av_timer</i><span> Time Table</span>
              </a>
           </li>
-          <li class="sidebar-items" *ngIf="role=='admin'">
-               <a [routerLink]="['/foodmenu']" routerLinkActive="active">
+          <li class="sidebar-items" >
+               <a (click)="getSelectedLink('Food Menu')" [routerLink]="['/foodmenu']" routerLinkActive="active">
                 <i class="material-icons">room_service</i><span> Food Menu</span> 
               </a>
           </li>
-          <li class="sidebar-items" *ngIf="role=='admin'">
-                   <a [routerLink]="['/add-student']" routerLinkActive="active">
+          <li class="sidebar-items" >
+                   <a (click)="getSelectedLink('Student')" [routerLink]="['/add-student']" routerLinkActive="active">
                     <i class="material-icons">face</i><span>Student</span>        
                   </a>
           </li>
-          <li class="sidebar-items" *ngIf="role=='admin'" style="padding-bottom: 55px;">
-                   <a [routerLink]="['/add-employee']" routerLinkActive="active">
+          <li class="sidebar-items"  style="padding-bottom: 55px;">
+                   <a (click)="getSelectedLink('Employee')" [routerLink]="['/add-employee']" routerLinkActive="active">
                     <i class="material-icons">airline_seat_recline_extra</i><span>Employee</span>      
                   </a>
           </li>

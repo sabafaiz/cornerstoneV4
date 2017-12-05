@@ -12,7 +12,7 @@ import { AddStudentComponent } from '../addStudent/addStudent.component';
 // import {EventComponent} from '../event/event.component';
 import { SuggestionComponent } from '../suggestion/suggestion.component';
 import { AccountComponent } from '../account/account.component';
-
+import { BarLoaderService } from '../../providers/bar-loader.service';
 
 declare let $: any;
 
@@ -28,34 +28,44 @@ export class MainComponent implements OnInit, AfterViewInit {
   public  classTeacher:any;
   public  isLoggedIn: boolean = false;
   public  selectedPage: string="Dashboard";
+  loaderObject:any={showLoader:false};
   public  pages = [
     { title: 'Dashboard' , icon: 'dashboard', url: '/dashboard' },
     { title: 'Complaints', icon: 'thumb_down', url: '/complaint' },
-    // { title: 'Suggestion', component: SuggestionComponent, icon: 'icons/suggestion.png', url: '/suggestion/for-me'} ,
     { title: 'Appreciation', icon: 'thumb_up', url: '/appreciation' },
     { title: 'Messaging', icon: 'message', url: '/conversation'},
     { title: 'Events', icon: 'event', url: '/event'},
     { title: 'Poll', icon: 'poll', url: '/poll' },
-    // { title: 'Survey', component: SurveyComponent, icon: 'assets/icons/survey.png', url: '/survey' },
-    // { title: 'Food Menu', component: FoodmenuComponent, icon: 'assets/icons/food.png', url: '/foodmenu' },    
     { title: 'Circular', icon: 'autorenew', url: '/circular' },
     { title: 'Homework', icon: 'book', url: '/homework' },
     { title: 'student Rating', icon:'star_rate', url: '/student-profile' },
+
+    // { title: 'Suggestion', component: SuggestionComponent, icon: 'icons/suggestion.png', url: '/suggestion/for-me'} ,
+    // { title: 'Survey', component: SurveyComponent, icon: 'assets/icons/survey.png', url: '/survey' },
+    // { title: 'Food Menu', component: FoodmenuComponent, icon: 'assets/icons/food.png', url: '/foodmenu' },    
     // { title: 'Time Table', icon : '/assets/icons/calendar.png', url:'/time-table' }
     //  { title: 'Add Employee', component: AddEmployeeComponent, icon: '', url:'/add-employee'},
     //  {title: 'Add Student', component: AddStudentComponent, icon: '', url: '/add-student'},
-    
     // { title: 'Profile', component: AccountComponent, icon: 'assets/icons/profile.png', url: '/account'},      
     // { title: 'Message', component: MessageComponent, icon: 'icons/message.png', url: '/messaging'},
     
   ];
 
-  constructor(public  log: LoggedInGuard) {
+  constructor(
+    public  log: LoggedInGuard,
+    private barLoaderService:BarLoaderService
+  ) { }
 
-  }
   getSelectedLink(heading: string) {
     this.selectedPage = heading;
+    this.barLoaderService.showBarLoader(this.loaderObject);
   }
+
+  getSelectedLinkForExtraOptions(heading: string) {
+    this.selectedPage = heading;
+    this.barLoaderService.showBarLoader(this.loaderObject);
+  }
+
   ngOnInit() {
      jQuery.noConflict(); 
     if (this.log.isLoggedIn()) this.isLoggedIn = true;

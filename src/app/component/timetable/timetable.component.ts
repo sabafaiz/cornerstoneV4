@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TimeTableService } from '../../providers/timetable.service';
 import { FormsModule,FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoaderStop } from '../../providers/loaderstop.service';
+import { BarLoaderService } from '../../providers/bar-loader.service';
 
 declare let $: any;
 @Component({
@@ -33,6 +34,7 @@ export class TimetableComponent implements OnInit, OnDestroy{
  	public  ls : LoaderStop,
   public  ps: TimeTableService,
   public  router:Router,
+  private barLoaderService:BarLoaderService
  ){ 
  this.ls.setLoader(false);
  }
@@ -42,6 +44,9 @@ export class TimetableComponent implements OnInit, OnDestroy{
   this.getTimeTable(this.selectedStandard);
  }
 
+ ngAfterViewInit(){
+   this.barLoaderService.hideBarLoader();
+ }
  ngOnDestroy(){
     this.ls.setLoader(true);
   }

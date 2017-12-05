@@ -546,3 +546,9 @@ div,table,a{
 .bg{
     background: #eeeeee;
 }
+
+.bar-loader{
+left: 50%;
+    position: fixed;
+    z-index: 999
+}

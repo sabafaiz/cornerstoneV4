@@ -27,7 +27,7 @@ export class MainComponent implements OnInit, AfterViewInit {
   public  role:any;
   public  classTeacher:any;
   public  isLoggedIn: boolean = false;
-  public  selectedIndex: any = 0;
+  public  selectedPage: string="Dashboard";
   public  pages = [
     { title: 'Dashboard' , icon: 'dashboard', url: '/dashboard' },
     { title: 'Complaints', icon: 'thumb_down', url: '/complaint' },
@@ -53,8 +53,8 @@ export class MainComponent implements OnInit, AfterViewInit {
   constructor(public  log: LoggedInGuard) {
 
   }
-  getSelectedLink(i: any) {
-    this.selectedIndex = i;
+  getSelectedLink(heading: string) {
+    this.selectedPage = heading;
   }
   ngOnInit() {
      jQuery.noConflict(); 

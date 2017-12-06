@@ -16,7 +16,49 @@
     <div style="margin-top: 2%;padding-top: 1%;">
 
       <!-- new card -->
-    
+      <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-12" *ngFor="let c of complaints; let i = index;">
+          <div class="card table-card">
+            <div class="card-header" *ngIf="!complaintStatus" [style.background]="c.statusColor">
+              <ul class="nav nav-tabs">
+                <li><a href=""><i class="material-icons">face</i>Name</a></li>
+                <li><a href=""><i class="material-icons">format_align_center</i>Standard</a></li>
+                <li><a href=""><i class="material-icons">attach_file</i>Title</a></li>
+                <li><a href=""><i class="material-icons">bug_report</i>Against</a></li>
+                <li><a href=""><i class="material-icons">build</i>options</a></li>
+                <li><a href=""><i class="material-icons">pin_drop</i>Status</a></li>
+
+              </ul>
+             
+
+            </div>
+            <div class="card-content">
+                <table class="details">
+                  <tr>
+                    <td>{{c.studentName}}</td>
+                    <td>{{c.studentStandardName}}</td>
+                    <td width=20%>{{c.title}}</td>
+                    <td>{{c.againstEmployeeName}}</td>
+                    <td><i class="material-icons">border_color</i> <i class="material-icons">delete_forever</i></td>
+                    <td><span class="badge badge-against"  *ngIf="!complaintStatus" [style.background]="c.statusColor">@{{c.statusName}}</span></td>
+                  </tr>
+                </table>
+
+              </div>
+          </div>
+        </div>
+      </div>
+   
+
+
+
+
+
+
+
+
+
+
   <div class="container-fulid">
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-12" *ngFor="let c of complaints; let i = index;">
@@ -28,11 +70,25 @@
               </div>
               
               <div class="card-content">
-                  <p>{{c.id}}</p>
-                  <p>{{c.studentName}}</p>
-                  <p>{{c.studentStandardName}}</p>
-                 <p>{{c.title}}</p>
-                 <span class="badge badge-against"  *ngIf="!complaintStatus" [style.background]="c.statusColor">@{{c.statusName}}</span>
+              <table>
+                <tr>
+                  <td><span><i class="material-icons" [style.color]="c.statusColor">face</i></span>Name</td>
+                  <td>{{c.studentName}}</td>
+                </tr>
+                <tr>
+                  <td><i class="material-icons">format_align_center</i>Standard</td>
+                  <td>{{c.studentStandardName}}</td>
+                </tr>
+                <tr>
+                  <td><i class="material-icons">bug_report</i>Against</td>
+                  <td>{{c.againstEmployeeName}}</td>
+                </tr>
+                <tr>
+                  <td><i class="material-icons">attach_file</i>Title</td>
+                  <td>{{c.title}}</td>
+                </tr>
+              </table>
+
                  
               </div>
             

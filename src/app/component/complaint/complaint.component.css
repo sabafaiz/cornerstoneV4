@@ -308,24 +308,24 @@ loader{
     overflow: hidden;
     z-index: 2;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
-    border-radius: 3px;
+    border-radius:3px!important;
     color: rgba(0, 0, 0, 0.87);
     margin: 25px 0;
-    height: 145px;
-    padding: 10px;
+    height: 165px;
+    padding: 20px;
 }
 
 .stats-card .card-header{
     background: linear-gradient(60deg, #ffa726, #fb8c00);
-    box-shadow: 0 12px 20px -10px rgba(255, 152, 0, 0.28),
-     0 4px 20px 0px rgba(0, 0, 0, 0.12),
-      0 7px 8px -5px rgba(255, 152, 0, 0);
+    box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42),
+     0 4px 25px 0px rgba(0, 0, 0, 0.12), 
+     0 8px 10px -5px rgba(0, 0, 0, 0.2);
     position: absolute;
     top: 2px;
     right: 32px;
     z-index: 1;
     text-align: center;
-    border-radius: 3px;
+    border-radius:3px!important;
     padding: 15px; 
     width: 90px;
     height: 90px;
@@ -352,10 +352,11 @@ loader{
 
 
 .stats-card .material-icons {
-   font-size: 45px;
-   color:white;
-   margin-top: 12px;
-  
+   /* font-size: 45px; */
+   color:black!important;
+ /* margin-top: 12px;  */
+ margin: -1px 5px 0 0;
+ vertical-align: middle;
 }
 .stats-card .count {
     position: relative;
@@ -396,3 +397,61 @@ loader{
     width:100%;
 }
 
+
+/* new */
+.table-card{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin: 25px 0;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    border-radius:3px!important;
+    color: rgba(0, 0, 0, 0.87);
+    background: #fff;
+}
+
+.table-card .card-header{
+  background:    linear-gradient(60deg, #ab47bc, #8e24aa);
+    box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 
+    0 4px 20px 0px rgba(0, 0, 0, 0.12)
+    , 0 7px 8px -5px rgba(156, 39, 176, 0.2);
+    color: #FFFFFF;
+    margin: -40px 15px 0;
+    border-radius:3px!important;
+    padding: 15px;
+}
+
+.table-card .nav-tabs{
+    background: transparent;
+    padding: 0;
+    border: 0!important;
+    border-radius: 3px;
+}
+
+.nav-tabs>li>a{
+    background-color: transparent;
+    border: 0 !important;
+    color: #FFFFFF !important;
+    font-weight: 500;
+    padding: 10px 19px;
+    margin: 0;
+    border-radius: 3px;
+    line-height: 24px;
+    text-transform: uppercase;
+    font-size: 12px;
+    text-decoration-color: none;
+   list-style: none;
+}
+
+.nav-tabs>li .material-icons{
+margin:-1px 5px 0 0;
+vertical-align: middle;
+}
+
+.table-card .card-content{
+ padding:15px 20px;
+}
+
+.details tr td{
+    padding: 10px;
+}

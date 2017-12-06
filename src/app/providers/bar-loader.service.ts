@@ -8,7 +8,7 @@ barObj:any;
 		this.barObj.showLoader = true;
 	}
     hideBarLoader (){
-		this.barObj.showLoader = false;
+		this.barObj && (this.barObj.showLoader = false);
 	}
 
 }

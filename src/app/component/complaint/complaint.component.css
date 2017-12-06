@@ -302,3 +302,97 @@ loader{
     min-height: 150px !important;
 }
 
+.stats-card{
+    background: white;
+    display: block;
+    overflow: hidden;
+    z-index: 2;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    border-radius: 3px;
+    color: rgba(0, 0, 0, 0.87);
+    margin: 25px 0;
+    height: 145px;
+    padding: 10px;
+}
+
+.stats-card .card-header{
+    background: linear-gradient(60deg, #ffa726, #fb8c00);
+    box-shadow: 0 12px 20px -10px rgba(255, 152, 0, 0.28),
+     0 4px 20px 0px rgba(0, 0, 0, 0.12),
+      0 7px 8px -5px rgba(255, 152, 0, 0);
+    position: absolute;
+    top: 2px;
+    right: 32px;
+    z-index: 1;
+    text-align: center;
+    border-radius: 3px;
+    padding: 15px; 
+    width: 90px;
+    height: 90px;
+    text-align: center;     
+}
+.stats-card .card-content p{
+    color: #999999;
+    margin-bottom: 0;
+    font-weight: 300;
+ 
+}
+
+.title{
+    text-align: right;
+    color: #777777;
+    font-weight: 300;
+    margin: 0;
+}
+.footer{
+    margin: 0 20px 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eeeeee;
+}
+
+
+.stats-card .material-icons {
+   font-size: 45px;
+   color:white;
+   margin-top: 12px;
+  
+}
+.stats-card .count {
+    position: relative;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+.stats-card .name {
+    position: relative;
+    font-size: 1rem;
+    line-height: 1rem;
+}
+
+.footer-last{
+    border-top:1px solid  #eeeeee;
+    margin-top: 10px;
+
+}
+
+.card-content{
+
+    height: 60%;
+    width: 100%;
+}
+.card-content p{
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif!important;
+}
+
+
+
+.badge-against{
+    background: red;
+  
+    border-radius: 4px;
+    padding: 6px 47px;
+}
+.profile-pic{
+    width:100%;
+}
+

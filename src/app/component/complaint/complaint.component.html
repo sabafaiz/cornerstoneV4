@@ -1,7 +1,6 @@
 <!-- <h1>Complaint</h1> -->
 <div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">{{status}} Complaints</div>
+  
 
   <!-- Table -->
   <div class="panel-body">
@@ -15,6 +14,40 @@
     </div>
     <!--cards -->
     <div style="margin-top: 2%;padding-top: 1%;">
+
+      <!-- new card -->
+    
+  <div class="container-fulid">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12" *ngFor="let c of complaints; let i = index;">
+          <div class="card-panel stats-card lighten-1">
+              <div class="card-header"  [style.background]="c.statusColor">
+                  <img [attr.src]="fileUrl + c.studentPicUrl" 
+                  class="profile-pic"><br>
+                  
+              </div>
+              
+              <div class="card-content">
+                  <p>{{c.id}}</p>
+                  <p>{{c.studentName}}</p>
+                  <p>{{c.studentStandardName}}</p>
+                 <p>{{c.title}}</p>
+                 <span class="badge badge-against"  *ngIf="!complaintStatus" [style.background]="c.statusColor">@{{c.statusName}}</span>
+                 
+              </div>
+            
+             
+            </div>
+    </div>
+
+    
+  </div>
+
+
+  </div>
+
+
+   <!-- new card -->
       <div class="container card" *ngFor="let c of complaints; let i = index;">
         <div class="row">
           <div class="col-sm-6 col-xs-6" *ngIf="!complaintStatus" style="margin: -8px -24px;">

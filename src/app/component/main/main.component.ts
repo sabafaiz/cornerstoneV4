@@ -38,7 +38,7 @@ export class MainComponent implements OnInit, AfterViewInit {
     { title: 'Poll', icon: 'poll', url: '/poll' },
     { title: 'Circular', icon: 'autorenew', url: '/circular' },
     { title: 'Homework', icon: 'book', url: '/homework' },
-    { title: 'student Rating', icon:'star_rate', url: '/student-profile' },
+    { title: 'student Rating', icon:'grade', url: '/student-profile' },
 
     // { title: 'Suggestion', component: SuggestionComponent, icon: 'icons/suggestion.png', url: '/suggestion/for-me'} ,
     // { title: 'Survey', component: SurveyComponent, icon: 'assets/icons/survey.png', url: '/survey' },
@@ -64,7 +64,7 @@ export class MainComponent implements OnInit, AfterViewInit {
   getSelectedLinkForExtraOptions(heading: string) {
     this.selectedPage = heading;
     this.barLoaderService.showBarLoader(this.loaderObject);
-  }
+  }    
 
   ngOnInit() {
      jQuery.noConflict(); 

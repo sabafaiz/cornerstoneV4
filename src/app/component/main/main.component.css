@@ -308,6 +308,7 @@ top: 0;
     font-size : 14px;
     padding: 10px;
     font-weight: 300px;
+    width: 100%;
 } 
 .active{
     margin:0px!important;

@@ -148,8 +148,8 @@ export class DashboardComponent implements OnDestroy {
         fontName: '-apple-system, "Helvetica Neue", "Roboto", sans-serif',
         fontSize: 14
       },
-      colors: ['#4CAF50', '#2196f3', '#FFEB3B', '#F48FB1', '#EF5350', '#9C27B0', '#003300'],
-      chartArea: { left: '10%', height: "40%", width: "40%", bottom: '10%', right: '10%', top: '0%' },
+      colors: ['#4caf50', '#00acc1', '#FFEB3B', '#e01e63', '#e53935', '#9c27b0', '#fb8c00'],
+      chartArea: { left: '10%', height: "30%", width: "40%", bottom: '10%', right: '10%', top: '0%' },
       is3D: true
     }
      this.loader1 = false;
@@ -186,7 +186,7 @@ export class DashboardComponent implements OnDestroy {
         bold: true,
       },
       isStacked: 'true', chartArea: {},
-      colors: ['#4CAF50', '#2196f3', '#FFEB3B', '#F48FB1', '#EF5350', '#9C27B0', '#FF8C00']
+      colors: ['#4caf50', '#00acc1', '#FFEB3B', '#e01e63', '#e53935', '#9c27b0', '#fb8c00']
     };
     this.loader=false;
   }
@@ -207,7 +207,7 @@ export class DashboardComponent implements OnDestroy {
         fontName: '-apple-system, "Helvetica Neue", "Roboto", sans-serif',
         fontSize: 14
       },
-      colors: ['#4CAF50', '#2196f3', '#FFEB3B', '#F48FB1', '#EF5350', '#9C27B0', '#003300'],
+      colors: ['#4caf50', '#00acc1', '#FFEB3B', '#e01e63', '#e53935', '#9c27b0', '#fb8c00'],
       chartArea: { left: '10%', height: "40%", width: "40%", bottom: '10%', right: '10%', top: '5%' },
       pieHole: 0.4
     }

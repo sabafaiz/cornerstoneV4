@@ -1,3 +1,34 @@
+@media screen and (min-width: 100px){
+    #sidebar-wrapper{
+        width: 250px!important;
+    }
+    /* #sidebar-wrapper .page-title1{
+        display: none!important;
+    } */
+}
+
+::-webkit-scrollbar-track
+{
+    /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+    width: 3px;
+    background-color: #9c27b0!important; 
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #9c27b0; 
+}
+
+
+
+
+
 body {
   overflow-x: hidden;
   background: #eeeeee;

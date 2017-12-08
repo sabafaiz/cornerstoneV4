@@ -1,19 +1,11 @@
-<div class="appreciation" >
-<!-- <h1>Appreciation
-        <button type="button" class="btn btn-success btn-circle pull-right" [routerLink]="['/add-appreciation']">
-          <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
-        </button>
-</h1> -->
-      <!--<div class="add-button">
-
-      </div>-->
-<ul class="nav nav-tabs">
-  <li routerLinkActive="active"><a [routerLink]="['/appreciation/for-me']">For Us</a></li>
-  <li routerLinkActive="active"><a [routerLink]="['/appreciation/for-student']">By Us</a></li>
+<div class=" row appreciation" >
+  <div class="col-sm-6 col-lg-12 col-md-12">
+<ul class="nav nav-option">
+  <li routerLinkActive="active"><a [routerLink]="['/appreciation/for-me']">FOR US<i class="material-icons">star_rate</i></a></li>
+  <li routerLinkActive="active"><a [routerLink]="['/appreciation/for-student']">BY US<i class="material-icons">star_rate</i></a></li>
 </ul>
-<div class="moving-tab"></div>
-
-  <div class="tab-content">
+</div>
+<div class="tab-content">
     <router-outlet></router-outlet>
   </div>
 </div>

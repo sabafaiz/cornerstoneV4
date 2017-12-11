@@ -41,6 +41,9 @@
 .nav-option li:focus {
   outline: -webkit-focus-ring-color auto 0px!important;
 }
+.nav-option li a:focus, .nav-option li a:hover{
+  color: black!important;
+}
 
 .nav-option li a{
   background: transparent;
@@ -169,3 +172,81 @@ color: white;
 }
 
 /* *&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&for-me&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&77 */
+
+
+
+/* add-appreciation css start */
+.add-card{
+display: inline-block;
+position: relative;
+width: 100%;
+margin: 25px 0;
+box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+border-radius: 6px;
+color: rgba(0,0,0,.87);
+background: #fff;
+}
+
+.add-card .card-header{
+  background: linear-gradient(60deg,#ec407a,#d81b60);
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(233,30,99,.4);
+  display: inline-block;
+  color: #fff;
+  margin: -35px -6px 0;
+  border-radius: 3px;
+  padding: 12px;
+  background-color: #999;
+  position: relative;
+  z-index:2;
+  float: left;
+}
+
+.add-card .card-title{
+  margin-top: 0;
+  margin-bottom: 3px;
+  color: #fff;
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  font-weight: 300;
+  line-height: 1.5em;
+}
+
+.add-card .card-content{
+  padding: 30px 20px;
+  position: relative;
+}
+
+.pull-right{
+  color:black;
+}
+
+.add-card .card-footer {
+  margin: 0 20px 10px;
+  padding-top: 10px;
+  text-align: center!important;
+ background-color: transparent;
+   border-top: 0px solid rgba(0,0,0,.125);
+}
+
+.btn-rose{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background:  #e91e63;
+  box-shadow: 0 2px 2px 0 rgba(233,30,99,.14), 
+  0 3px 1px -2px rgba(233,30,99,.2),
+   0 1px 5px 0 rgba(233,30,99,.12)!important;
+   border: none;
+   border-radius: 3px;
+   position: relative;
+   padding: 12px 30px;
+   margin: 10px 1px;
+   font-size: 12px;
+   font-weight: 400;
+   text-transform: uppercase;
+}
+
+.btn-rose:hover{
+  background:#e91e63;
+  color:white;
+}
+
+/* add-appreciation css end */

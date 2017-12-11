@@ -8,9 +8,15 @@ import {Router } from '@angular/router';
   styleUrls:['./appreciation.component.css']
 })
 export class AppreciationComponent{
+  app:string;
+ 
      constructor(public router:Router){
-        
+      this.app='for';
       // this.router.navigate(["/appreciation/for-me"]);
+    }
+
+    activeList(app){
+      this.app=app;
     }
      
 }

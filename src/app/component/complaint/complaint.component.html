@@ -32,7 +32,7 @@
                   </tr>
                 </thead>
                 <tbody >
-                <tr *ngFor="let c of complaints; let i = index;">
+                <tr *ngFor="let c of complaints; let i = index;" data-toggle="modal" data-target="#myModal-card">
                   <td width="10%"><span>{{c.createdAt | date :'dd-mm-yyyy'}}</span><span *ngIf="c.closedOn">-{{c.closedOn | date:'dd-mm-yyyy'}}</span></td>
                   <td width="20%">{{c.title}}</td>
                   <td width="10%">{{c.studentName}}</td>
@@ -40,7 +40,7 @@
                   <td width="10%">{{c.againstCategoryName}}</td>
                   <td width="10%"> <span [style.background]="c.statusColor" class="badge">{{c.statusName}}</span></td>
                   <td width="10%">Priority</td>
-                  <td width="10%"><i class="material-icons" [style.color]="c.statusColor">border_color</i> <i class="material-icons"[style.color]="c.statusColor">delete_forever</i></td>
+                  <td width="10%"><i class="material-icons" [style.color]="c.statusColor">border_color</i><i class="material-icons" [style.color]="c.statusColor">chat_bubble</i> <i class="material-icons"[style.color]="c.statusColor">delete_forever</i></td>
 
                 </tr>
               </tbody>
@@ -65,7 +65,30 @@
    
   </div>
 </div>
-<div class="modal fade" id="myModal-card" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+<!-- <div class="modal fade" id="myModal-card" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+<div class="modal fade" style="width:100px; height:100px;background:white;" id="myModal-cardx" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content" *ngIf="selectedComplaint">
       <div class="modal-header">

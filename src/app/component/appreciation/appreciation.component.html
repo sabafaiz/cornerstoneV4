@@ -1,8 +1,8 @@
 <div class=" row appreciation" >
   <div class="col-sm-6 col-lg-12 col-md-12">
 <ul class="nav nav-option">
-  <li routerLinkActive="active"><a [routerLink]="['/appreciation/for-me']">FOR US<i class="material-icons">star_rate</i></a></li>
-  <li routerLinkActive="active"><a [routerLink]="['/appreciation/for-student']">BY US<i class="material-icons">star_rate</i></a></li>
+  <li routerLinkActive="active" [routerLink]="['/appreciation/for-me']" (click)="activeList('for')" [ngClass]="{'activeList': app=='for'}"><a >FOR US<i class="material-icons">star_rate</i></a></li>
+  <li routerLinkActive="active" [routerLink]="['/appreciation/for-student']" (click)="activeList('by')" [ngClass]="{'activeList': app=='by'}"><a >BY US<i class="material-icons">star_rate</i></a></li>
 </ul>
 </div>
 <div class="tab-content">

@@ -60,6 +60,9 @@ color: white;
     
 
 }
+.details tr{
+    cursor: pointer;
+}
 .details thead th {
     color:#9c27b0!important;
 }
@@ -96,5 +99,6 @@ color: white;
     border-color: #9c27b0;
     margin: auto;
     display:block;
+    margin-bottom:-18px;
     
 }

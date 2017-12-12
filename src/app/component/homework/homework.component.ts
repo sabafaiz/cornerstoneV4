@@ -5,7 +5,13 @@ import {Component} from '@angular/core';
   styleUrls:['./homework.component.css']
 })
 export class HomeworkComponent{
+  app:string;
   constructor(){
-     
+     this.app='CURRENT';
+  }
+
+  activeList(app){
+    this.app=app;
   }
 }
+

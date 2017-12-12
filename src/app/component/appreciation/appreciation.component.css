@@ -18,7 +18,7 @@
 
 .nav-option  li{
   padding: 10px;
-  background: transparent;
+  background:white;
   text-align: center;
   font-family: sans-serif;
   /* box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28),
@@ -220,7 +220,7 @@ background: #fff;
 }
 
 .add-card .card-footer {
-  margin: 0 20px 10px;
+  margin:40px 0px -25px;
   padding-top: 10px;
   text-align: center!important;
  background-color: transparent;
@@ -230,23 +230,24 @@ background: #fff;
 .btn-rose{
   margin-top: 5px;
   margin-bottom: 5px;
-  background:  #e91e63;
-  box-shadow: 0 2px 2px 0 rgba(233,30,99,.14), 
-  0 3px 1px -2px rgba(233,30,99,.2),
-   0 1px 5px 0 rgba(233,30,99,.12)!important;
+  background: linear-gradient(60deg,#ec407a,#d81b60);
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(233,30,99,.4);
    border: none;
    border-radius: 3px;
    position: relative;
-   padding: 12px 30px;
-   margin: 10px 1px;
-   font-size: 12px;
-   font-weight: 400;
-   text-transform: uppercase;
+   padding: 12px 37px;
+   margin: -24px -13px;
+   font-size: 20px;
+   float: right;
+   font-family: Roboto,Helvetica,Arial,sans-serif;
+   font-weight: 300;
 }
 
-.btn-rose:hover{
-  background:#e91e63;
-  color:white;
+
+.btn-success[disabled]{
+  background:linear-gradient(60deg,#ec407a,#d81b60);
+  color: gray!important; 
+  opacity: 1;
 }
 
 /* add-appreciation css end */

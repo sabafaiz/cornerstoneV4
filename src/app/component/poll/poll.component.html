@@ -1,7 +1,7 @@
 <div class=" row poll">
   <div class="col-lg-12 col-md-12 col-sm-6">
  <ul class="nav nav-option">
-    <li routerLinkActive="active" [routerLink]="['/poll/current-poll']" (click)="activeList(current)" [ngClass]="{'activeList': app=='current'}"><a >CURRENT</a></li>
+    <li routerLinkActive="active" [routerLink]="['/poll/current-poll']" (click)="activeList('current')" [ngClass]="{'activeList': app=='current'}"><a >CURRENT</a></li>
     <li routerLinkActive="active"  [routerLink]="['/poll/closed-poll']" (click)="activeList('close')" [ngClass]="{'activeList': app=='close'}"><a>CLOSED</a></li>
     
   </ul>

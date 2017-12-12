@@ -7,7 +7,7 @@
     </div>
     <!--cards -->
     <div style="margin-top: 2%;padding-top: 1%;">
-       <!-- new card -->
+       <!-- new card new code -->
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="card table-card">
@@ -32,7 +32,7 @@
                   </tr>
                 </thead>
                 <tbody >
-                <tr *ngFor="let c of complaints; let i = index;" data-toggle="modal" data-target="#myModal-card">
+                <tr *ngFor="let c of complaints; let i = index;" data-toggle="modal" data-target="#myModal-cardx" (click)="selectComplaint(c,i)">
                   <td width="10%"><span>{{c.createdAt | date :'dd-mm-yyyy'}}</span><span *ngIf="c.closedOn">-{{c.closedOn | date:'dd-mm-yyyy'}}</span></td>
                   <td width="20%">{{c.title}}</td>
                   <td width="10%">{{c.studentName}}</td>
@@ -87,8 +87,8 @@
   </div> -->
 
 
-
-<div class="modal fade" style="width:100px; height:100px;background:white;" id="myModal-cardx" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+<!-- details modal start-->
+<div class="modal fade" id="myModal-cardx" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content" *ngIf="selectedComplaint">
       <div class="modal-header">
@@ -183,6 +183,7 @@
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+<!-- details modal end -->
 
 <!-- Edit Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

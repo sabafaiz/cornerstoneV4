@@ -54,3 +54,24 @@ input[type=file]{
     height: 180px;
     filter:blur(1px);  
 }
+
+
+
+/* new code by saba*/
+.card-calendra{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin: 25px 0;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+    border-radius: 6px;
+    color: rgba(0,0,0,.87);
+    background: #fff;
+}
+
+ .card-header{
+    background-color: transparent!important;
+    border-bottom: 0px!important;
+}
+
+/* new code by saba */

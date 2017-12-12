@@ -1,3 +1,102 @@
+<!-- new code by saba -->
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="card add-circular">
+        <div class="row text-center">
+            <loader class="centerLoader" [condition]="submitProgress"></loader>
+          </div>
+      <form name="circular" [formGroup]="circular" (ngSubmit)="circularSubmit()" novalidate>
+        <div class="card-header">
+          <h5 class="card-title">Create New Circular</h5>
+        </div>
+        <div class="card-content">
+            <button type="button" class="close pull-right" aria-label="Close" (click)="_location.back();">
+                <span aria-hidden="true">&times; </span>
+              </button>
+
+              <div class="row" style="margin-top:15px;">
+                <div class="col-sm-2">
+                    <label for="title">Enter Title</label>
+                    <span class="badge">
+                      <span>{{50 - circular.value.title.length}}</span>
+                    </span>
+                </div>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="title" maxlength="50" formControlName="title" placeholder="Add Title">
+                    <div [hidden]="circular.controls.title.untouched || circular.controls.title.pristine || circular.controls.title.valid" class="alert alert-warning">
+                      This field is required
+                    </div>
+                </div>
+              </div>
+              <div class="row" style="margin-top:15px;">
+                <div class="col-sm-2">
+                    <label for="description">Description</label>
+                    <span class="badge">
+                       <span>{{2000 - circular.value.description.length}}</span>
+                    </span>
+                </div>
+                <div class="col-sm-8">
+                    <textarea class="form-control" id="exampleTextarea" name="description" maxlength="2000" formControlName="description" rows="3"
+                    placeholder="Add Description"></textarea>
+                  <div [hidden]="circular.controls.description.untouched || circular.controls.description.pristine || circular.controls.description.valid"
+                    class="alert alert-warning">
+                    This field is required
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="margin-top:15px;">
+                <div class="col-sm-12 col-lg-6 col-md-6">
+                  <div class="row">
+                    <div class="col-sm-2">
+                        <label for="date">Due Date</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input class="form-control glyphicon glyphicon-calendar" type="date" max="2019-10-31" (change)="onDueDate($event)" displayFormat="DD MMM YYYY"
+                        name="date" formControlName="date" id="date"> 
+                    </div>
+                  </div>
+                </div>
+                  <div class="col-sm-12 col-lg-6 col-md-6">
+                    <div class="row">
+                      <div class="col-sm-2">
+                          <label for="circularTypeId">Audience</label>
+                      </div>
+                      <div class="col-sm-8">
+                          <select class="form-control" id="circularTypeId" name="circularTypeId" formControlName="circularTypeId" (ngModelChange)="onCircularType($event)">
+                              <option selected="true" disabled="true" value="">Select Audience</option>
+                
+                              <option *ngFor="let bx of circularType" [value]="bx.id" >{{bx.name}}</option>
+                            </select>
+                           
+                            <div>
+                              <div [hidden]="circular.controls.circularTypeId.valid || circular.controls.circularTypeId.untouched" class="alert alert-warning">This field is required</div>
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        </div> <!--content end-->
+    
+          
+            
+
+  
+        </form>
+        </div>
+      </div>
+  </div>
+
+
+
+
+
+
+
+
+
+<!-- new code by saba -->
+
+
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">
@@ -53,7 +152,7 @@
 
               <option *ngFor="let bx of circularType" [value]="bx.id" >{{bx.name}}</option>
             </select>
-            <!-- <loader [condition]="audienceLoader" class="dropdownLoader"></loader> -->
+           
             <div>
               <div [hidden]="circular.controls.circularTypeId.valid || circular.controls.circularTypeId.untouched" class="alert alert-warning">This field is required</div>
             </div>

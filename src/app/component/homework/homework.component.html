@@ -1,9 +1,10 @@
 <div class="homework">
-
-  <ul class="nav nav-tabs">
+<div class="col-sm-12 col-lg-12 col-md-12">
+  <ul class="nav nav-option">
     <li routerLinkActive="active" (click)="activeList('CURRENT')" [ngClass]="{'activeList': app=='CURRENT'}"><a [routerLink]="['/homework/current-homework']">CURRENT</a></li>
     <li routerLinkActive="active" (click)="activeList('PAST')" [ngClass]="{'activeList': app=='PAST'}"><a [routerLink]="['/homework/passed-homework']">PAST</a></li>
   </ul>
+</div>
   <div class="tab-content">
     <router-outlet></router-outlet>
   </div>

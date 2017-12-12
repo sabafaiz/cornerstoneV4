@@ -37,3 +37,49 @@ input[type=file]{
         color:transparent;
     }
 
+/* new code */
+.add-circular{
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  margin: 25px 0;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+  border-radius: 6px;
+  color: rgba(0,0,0,.87);
+  background: #fff;
+}
+
+.add-circular .card-header{
+  background: linear-gradient(60deg,#ec407a,#d81b60);
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(233,30,99,.4);
+  display: inline-block;
+  color: #fff;
+  margin: -35px -6px 0;
+  border-radius: 3px;
+  padding: 12px;
+  background-color: #999;
+  position: relative;
+  z-index:2;
+  float: left;
+}
+
+.add-circular .card-title{
+  margin-top: 0;
+  margin-bottom: 3px;
+  color: #fff;
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  font-weight: 300;
+  line-height: 1.5em;
+}
+
+.add-circular .card-content{
+  padding: 30px 20px;
+  position: relative;
+  text-align: left;
+}
+
+.pull-right{
+  color:black;
+}
+
+/* new code */

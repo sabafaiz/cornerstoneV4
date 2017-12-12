@@ -195,7 +195,7 @@ background: #fff;
   margin: -35px -6px 0;
   border-radius: 3px;
   padding: 12px;
-  background-color: #999;
+  /* background-color: #999; */
   position: relative;
   z-index:2;
   float: left;
@@ -213,6 +213,7 @@ background: #fff;
 .add-card .card-content{
   padding: 30px 20px;
   position: relative;
+  margin-top:15px;
 }
 
 .pull-right{

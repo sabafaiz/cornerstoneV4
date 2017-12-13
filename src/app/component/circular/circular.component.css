@@ -36,3 +36,59 @@ h1{
     filter:blur(1px);  
 }
 
+/* new css by saba */
+.nav-option{
+   background:#9c27b0;
+   padding: 9px;
+   margin-top:15px; 
+   border-radius: 3px;
+   border:1px solid black;
+
+}
+
+.nav-option .title{
+    color:white;
+    font-family:  Roboto,Helvetica,Arial,sans-serif;
+    font-size:20px;
+}
+
+.nav-option  .material-icons{
+  position: absolute;
+    right: 20px;
+   color:white;
+   cursor: pointer;
+}
+
+.nav-option .material-icons:focus {
+    outline: -webkit-focus-ring-color auto 0px;
+}
+
+/* for table  css*/
+.table-card{
+display: inline-block;
+position: relative;
+width: 100%;
+margin: 25px 0;
+box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+border-radius:3px!important;
+color: rgba(0, 0, 0, 0.87)!important;
+background: #fff;
+font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+font-weight: 300;
+padding: 0px;
+}
+
+.table-card .card-header{
+    background:    linear-gradient(60deg, #ab47bc, #8e24aa);
+      box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 
+      0 4px 20px 0px rgba(0, 0, 0, 0.12)
+      , 0 7px 8px -5px rgba(156, 39, 176, 0.2);
+      color: #FFFFFF;
+      margin: -40px 15px 0;
+      border-radius:3px!important;
+      padding: 15px;
+  }
+/* for table css */
+
+
+/* new css by saba */

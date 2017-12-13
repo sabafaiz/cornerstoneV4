@@ -11,15 +11,38 @@
   <div class="row text-center">
     <loader [condition]="loader"></loader>
   </div>
-   <div class="row"  *ngIf="!EmptyCirculars"  style="margin-top: 2%;padding-top: 1%;">
-     <div class="card table-card" *ngFor="let circular of circulars">
-       <div class="card-header">
-        circular details
-       </div>
-       <div class="card-content">
-        
-       </div>
-     </div>
+  <div class="row" *ngIf="!EmptyCirculars" style="margin-top: 2%;padding-top: 1%;">
+    <div class="card table-card">
+      <div class="card-header">
+        Circular details
+      </div>
+      <div class="card-content">
+
+        <table class="details table-responsive table-hover">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Detail</th>
+              <th>Title</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let circular of circulars;let c=index;">
+            <tr>
+              <td>{{circular.createdAt| date :'dd-mm-yyyy'}}</td>
+              <td>
+                <img src="assets/img/studentpic.png">
+                <br> {{circular.employeeName}}</td>
+              <td>{{circular.title}}</td>
+              <td>{{circular.circularTypeName}}</td>
+              <td>{{circular.description}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
 
   </div>
 

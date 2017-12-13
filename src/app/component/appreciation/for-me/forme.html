@@ -6,7 +6,6 @@
       </div>
       <div style="margin-top: 2%;padding-top: 1%;">
         <!-- **************************************************new code.****************************************** -->
-
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card table-card">
@@ -29,12 +28,21 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let c of complaints; let i = index;">
-                        <td width="10%"><span>{{c.createdAt | date :'dd-mm-yyyy'}}</span><span *ngIf="c.closedOn">-{{c.closedOn | date:'dd-mm-yyyy'}}</span></td>
-                     <td width="10%"> <img src="img/studentpic.png"><br> {{c.studentName}}<br>{{c.studentStandardName}}</td>
+                      <td width="10%">
+                        <span>{{c.createdAt | date :'dd-mm-yyyy'}}</span>
+                        <span *ngIf="c.closedOn">-{{c.closedOn | date:'dd-mm-yyyy'}}</span>
+                      </td>
+                      <td width="10%">
+                        <img src="assets/img/studentpic.png">
+                        <br> {{c.studentName}}
+                        <br>{{c.studentStandardName}}
+                      </td>
                       <td width="20%">{{c.title}}</td>
                       <td width="10%">{{c.description}}</td>
-                      <td width="10%"><i class="material-icons">comment</i><i class="material-icons" [style.color]="c.statusColor">delete_forever</i></td>
-
+                      <td width="10%">
+                        <i class="material-icons">comment</i>
+                        <i class="material-icons" [style.color]="c.statusColor">delete_forever</i>
+                      </td>
                     </tr>
                   </tbody>
                 </table>

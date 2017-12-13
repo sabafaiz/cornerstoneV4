@@ -109,3 +109,7 @@ color: white;
 .option{
     padding-top: 22px!important;
 }
+
+.option button{
+    cursor: pointer;
+}

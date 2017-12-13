@@ -12,7 +12,6 @@ import { BarLoaderService } from '../../providers/bar-loader.service';
 
 declare let $: any;
 
-
 @Component({
   selector: 'event',
   templateUrl: './event.component.html',

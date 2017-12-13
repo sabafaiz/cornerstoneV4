@@ -115,7 +115,72 @@
 
 
 <!-- details modal start-->
-<div class="modal fade" id="myModal-cardx" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+
+<!-- new code for edit modal by saba -->
+
+<div class="modal fade edit-modal" id="myModal-cardx" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content" *ngIf="selectedComplaint">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="modal-header">
+              <h4 class="modal-title" id="gridSystemModalLabel">{{selectedComplaint.title}}</h4>
+          </div>
+          <div class="modal-body card-modal">
+            <div class="row">
+              <div class="col-sm-6 col-lg-6 col-md-6">
+                  <img src="https://cdn4.iconfinder.com/data/icons/hr-recruitment-management-part-3/360/opinion_feedback_comment_employee_staff_complain-128.png"
+                  class="student-pic">
+                  <table class="modal-table">
+                    <tbody>
+                      <tr>
+                        <td>Name :</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Standard</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Status</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>RC</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Date</td>
+                        <td></td>
+                      </tr>
+                  </tbody>
+                  </table>
+                  <div class="col-sm-6 col-lg-6 col-md-6">
+                    <table class="modal-table">
+                      <tbody>
+                        <tr>
+                          <td>Description</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Against</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  
+  </div>
+    </div>
+
+
+
+
+
+<!-- edit modal end -->
+<!-- <div class="modal fade" id="myModal-cardx" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content" *ngIf="selectedComplaint">
       <div class="modal-header">
@@ -143,13 +208,7 @@
           <div class="col-sm-4 coloumn-middle" style="float:right">
             <div class="align-middle">
               <div class="big-fonts">{{selectedComplaint.priorityName}}</div><label class="heading">Priority</label>
-              <!--<div class="col-sm-4 col-xs-4 complaint-modal-head">
-            <img  class="modal-image" [attr.src]="fileUrl + selectedComplaint.studentPicUrl">
-          </div>
-          <div class="col-sm-4 col-xs-4 complaint-modal-head">
-            <div class="middle-title"> 
-              <div class="big-fonts">{{selectedComplaint.priorityName}}</div>
-              <label class="heading">Priority</label>-->
+            
             </div>
           </div>
           <div class="col-sm-4"><img class="modal-image" [attr.src]="fileUrl + selectedComplaint.studentPicUrl" style="border-radius:50% !important"></div>
@@ -206,9 +265,9 @@
       </div>
     </div>
     <!-- /.modal-content -->
-  </div>
+  <!-- </div> -->
   <!-- /.modal-dialog -->
-</div>
+<!-- </div> -->
 <!-- /.modal -->
 <!-- details modal end -->
 

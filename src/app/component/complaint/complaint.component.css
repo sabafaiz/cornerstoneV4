@@ -99,6 +99,13 @@ color: white;
     border-color: #9c27b0;
     margin: auto;
     display:block;
-    margin-bottom:-18px;
-    
+    margin-bottom:-18px    
+}
+
+.table-tbody-hover tbody:hover {
+    background-color: rgba(0,0,0,.075);
+}
+
+.option{
+    padding-top: 22px!important;
 }

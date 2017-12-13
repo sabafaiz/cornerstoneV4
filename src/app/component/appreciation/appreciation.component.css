@@ -221,10 +221,10 @@ background: #fff;
 }
 
 .add-card .card-footer {
-  margin:40px 0px -25px;
+  margin:20px 0px -30px;
   padding-top: 10px;
   text-align: center!important;
- background-color: transparent;
+  background-color: transparent;
    border-top: 0px solid rgba(0,0,0,.125);
 }
 
@@ -250,5 +250,11 @@ background: #fff;
   color: gray!important; 
   opacity: 1;
 }
+
+input[type="text"]{
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  font-weight: 300; 
+}
+
 
 /* add-appreciation css end */

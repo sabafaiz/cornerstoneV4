@@ -1,8 +1,6 @@
-<!-- <h1>Complaint</h1> -->
-<div class="panel panel-default">
- <!-- Table -->
-<div class="panel-body">
-    <div class="row text-center">
+
+<div class="compliant">
+   <div class="row text-center">
       <loader [condition]="loader"></loader>
     </div>
     <!--cards -->
@@ -58,13 +56,14 @@
       <!-- new card -->
   </div>
     <!--end cards-->
+    <button (click)="previousComplaint()" [disabled]="currentPage === 1" type="button" class="btn btn-primary">Previous</button>
+  </div>
+ <!--end complaint  -->
 
-  </div>
-  <div class="panel-footer">
-    <!--<button (click)="previousComplaint()" [disabled]="currentPage === 1" type="button" class="btn btn-primary">Previous</button>-->
-   
-  </div>
-</div>
+
+
+
+ 
 <!-- <div class="modal fade" id="myModal-card" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

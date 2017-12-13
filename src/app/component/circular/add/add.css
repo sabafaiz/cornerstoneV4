@@ -61,6 +61,7 @@ input[type=file]{
   position: relative;
   z-index:2;
   float: left;
+  font-family: Roboto,Helvetica,Arial,sans-serif; 
 }
 
 .add-circular .card-title{
@@ -76,10 +77,46 @@ input[type=file]{
   padding: 30px 20px;
   position: relative;
   text-align: left;
+  font-family:  Roboto,Helvetica,Arial,sans-serif!important;
 }
 
 .pull-right{
   color:black;
 }
 
+.add-circular .card-footer{
+  margin:20px 0px -30px;
+  padding-top: 10px;
+  text-align: center!important;
+  background-color: transparent;
+   border-top: 0px solid rgba(0,0,0,.125);
+}
+
+.btn-rose{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background: linear-gradient(60deg,#ec407a,#d81b60);
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(233,30,99,.4);
+   border: none;
+   border-radius: 3px;
+   position: relative;
+   padding: 12px 37px;
+   margin: -24px -13px;
+   font-size: 20px;
+   float: right;
+   font-family: Roboto,Helvetica,Arial,sans-serif;
+   font-weight: 300;
+}
+
+
+.btn-success[disabled]{
+  background:linear-gradient(60deg,#ec407a,#d81b60);
+  color: gray!important; 
+  opacity: 1;
+}
+
+input[type="text"]{
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  font-weight: 300; 
+}
 /* new code */

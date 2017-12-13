@@ -152,6 +152,10 @@ color: white;
   color:#9c27b0!important;
 }
 
+.details tbody td img{
+  width: 20%;
+}
+
 .badge{
   color:white;
   padding: 5px 10px;

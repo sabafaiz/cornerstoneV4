@@ -92,3 +92,36 @@ padding: 0px;
 
 
 /* new css by saba */
+
+.details{
+    color:#555!important;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif!important;
+    font-weight:500;
+    font-size: 14px;
+    padding: 30px 19px;
+    
+  
+  }
+  .details thead th {
+    color:#9c27b0!important;
+  }
+  .details tr td{
+    padding: 10px;
+    text-align: center;
+  }
+  .detail tr td .material-icons:hover{
+    background: #9c27b0;
+    box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 
+    0 4px 20px 0px rgba(0, 0, 0, 0.12), 
+    0 7px 8px -5px rgba(156, 39, 176, 0.2);   
+    text-decoration: none;
+  }
+  .details thead th i{
+    margin:-1px 5px 0 0;
+    vertical-align: middle;
+    color:#9c27b0!important;
+  }
+
+  .details tbody td img{
+      width: 20%;
+  }

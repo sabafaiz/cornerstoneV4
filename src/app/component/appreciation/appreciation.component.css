@@ -20,7 +20,7 @@
   padding: 10px;
   background:white;
   text-align: center;
-  font-family: sans-serif;
+ 
   /* box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28),
    0 4px 20px 0px rgba(0, 0, 0, 0.12), 
    0 7px 8px -5px rgba(156, 39, 176, 0.2); */
@@ -80,7 +80,6 @@ color:white!important;
   border-radius:3px!important;
   color: rgba(0, 0, 0, 0.87)!important;
   background: #fff;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 300;
   padding: 0px;
 }
@@ -125,7 +124,6 @@ color: white;
 }
 .details{
   color:#555!important;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif!important;
   font-weight:500;
   font-size: 14px;
   padding: 30px 19px;
@@ -212,7 +210,6 @@ background: #fff;
   margin-top: 0;
   margin-bottom: 3px;
   color: #fff;
-  font-family: Roboto,Helvetica,Arial,sans-serif;
   font-weight: 300;
   line-height: 1.5em;
 }
@@ -247,7 +244,6 @@ background: #fff;
    margin: -24px -13px;
    font-size: 20px;
    float: right;
-   font-family: Roboto,Helvetica,Arial,sans-serif;
    font-weight: 300;
 }
 
@@ -259,9 +255,24 @@ background: #fff;
 }
 
 input[type="text"]{
-  font-family: Roboto,Helvetica,Arial,sans-serif;
   font-weight: 300; 
 }
+
+
+
+/* for add appreciation button */
+.add-icon{
+  position: absolute;
+  right: 27px;
+  font-size: 32px;
+  margin-top: 13px;
+  cursor: pointer;
+}
+
+.add-icon:focus {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+
 
 
 /* add-appreciation css end */

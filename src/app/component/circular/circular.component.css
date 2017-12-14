@@ -4,7 +4,6 @@
 }
 
 h1{
-    font-family: 'Inconsolata';
     font-weight: bold;
     letter-spacing: 0.1em;
 }
@@ -48,7 +47,6 @@ h1{
 
 .nav-option .title{
     color:white;
-    font-family:  Roboto,Helvetica,Arial,sans-serif;
     font-size:20px;
 }
 
@@ -73,7 +71,6 @@ box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
 border-radius:3px!important;
 color: rgba(0, 0, 0, 0.87)!important;
 background: #fff;
-font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 font-weight: 300;
 padding: 0px;
 }
@@ -95,7 +92,6 @@ padding: 0px;
 
 .details{
     color:#555!important;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif!important;
     font-weight:500;
     font-size: 14px;
     padding: 30px 19px;

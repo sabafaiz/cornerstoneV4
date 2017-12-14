@@ -129,7 +129,7 @@
 
 
 <!-- new code by saba -->
-<div class="panel panel-default">
+<!-- <div class="panel panel-default">
 
   <div class="panel-heading">Add Poll <button type="button" class="close pull-right" aria-label="Close" (click)="_location.back();">
     <span aria-hidden="true">&times; </span>
@@ -142,18 +142,6 @@
     </div>
 
     <form [formGroup]="addPollForm" (ngSubmit)="submitPoll(addPollForm.value)">
-
-      <!-- <div class="form-group">
-        <label for="title">Question</label>
-        <span class="badge">{{50 - addPollForm.value.question.length}}</span>
-        <input type="text" class="form-control" id="title" formControlName="question" placeholder="Enter Question..." maxlength="50">
-      </div>
-
-      <div [hidden]="((addPollForm.controls.question.untouched) || (addPollForm.controls.question.pristine) || (addPollForm.controls.question.valid))"
-        class="alert alert-warning">
-        This field is required.
-      </div> -->
-
       <div class="form-group">
         <label for="pollFor">Audience</label>
         <select class="form-control" id="pollFor" formControlName="typeId" (ngModelChange)="onTypeId($event)">
@@ -239,7 +227,8 @@
       <button type="button" class="btn btn-primary" [disabled]="addPollForm.controls.subOptions['controls'].length == 5" (click)=addOptions(addPollForm)>Add Options</button>
     </form>
   </div>
-</div>
+</div> -->
+<!-- modal -->
 
 <div class="modal fade" id="dateErrorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

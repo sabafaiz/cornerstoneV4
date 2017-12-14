@@ -84,7 +84,7 @@
       <!-- new card -->
   </div>
     <!--end cards-->
-    <button (click)="previousComplaint()" [disabled]="currentPage === 1" type="button" class="btn btn-primary">Previous</button>
+    <button (click)="previousComplaint()" [disabled]="currentPage === 1" type="button" class="btn btn-primary btn-purple">Previous</button>
   </div>
  <!--end complaint  -->
 
@@ -92,7 +92,7 @@
 
 
  
-<!-- <div class="modal fade" id="myModal-card" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal-card" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -111,7 +111,7 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
 
 <!-- details modal start-->
@@ -119,56 +119,133 @@
 <!-- new code for edit modal by saba -->
 
 <div class="modal fade edit-modal" id="myModal-cardx" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content" *ngIf="selectedComplaint">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <div class="modal-header">
+          <div class="modal-header complaint-modal"  [ngStyle]="{'backgroundColor': selectedComplaint.statusColor}">
               <h4 class="modal-title" id="gridSystemModalLabel">{{selectedComplaint.title}}</h4>
           </div>
           <div class="modal-body card-modal">
+            <div class="col-sm-12 col-lg-12 col-md">
             <div class="row">
               <div class="col-sm-6 col-lg-6 col-md-6">
-                  <img src="https://cdn4.iconfinder.com/data/icons/hr-recruitment-management-part-3/360/opinion_feedback_comment_employee_staff_complain-128.png"
-                  class="student-pic">
-                  <table class="modal-table">
+                <img src="https://image.flaticon.com/icons/png/512/167/167750.png" class="student-pic">
+                <!-- <table class="modal-table">
                     <tbody>
-                      <tr>
-                        <td>Name :</td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Standard</td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Status</td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>RC</td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Date</td>
-                        <td></td>
-                      </tr>
-                  </tbody>
-                  </table>
-                  <div class="col-sm-6 col-lg-6 col-md-6">
-                    <table class="modal-table">
-                      <tbody>
                         <tr>
-                          <td>Description</td>
-                          <td></td>
+                        <td [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Status:</td>
+                        <td>{{selectedComplaint.statusName}}</td>
+                      </tr>
+                      <tr>
+                        <td [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">RCA:</td>
+                        <td>{{selectedComplaint.rca}}</td>
+                      </tr>
+                      <tr>
+                        <td [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Date:</td>
+                        <td>{{selectedComplaint.createdAt | date:'dd-mm-yyyy'}} to {{selectedComplaint.closedOn | date:'dd-mm-yyyy'}}</td>
+                      </tr>
+                      <tr>
+                        <td [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Priority Name:</td>
+                        <td>{{selectedComplaint.priorityName}}</td>
+                      </tr>
+                      <tr>
+                          <td [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Against:</td>
+                          <td>{{selectedComplaint.againstEmployeeName}}</td>
                         </tr>
                         <tr>
-                          <td>Against</td>
+                          <td  [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Category</td>
+                          <td>{{selectedComplaint.againstCategoryName}}</td>
                         </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                        <tr>
+                          <td [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Assigned Employee:</td>
+                          <td>{{selectedComplaint.assignedEmployeeName}}</td>
+                        </tr>
+                        <tr>
+                          <td [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Reopen Count:</td>
+                          <td>{{selectedComplaint.ReopenCount}}</td>
+                        </tr>
+                    </tbody>
+                  </table> -->
+                <div class="form-group row" *ngIf="selectedComplaint.statusName">
+                  <label class="control-label col-sm-3" [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Status:</label>
+                  <div class="col-sm-9">{{selectedComplaint.statusName}}</div>
+                </div>
+                <div class="form-group row" *ngIf="selectedComplaint.rca">
+                  <label class="control-label col-sm-3" [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">RCA:</label>
+                  <div class="col-sm-9">{{selectedComplaint.rca}}</div>
+                </div>
+                <div class="form-group row" >
+                  <label class="control-label col-sm-3" [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Date:</label>
+                  <div class="col-sm-9">{{selectedComplaint.createdAt | date:'dd-mm-yyyy'}} to {{selectedComplaint.closedOn | date:'dd-mm-yyyy'}}</div>
+                </div>
+                <div class="form-group row" *ngIf="selectedComplaint.priorityName">
+                  <label class="control-label col-sm-3" [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Priority:</label>
+                  <div class="col-sm-9">{{selectedComplaint.priorityName}}</div>
+                </div>
+                <div class="form-group row" *ngIf="selectedComplaint.assignedEmployeeName">
+                  <label class="control-label col-sm-3" [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Assigned To:	</label>
+                  <div class="col-sm-9">{{selectedComplaint.assignedEmployeeName}}</div>
+                </div>
+                <div class="form-group row" *ngIf="selectedComplaint.againstCategoryName">
+                  <label class="control-label col-sm-3" [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Category:</label>
+                  <div class="col-sm-9">{{selectedComplaint.againstCategoryName}}</div>
+                </div>
+                <div class="form-group row" *ngIf="selectedComplaint.againstEmployeeName">
+                  <label class="control-label col-sm-3" [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Against Employee:</label>
+                  <div class="col-sm-9">{{selectedComplaint.againstEmployeeName}}</div>
+                </div>
+                <div class="form-group row" *ngIf="selectedComplaint.ReopenCount">
+                  <label class="control-label col-sm-3" [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Reopen Count:</label>
+                  <div class="col-sm-9">{{selectedComplaint.ReopenCount}}</div>
+                </div>
               </div>
+              <div class="col-sm-6 col-lg-6 col-md-6">
+                <!-- <table class="modal-table">
+                      <tbody>
+                          <tr>
+                              <td [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Name:</td>
+                              <td>{{selectedComplaint.studentName}}</td>
+                            </tr>
+                            <tr>
+                              <td [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Standard:</td>
+                              <td>{{selectedComplaint.studentStandard}Name}</td>
+                            </tr>
+                           
+                              <tr>
+                                <td [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Contact:</td>
+                                <td>986543212</td>
+                              </tr>
+                              <tr>
+                              <td [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Description:</td>
+                            </tr>
+                              
+                        <tr>
+                         
+                          <td>{{selectedComplaint.description}}</td>
+                        </tr>
+                        </tbody>
+                    </table> -->
+                <div class="form-group row" *ngIf="selectedComplaint.studentName">
+                  <label class="control-label col-sm-3" [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Name:</label>
+                  <div class="col-sm-9">{{selectedComplaint.studentName}}</div>
+                </div>
+                <div class="form-group row" *ngIf="selectedComplaint.studentStandardName">
+                  <label class="control-label col-sm-3" [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Standard:</label>
+                    <div class="col-sm-9">{{selectedComplaint.studentStandardName}}</div>
+                </div>
+                <div class="form-group row">
+                  <label class="control-label col-sm-3" [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Contact:</label>
+                  <div class="col-sm-9">986543212</div>
+                </div>
+                <div class="form-group row" *ngIf="selectedComplaint.description">
+                  <label class="control-label col-sm-3" [ngStyle]="{'color': selectedComplaint.statusColor}"  style="font-weight:bold;">Description:</label>
+                  <div class="col-sm-12" style="margin-right: 1px;margin-top: -24px;"><br>{{selectedComplaint.description}}</div>
+                </div>
+              </div>
+           
+              
             </div>
+          </div>
           </div>
       </div>
   
@@ -272,10 +349,10 @@
 <!-- details modal end -->
 
 <!-- Edit Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade edit-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header complaint-modal" style="margin: -22px 14px 0px!important;">
         <h4 class="modal-title" id="exampleModalLabel">Edit Complaint</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -292,22 +369,24 @@
               <option *ngFor="let emp of employees; let i = index " [selected]=" i == 0 " [value]="emp.id" >{{emp.name}}</option>
             </select>
           </div>
-          <div class="form-group">
+          <div class="row">
+          <div class="form-group col-sm-6">
             <p><b>Priority:</b></p>
             <div class="radio" *ngFor="let prio of priorities;">
               <label><input type="radio" name="priorityId" [value]="prio.id" formControlName="priorityId">{{prio.name}}</label>
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group col-sm-6">
             <p><b>Status:</b></p>
             <div class="checkbox">
               <label><input type="checkbox" name="progress" formControlName="statusId">In Progress</label>
             </div>
           </div>
+          </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-right" (click)="resetComplaints()">Reset</button>
-          <button type="button" (click)="updateComplaint()" class="btn btn-default pull-right" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-default pull-right" (click)="resetComplaints()">Reset<i class="material-icons">settings_backup_restore</i></button>
+          <button type="button" (click)="updateComplaint()" class="btn btn-default pull-right" data-dismiss="modal">Submit <i class="material-icons">playlist_add_check</i></button>
         </div>
       </form>
     </div>
@@ -317,14 +396,14 @@
 <!--End of Edit-->
 
 <!-- Close Modal -->
-<div class="modal fade" id="myModal3" role="dialog">
+<div class="modal fade edit-modal" id="myModal3" role="dialog">
   <div class="modal-dialog">
 
     <!-- Close Modal content-->
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <div class="modal-header complaint-modal" style="margin: -22px 14px 0px!important;">
         <h4 class="modal-title">Close Complaint </h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <form [formGroup]="closeForm">
         <div class="modal-body">
@@ -338,7 +417,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" (click)="closeComplaint()" [disabled]="closeForm.invalid" class="btn btn-default" data-toggle="modal"
+          <button type="button" (click)="closeComplaint()" [disabled]="closeForm.invalid" class="btn btn-default btn-purple" data-toggle="modal"
             data-target="#myModal4" data-dismiss="modal">Submit</button>
         </div>
       </form>

@@ -126,3 +126,46 @@ hr.style-line {
 .editpassForm{
     padding: 15px;
 }
+
+
+/* new code for admin profile */
+.profile-card{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin: 25px 0;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+    border-radius: 6px;
+    color: rgba(0,0,0,.87);
+    background: #fff;
+}
+
+.profile-card .card-header{
+    background-color: #9c27b0;
+    border-color: 1px solid #9c27b0;
+    box-shadow: 0 2px 2px 0 rgba(156, 39, 176, 0.14),
+     0 3px 1px -2px rgba(156, 39, 176, 0.2),
+     0 1px 5px 0 rgba(156, 39, 176, 0.12);
+    display: inline-block;
+    color: #fff;
+    margin: -70px -6px 0;
+    border-radius: 3px;
+    padding: 9px;
+    /* background-color: #999; */
+    position: relative;
+    z-index:2;
+    float: left;
+}
+
+.admin-pic{
+    width: 100px;
+}
+
+.profile-card .card-content{
+    padding: 30px 20px;
+    position: relative;
+    margin-top:15px;
+}
+.profile-name h4{
+    text-align: left;
+}

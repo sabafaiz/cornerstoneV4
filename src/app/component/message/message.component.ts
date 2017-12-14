@@ -12,9 +12,7 @@ declare let $: any;
   selector: 'message',
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.css'],
-
-}
-)
+})
 
 export class MessageComponent implements AfterViewInit, OnInit {
 
@@ -31,7 +29,7 @@ export class MessageComponent implements AfterViewInit, OnInit {
   public  emptyOldRecipient: boolean = false;
   public  oldMessageRecipientsCOPY: any[];
   public  selectedIndex: number; //for styling selected nav element
-  public  selectedOldRecipient: any[]; // Message Array
+  public  selectedOldRecipient: any[] = []; // Message Array
   public  emptyOldMessages: boolean = false;
 
   public  emptySearchResult: boolean = false;
@@ -63,7 +61,7 @@ export class MessageComponent implements AfterViewInit, OnInit {
     public  router:Router,
     public  ls : LoaderStop,
   private barLoaderService:BarLoaderService) {
-     
+    this.ls.setLoader(false);
   }
 
   ngOnInit() {
@@ -228,6 +226,7 @@ this.barLoaderService.hideBarLoader();
 
   getFile(event: any) {
     var ext = event.srcElement.files[0];
+    console.log(ext);    
     var reader = new FileReader();
     if(ext.type=="image/png" || ext.type=="image/jpeg" || ext.type=="image/jpg"){
       this.file = event.srcElement.files[0];

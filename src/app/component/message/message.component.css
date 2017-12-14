@@ -142,8 +142,8 @@
 .msg-list{
     /* margin-top: 16%;
     padding: 1%; */
-    height: 460px;
-    overflow-y: scroll;
+    height: 90%;
+    overflow-y: auto;
 }
 
 .selectednav{
@@ -239,11 +239,11 @@
 
 
 
- @media screen and (max-width: 680px){
+ /* @media screen and (max-width: 680px){
     .close-btn-text{
         display: none;
     }
-}
+} */
 
 .row{
     margin-left:0px !important;
@@ -323,18 +323,18 @@ background: none;
      z-index: 1 !important; 
 }
 .upload-btn{
-    background: none;
-    outline: none;
-    border: none;
-    display: inline-block;
-    position: relative;
-    font-size: 74px;
-    right: -32%;
-    top: -145px;
-     opacity: 1 !important; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    background: none; 
 }
 .upload-btn span, .upload-img span{
     color: black;
+}
+
+.upload-btn i{
+    font-size: 70px;
 }
 
 #img33{
@@ -378,4 +378,19 @@ background: none;
 
 .pic-modal-content{
     height: 200px;
+}
+
+.conversation-screen{
+    height: 80vh;
+    padding-top: 8px;
+}
+
+.conversation-list{
+    background: white;
+    height: 100%;
+}
+
+.conversation-list form{
+    padding-left: 15px;
+    padding-right: 15px;
 }

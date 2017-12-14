@@ -38,6 +38,7 @@ export class NewStudentComponent implements OnDestroy {
     private barLoaderService: BarLoaderService) {
     this.getStandards();
     this.initNewStudentForm();
+    this.ls.setLoader(false);
   }
 
   ngAfterViewInit() {

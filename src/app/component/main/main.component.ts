@@ -86,14 +86,14 @@ this.role=this.log.getData('role');
       };    
     };
 
-     var shiftLeft=function(){
-        if($('#wrapper').hasClass('toggled')){
-           $('#page-content-wrapper').addClass('shiftLeft');
-        }
-        else{
-           $('#page-content-wrapper').removeClass('shiftLeft');
-        }
-    }
+    //  var shiftLeft=function(){
+    //     if($('#wrapper').hasClass('toggled')){
+    //        $('#page-content-wrapper').addClass('shiftLeft');
+    //     }
+    //     else{
+    //        $('#page-content-wrapper').removeClass('shiftLeft');
+    //     }
+    // }
 
   $(window).resize(function(){
     alterClass();

@@ -81,7 +81,8 @@ export class ExistingStudentComponent implements OnDestroy {
     this.uploadPicForm = new FormGroup({
       file: new FormControl(''),
     });
-
+    this.ls.setLoader(false);
+    
   }
 
   public  getStandards() {

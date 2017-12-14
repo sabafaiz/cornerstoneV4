@@ -1,5 +1,4 @@
 h1{
-  font-family: 'Inconsolata';
   font-weight: bold;
   letter-spacing: 0.1em;
 }
@@ -44,7 +43,6 @@ form{
  padding: 10px; 
  border-radius: 5px;
  color: white;
- font-family: Arial;
  font-size: inherit;
 
 }
@@ -98,7 +96,6 @@ form{
   padding: 10px;
   background:white;
   text-align: center;
-  font-family: sans-serif;
   /* box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28),
    0 4px 20px 0px rgba(0, 0, 0, 0.12), 
    0 7px 8px -5px rgba(156, 39, 176, 0.2); */
@@ -183,7 +180,7 @@ form{
   margin-top: 0;
   margin-bottom: 3px;
   color: #fff;
-  font-family: Roboto,Helvetica,Arial,sans-serif;
+  : Roboto,Helvetica,Arial,sans-serif;
   font-weight: 300;
   line-height: 1.5em;
 }
@@ -192,7 +189,6 @@ form{
   padding: 30px 20px;
   position: relative;
   text-align: left;
-  font-family:  Roboto,Helvetica,Arial,sans-serif!important;
 }
 
 .pull-right{
@@ -214,14 +210,15 @@ form{
   background: linear-gradient(60deg,#ec407a,#d81b60);
   box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(233,30,99,.4);
    border: none;
-   border-radius: 3px;
+   border-radius: 50%;
    position: relative;
-   padding: 12px 37px;
-   margin: -24px -13px;
+   padding:  9px 19px;
+   margin: -33px -15px;
    font-size: 20px;
    float: right;
-   font-family: Roboto,Helvetica,Arial,sans-serif;
    font-weight: 300;
+   width:65px;
+   height: 65px;
 }
 
 
@@ -234,5 +231,18 @@ form{
 form{
   background-color: #ffffff00;
 }
+
+.add-icon{
+    position: absolute;
+    right: 27px;
+    font-size: 32px;
+    margin-top: 13px;
+    cursor: pointer;
+}
+
+.add-icon:focus {
+    outline: -webkit-focus-ring-color auto 0px;
+}
+
 
 /* add homework css end */

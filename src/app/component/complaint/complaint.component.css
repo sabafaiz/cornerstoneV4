@@ -8,7 +8,6 @@
     border-radius:3px!important;
     color: rgba(0, 0, 0, 0.87)!important;
     background: #fff;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-weight: 300;
     padding: 0px;
 }
@@ -53,7 +52,6 @@ color: white;
 }
 .details{
     color:#555!important;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif!important;
     font-weight:500;
     font-size: 14px;
     padding: 30px 19px;
@@ -113,3 +111,100 @@ color: white;
 .option button{
     cursor: pointer;
 }
+
+/* css for modal */
+
+.complaint-modal{
+    background: #9c27b0;
+    box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 
+    0 4px 20px 0px rgba(0, 0, 0, 0.12), 
+    0 7px 8px -5px rgba(156, 39, 176, 0.2); 
+    border-color: #9c27b0;
+    /* position: absolute; */
+    width: 95%;
+    margin: -46px 14px 0px;
+    border-radius: 3px;
+   
+}
+
+.complaint-modal .modal-title{
+    color: white;
+    text-align: center;
+    font-size:18px;
+ 
+}
+.student-pic{
+    width: 30%;
+}
+
+.modal-table{
+    color:#555!important;
+    font-size: 14px;
+}
+
+.modal-table tbody td{
+    padding-top: 7px;
+    padding-bottom: 6px;
+}
+
+.edit-modal .modal-body{
+    margin-top:16px;
+}
+
+.form-group{
+    margin-bottom: 0rem!important;
+    margin-top:10px;
+    font-size: 14px;
+}
+
+.modal-footer .pull-right .material-icons{
+    vertical-align: middle;
+    padding-left: 4px;
+    color:white;
+}
+
+.modal-footer .pull-right{
+ background-color: #9c27b0;
+ border-color: 1px solid #9c27b0;
+ box-shadow: 0 2px 2px 0 rgba(156, 39, 176, 0.14),
+  0 3px 1px -2px rgba(156, 39, 176, 0.2),
+  0 1px 5px 0 rgba(156, 39, 176, 0.12);
+  border-radius: 3px;
+  color:white;
+  font-size:16px;
+}
+
+
+/* for close-modal */
+.btn-purple{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #9c27b0;
+    border-color: 1px solid #9c27b0;
+    box-shadow: 0 2px 2px 0 rgba(156, 39, 176, 0.14),
+     0 3px 1px -2px rgba(156, 39, 176, 0.2),
+     0 1px 5px 0 rgba(156, 39, 176, 0.12);
+     border: none;
+     border-radius: 3px;
+     position: relative;
+     padding: 9px 19px;
+     margin: -3px 0;
+     font-size: 16px;
+     float: right;
+     font-weight: 300;
+     color:white;
+     /* width:65px!important;
+     height: 65px!important; */
+  }
+  
+  
+  .btn-default[disabled]{
+    background: #9c27b0;
+    color: gray!important; 
+    opacity: 1;
+    font-size:16px;
+  }
+
+/* for close-modal */
+
+/* css for moadl */

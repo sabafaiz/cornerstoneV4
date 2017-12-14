@@ -2,11 +2,8 @@
   <div class="panel panel-default">
     <!--<div class="panel-heading">Current Homework</div>-->
     <div class="panel-body" id="accordion">
-      <div class="add-button">
-        <button type="button" class="btn btn-success btn-circle" [routerLink]="['/homework/homework-add']">
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        </button>
-      </div>
+        <span><i class="material-icons add-icon" [routerLink]="['/homework/homework-add']">alarm_add</i></span>
+    
       <br>
       <div class="row text-center">
         <loader [condition]="loader"></loader>

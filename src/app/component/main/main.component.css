@@ -355,7 +355,6 @@ top: 0;
     text-decoration: none;
     color: #3C4858;
     padding: 0;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif!important;
     font-weight: 300!important;
   
     /* border-right: solid 4px white; */
@@ -499,11 +498,8 @@ top: 0;
     color: #303342;
 }*/
 
-div,table,a{
-    font-family:'Allerta';
-}
+
 .brand{
-    font-family:"Roboto", "Helvetica", "Arial", sans-serif!important;
     font-size:14px;
     font-weight: 300;
     color: white;
@@ -515,7 +511,6 @@ div,table,a{
     padding: 7px 15px;
     border-radius: 3px;
     margin: 10px;
-    font-family: monospace;
     
 }
 
@@ -550,7 +545,6 @@ div,table,a{
 
 .name{
     color:#A88E8E;
-    font-family:"Roboto", "Helvetica", "Arial", sans-serif!important;
     font-size:16px;
     font-weight: 300;
    

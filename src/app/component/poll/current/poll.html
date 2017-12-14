@@ -2,11 +2,13 @@
 
 
   <div class="panel-body">
-    <div class="add-button">
+      <span><i class="material-icons" [routerLink]="['/poll/add-poll']">alarm_add</i></span>
+    <!-- <div class="add-button">
+
       <button type="button" class="btn btn-success btn-circle" [routerLink]="['/poll/add-poll']">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
       </button>
-    </div>
+    </div> -->
     <br>
     <div class="row text-center">
       <loader [condition]="loader"></loader>

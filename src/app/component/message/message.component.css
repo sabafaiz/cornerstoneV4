@@ -383,12 +383,16 @@ background: none;
 .conversation-screen{
     height: 80vh;
     padding-top: 8px;
+    background: white;
 }
 
 .conversation-list{
     background: white;
     height: 100%;
+    border-left: 1px solid black;
 }
+
+
 
 .conversation-list form{
     padding-left: 15px;

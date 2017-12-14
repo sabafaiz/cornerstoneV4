@@ -169,3 +169,7 @@ hr.style-line {
 .profile-name h4{
     text-align: left;
 }
+.card-content .material-icons{
+    vertical-align: middle;
+    padding-right: 10px;
+}

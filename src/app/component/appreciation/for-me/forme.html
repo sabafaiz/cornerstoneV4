@@ -13,7 +13,7 @@
           </ul>
         </div>
         <div class="card-content">
-          <table class="details table-responsive table-striped table-hover">
+          <table class="details table-responsive table-striped table-hover" *ngIf="comlaints">
             <thead>
               <tr>
                 <th><i class="material-icons">date_range</i><span>Date</span></th>
@@ -44,8 +44,10 @@
               </tr>
             </tbody>
           </table>
+          <div class="no-app"*ngIf="!comlaints">
           <div class="row col-lg-12" style="text-align: center" *ngIf="(EmptyComplaints)&&(!loader)&&(currentPage==1)"><b>No Appreciations are added to the view.</b></div>
           <div class="row col-lg-12" style="text-align: center" *ngIf="(EmptyComplaints)&&(!loader)&&(currentPage!=1)"><b>No more Appreciations are added to the view.</b></div>
+        </div>
         </div>
       </div>
     </div>

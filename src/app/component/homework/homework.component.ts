@@ -1,17 +1,13 @@
 import {Component} from '@angular/core';
+import { LoaderStop } from '../../providers/loaderstop.service';
 @Component({
   selector:'homework',
   templateUrl:'./homework.component.html',
   styleUrls:['./homework.component.css']
 })
 export class HomeworkComponent{
-  app:string;
-  constructor(){
-     this.app='CURRENT';
-  }
-
-  activeList(app){
-    this.app=app;
+  constructor(public ls : LoaderStop){
+     this.ls.setLoader(false); 
   }
 }
 

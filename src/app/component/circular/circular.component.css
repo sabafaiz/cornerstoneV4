@@ -85,6 +85,10 @@ padding: 0px;
       border-radius:3px!important;
       padding: 15px;
   }
+
+  .table-card .card-header a{
+      color:#FFFFFF;
+  }
 /* for table css */
 
 
@@ -120,4 +124,23 @@ padding: 0px;
 
   .details tbody td img{
       width: 10%;
+  }
+
+  
+  td[block]{
+      white-space: nowrap; 
+      width: inherit; 
+      overflow: hidden;
+      text-overflow: ellipsis; 
+      /* border: 1px solid #000000; */
+      max-width: 500px;
+      transition:0.4s ease-in;
+  }
+  
+  .tr-row:hover td[block] {
+    /* border:1px solid blue; */
+    overflow:initial;
+    /* height:initial; */
+    white-space:initial;
+    text-overflow: initial; 
   }

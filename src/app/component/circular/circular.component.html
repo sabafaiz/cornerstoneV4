@@ -1,13 +1,12 @@
 <!-- new code by saba -->
 <div class="circular">
-  <div class="col-sm-12 col-lg-12 col-md-12">
+  <!-- <div class="col-sm-12 col-lg-12 col-md-12">
     <ul class="nav nav-option">
       <li>
         <h3 class="title">Circular</h3>
       </li>
-      <i class="material-icons" [routerLink]="['/circular/add-circular']">note_add</i>
     </ul>
-  </div>
+  </div> -->
   <div class="row text-center">
     <loader [condition]="loader"></loader>
   </div>
@@ -15,43 +14,49 @@
     <div class="card table-card">
       <div class="card-header">
         Circular details
+        <a class="pull-right" [routerLink]="['/circular/add-circular']"><i class="material-icons" >note_add</i></a>
       </div>
       <div class="card-content">
-
-        <table class="details table-responsive table-hover">
+        <table class="details table table-hover">
           <thead>
             <tr>
-              <th>Date</th>
-              <th>Detail</th>
-              <th>Title</th>
-              <th>Type</th>
-              <th>Description</th>
+              <th width="10%">Date</th>
+              <th width="10%">Detail</th>
+              <th width="10%">Title</th>
+              <th width="10%">Type</th>
+              <th width="60%">Description</th>
             </tr>
           </thead>
           <tbody *ngFor="let circular of circulars;let c=index;">
-            <tr>
+            <tr class="tr-row">
               <td>{{circular.createdAt| date :'dd-mm-yyyy'}}</td>
               <td>
                 <img src="assets/img/studentpic.png">
                 <br> {{circular.employeeName}}</td>
               <td>{{circular.title}}</td>
               <td>{{circular.circularTypeName}}</td>
-              <td>{{circular.description}}</td>
+              <td block>{{circular.description}}</td>
             </tr>
+            <tr class="tr-row">
+                <td>{{circular.createdAt| date :'dd-mm-yyyy'}}</td>
+                <td>
+                  <img src="assets/img/studentpic.png">
+                  <br> {{circular.employeeName}}</td>
+                <td>{{circular.title}}</td>
+                <td>{{circular.circularTypeName}}</td>
+                <td block>{{circular.description}}</td>
+              </tr>
           </tbody>
         </table>
-
       </div>
     </div>
-
   </div>
-
 </div>
 
 
 
 <!-- new code by saba -->
-<div class="panel panel-default">
+<!-- <div class="panel panel-default"> -->
   <!-- Default panel contents -->
   <!-- <div class="panel-heading">
   Circulars 
@@ -63,7 +68,7 @@
   </div> -->
 
   <!-- Table -->
-  <div class="panel-body">
+  <!-- <div class="panel-body">
 
     <div class="row text-center">
       <loader [condition]="loader"></loader>
@@ -94,28 +99,15 @@
           <hr class="style-line">
           <div class="row title">{{circular.title}}</div>
           <div class="row description">{{circular.description}}</div>
-          <!--<div class="row">
-          <div class="col-sm-6 edit" *ngIf="!(complaintStatus == 4 || complaintStatus == 5)">
-            <a [ngClass]="{'disabled-click' : c.statusId == 4}" (click)="selectComplaint(c,in)" data-toggle="modal" data-target="#myModal"
-                class="action"><i class="glyphicon glyphicon-pencil"></i>
-            </a>
-          </div>
-          <div class="col-sm-6 comment">
-            <a onclick="$('.panel.panel-chat').show();" (click)="getComplaintCommentById(c)" class="action"><i class="glyphicon glyphicon-comment"></i>
-            </a>
-          </div>
-        </div>-->
         </div>
       </div>
     </div>
-    <!--end cards-->
     <div class="row" style="text-align: center" *ngIf="(EmptyCirculars)&&(!loader)&&(currentPage==1)"><b>No Circulars are added to the view.</b></div>
     <div class="row " style="text-align: center" *ngIf="(EmptyCirculars)&&(!loader)&&(currentPage!=1)"><b>No more Circulars are added to the view.</b></div>
+  </div> -->
 
-  </div>
 
-
-  <div class="panel-footer">
+  <!-- <div class="panel-footer"> -->
     <!--<nav aria-label="Page navigation example">
       <ul class="pagination">
         <li class="page-item" [ngClass]="{'disabled': currentPage === 1}"><a class="page-link" (click)="previousCircular()">Previous</a></li>
@@ -127,9 +119,9 @@
     </nav>-->
     <!--<button (click)="previousCircular()" class="btn btn-primary nav-btn right" [disabled]="currentPage === 1">Previous</button>
     <button (click)="nextCircular()" class="btn right btn-danger nav-btn" [disabled]="EmptyCirculars || noMore">Next</button>-->
-    <div class="text-center"><button (click)="nextCircular()" class="btn btn-primary" *ngIf="!EmptyCirculars && !noMore">Load More</button></div>
-  </div>
-</div>
+    <!-- <div class="text-center"><button (click)="nextCircular()" class="btn btn-primary" *ngIf="!EmptyCirculars && !noMore">Load More</button></div> -->
+  <!-- </div> -->
+<!-- </div> -->
 
 <div class="modal fade" id="myModal-card" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog" role="document">

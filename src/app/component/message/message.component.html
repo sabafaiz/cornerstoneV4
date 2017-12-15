@@ -243,26 +243,21 @@
   <div class="row conversation-screen">
     <div class="col-sm-4">
       <div class="row form-group" >
-        <div class="col-sm-7" style="padding: 0px;">
+        <div class="col-sm-10" style="padding: 0px;">
         <input type="search" class="form-control" placeholder="Search Messages..." (keyup)="searchMessages($event)">
         </div>
-        <div class="col-sm-4">
-          <span class="pageChange">
-            <button class="arrow" (click)="previousPage()" [disabled]="currentPage === 1">
-                <i class="material-icons">chevron_left</i>
-            </button>
-            <span>{{currentPage}}</span>
-            <button class="arrow" (click)="nextPage()" [disabled]="noMore || emptyOldRecipient">
-                <i class="material-icons">chevron_right</i>
-            </button>
-          </span>
-        </div>
-        <button class="col-sm-1 btn btn-link pull-right" (click)="newMessage()">
-            <i class="material-icons">open_in_new</i>
+        <div class="col-sm-2">
+          <button class="col-sm-1 btn btn-link pull-right btn-new" (click)="newMessage()">
+              <i class="material-icons">fiber_new</i>
         </button>
-        <hr>
+        </div>
+       
+       
       </div>
-      <ul class="list-group msg-list">Messages
+     
+       <!-- <div class="message-list"> -->
+         <h6>Messages</h6>
+      <ul class="list-group msg-list">
         <li style="margin-top:-20px">
           <loader [condition]="loader1" class="centerLoader" style="left:45%"></loader>
         </li>
@@ -290,17 +285,27 @@
             </li>
           </ul>
         </li>
-      </ul>
+        </ul>
+        <div class="pageChange">
+            <button class="arrow" (click)="previousPage()" [disabled]="currentPage === 1">
+                <i class="material-icons">chevron_left</i>
+            </button>
+            <span>{{currentPage}}</span>
+            <button class="arrow" (click)="nextPage()" [disabled]="noMore || emptyOldRecipient">
+                <i class="material-icons">chevron_right</i>
+            </button>
+          </div>
+    <!-- </div> -->
     </div>
     <div class="col-sm-8">
       <div class="conversation-list" style="position:relative;" *ngIf="selectedOldRecipient">
-        <h4 class="text-center" style="padding-top:10px;">Your Message History with {{recipientName}}
-          <button class="btn btn-default pull-right" style="margin-right: 7px;" data-target="#closeModal" data-toggle="modal" [disabled]="closed">
+        <h4 class="title-head" style="padding-top:10px;">Your Message History with {{recipientName}}
+          <button class="btn btn-default pull-right btn-close"  data-target="#closeModal" data-toggle="modal" [disabled]="closed">
             <span class="close-btn-text">Close</span>
             <i class=" glyphicon glyphicon-remove close-btn"></i>
           </button>
         </h4>
-        <hr>
+        <div class="message-screen">
         <div class="msg-text" *ngFor="let m of selectedOldRecipient.slice().reverse()">
           <div *ngIf="m.employeeName== currentUser">
             <div class="myMsg">
@@ -344,6 +349,7 @@
             </div>
           </div>
         </div>
+      </div>
         <div class="type-form">
           <div class="closed-cmt" *ngIf="closed">
             <span>This conversation has been closed.</span>
@@ -366,7 +372,8 @@
       </div>
       <!-- New Message  -->
       <div class="conversation-list" *ngIf="(!selectedOldRecipient)&&(!loader)">
-        <h3 class="text-center" style="padding-top:10px;">New Message</h3><hr>
+        <h3 class="title-head">New Message</h3>
+        <button type="submit" [disabled]="newMessageForm.invalid" class="btn btn-success pull-right submit-msg" (click)="submitNewMessage()">Send <i class="material-icons">send</i></button>
         <form [formGroup]="newMessageForm" *ngIf="newMsg">
           <div class="row text-center">
             <loader [condition]="submitProgress" class="centerLoader"></loader>
@@ -414,7 +421,7 @@
             </span>
             <textarea id="comment" class="form-control" placeholder="Type a message..." maxlength='2000' formControlName="message"></textarea>
           </div>
-          <button type="submit" [disabled]="newMessageForm.invalid" class="btn btn-success pull-right submit-msg" (click)="submitNewMessage()">Send</button>
+         
         </form>
       </div>
     </div>
@@ -440,7 +447,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="closeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade message-modal" id="closeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -453,14 +460,14 @@
         Are you sure you want to close this conversation?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="closeConversation()">Close Conversation</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Discard</button>
+        <button type="button" class="btn btn-primary btn-purple" data-dismiss="modal" (click)="closeConversation()">Close Conversation</button>
+        <button type="button" class="btn btn-primary btn-purple" data-dismiss="modal">Discard</button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="submitModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade message-modal" id="submitModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -473,19 +480,19 @@
         Your Message has been sent.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="this.selectOldRecipient(this.oldMessageRecipients[0], 0)">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="newMessage()">Send More</button>
+        <button type="button" class="btn btn-primary btn-purple" data-dismiss="modal" (click)="this.selectOldRecipient(this.oldMessageRecipients[0], 0)">Close</button>
+        <button type="button" class="btn btn-primary btn-purple" data-dismiss="modal" (click)="newMessage()">Send More</button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="closeConfirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade message-modal" id="closeConfirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title" id="exampleModalLabel">Conversation Closed</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button btn-purple" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -498,7 +505,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="noMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade message-modal" id="noMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -517,7 +524,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade message-modal" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

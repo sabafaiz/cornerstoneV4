@@ -134,11 +134,19 @@ hr.style-line {
     position: relative;
     width: 100%;
     margin: 25px 0;
-    box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+    /* box-shadow: 0 1px 4px 0 rgba(0,0,0,.14); */
     border-radius: 6px;
     color: rgba(0,0,0,.87);
     background: #fff;
-}
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+  
+  .profile-card:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  
+
 
 .profile-card .card-header{
     background-color: #9c27b0;
@@ -166,6 +174,23 @@ hr.style-line {
     position: relative;
     margin-top:15px;
 }
-.profile-name h4{
+.card-content h4{
     text-align: left;
+}
+.card-content .material-icons{
+    vertical-align: middle;
+    padding-right: 10px;
+}
+
+.add-icon .material-icons{
+    font-size: 28px;
+}
+
+.profile-name{
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.profile-name .material-icons{
+    color:red;
 }

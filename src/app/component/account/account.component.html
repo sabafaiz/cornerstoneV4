@@ -7,33 +7,64 @@
           <img src="https://cdn3.iconfinder.com/data/icons/users-6/100/654854-user-women-512.png" class="admin-pic">
         </div>
         <div class="card-content">
+         
+          <br><h4>{{name}}</h4>
           <div class="profile-name">
-          <br><h4>Admin</h4>
           <div class="row">
-          <div class="col-sm-4">
-              <i class="material-icons">perm_identity</i>
+          <div class="col-sm-2">
+              <span><i class="material-icons">perm_identity</i>ID</span>
+            </div>
+            <div class="col-sm-6">
+              {{id}}
             </div>
           </div>
+          <div class="row">
+            <div class="col-sm-2">
+              <span><i class="material-icons">security</i>PASSWORD</span>
+            </div>
+            <div class="col-sm-6">
+              ********
+            </div>
           </div>
+          <div class="row">
+            <div class="col-sm-2">
+              <span><i class="material-icons">work</i>ROLE</span>
+            </div>
+            <div class="col-sm-6">
+              {{role}}
+            </div>
+          </div>
+       
+          <div class="row">
+            <div class="col-sm-2">
+              <span><i class="material-icons">email</i>EMAIL</span>
+            </div>
+            <div class="col-sm-6">
+              {{email}}
+            </div>
+          </div>
+        </div>
+          <div class="row add-icon">
+            <div class="col-sm-4">
+              <span><i class="material-icons">note_add</i></span>
+              <p>ADD HOMEWORK</p>
+            </div>
+            <div class="col-sm-4">
+              <span><i class="material-icons">add_alert</i></span>
+              <p>ADD CIRCULAR</p>
+            </div>
+            <div class="col-sm-4">
+              <span><i class="material-icons">alarm_add</i></span>
+              <p>ADD APPRECIATION</p>
+            </div>
+          </div>
+        
         </div>
       </form>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- new code by saba -->
+<!-- new code by saba end -->
 <div class="profile">
   <div class="row text-center">
     <loader class="centerLoader" [condition]="loader"></loader>

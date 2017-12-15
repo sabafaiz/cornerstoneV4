@@ -149,7 +149,7 @@ export class DashboardComponent implements OnDestroy {
         fontSize: 14
       },
       colors: ['#4caf50', '#00acc1', '#FFEB3B', '#e01e63', '#e53935', '#9c27b0', '#fb8c00'],
-      chartArea: { left: '10%', height: "30%", width: "40%", bottom: '10%', right: '10%', top: '0%' },
+      chartArea: { left: '10%', height: "40%", width: "40%", bottom: '10%', right: '10%', top: '0%' },
       is3D: true
     }
      this.loader1 = false;

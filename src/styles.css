@@ -527,13 +527,13 @@ z-index: 1000 !important;
 
 /* add-icon for appreciation */
 
-.add-icon{
+/* .add-icon{
     position: absolute;
     right: 27px;
     font-size: 32px;
     margin-top: 13px;
     cursor: pointer;
-  }
+  } */
   
   .add-icon:focus {
     outline: -webkit-focus-ring-color auto 0px;

@@ -75,7 +75,7 @@
               <div class="empty" *ngIf="(EmptyComplaints)&&(!loader)&&(currentPage!=1)">No more Complaints are added to the view.</div>
              <!-- load more button -->
              <div class="text-center">
-               <button (click)="nextComplaint()" type="button" *ngIf="!EmptyComplaints && !noMore" class="btn btn-primary">Load More</button>
+               <button (click)="nextComplaint()" type="button" *ngIf="!EmptyComplaints && !noMore" class="btn btn-primary load-btn">Load More</button>
               </div>
             </div>
           </div>
@@ -183,7 +183,7 @@
                   <div class="col-sm-9">{{selectedComplaint.priorityName}}</div>
                 </div>
                 <div class="form-group row" *ngIf="selectedComplaint.assignedEmployeeName">
-                  <label class="control-label col-sm-3" [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Assigned To:	</label>
+                  <label class="control-label col-sm-3" [ngStyle]="{'color': selectedComplaint.statusColor}" style="font-weight:bold;">Assigned :	</label>
                   <div class="col-sm-9">{{selectedComplaint.assignedEmployeeName}}</div>
                 </div>
                 <div class="form-group row" *ngIf="selectedComplaint.againstCategoryName">

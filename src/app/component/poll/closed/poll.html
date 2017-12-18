@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<!-- <div class="panel panel-default">
   <div class="panel-body">
     <br>
     <div class="row text-center">
@@ -102,8 +102,42 @@
   </div>
 
   <div class="panel-footer">
-    <!--<button type="button" (click)="previousPoll()" [disabled]="currentPage === 1" class="btn btn-primary">Previous</button>-->
     <div class="text-center"><button type="button" (click)="nextPoll()" *ngIf="!emptyPolls && !noMore" class="btn btn-primary">Load More</button></div>
   </div>
 
+</div> -->
+
+<div class="card table-card">
+    <div class="card-header">
+      Closed Poll
+      <!-- <a class=" pull-right" [routerLink]="['/poll/add-poll']"><i class="material-icons" >alarm_add</i></a> -->
+    </div>
+    <div class="card-content">
+      <div class="row text-center">
+        <loader [condition]="loader"></loader>
+      </div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Created At</th>
+            <th>Poll For</th>
+            <th>Poll Type</th>
+            <!-- <th>Standards</th>             -->
+            <th>Due Date</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let poll of polls;let p=index;">
+          <tr>
+            <td>{{poll.createdAt}}</td>
+            <td>{{poll.typeName}}</td>
+            <td>{{poll.optionTypeName}}</td>
+            <!-- <td><span *ngFor="let std of poll.standards;let s=index;">{{std.name}}</span></td> -->
+            <td>{{poll.expiredAt | date}}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+      </table>
+    </div>
 </div>

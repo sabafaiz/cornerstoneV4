@@ -7,16 +7,8 @@ import {Router } from '@angular/router';
   templateUrl:'./appreciation.component.html',
   styleUrls:['./appreciation.component.css']
 })
-export class AppreciationComponent{
-  app:string;
- 
+export class AppreciationComponent{ 
      constructor(public router:Router){
-      this.app='for';
-      // this.router.navigate(["/appreciation/for-me"]);
-    }
-
-    activeList(app){
-      this.app=app;
     }
      
 }

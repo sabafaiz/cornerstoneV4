@@ -149,8 +149,8 @@ hr.style-line {
 
 
 .profile-card .card-header{
-    background-color: #9c27b0;
-    border-color: 1px solid #9c27b0;
+    background-color: white;
+    border-color: 1px solid white;
     box-shadow: 0 2px 2px 0 rgba(156, 39, 176, 0.14),
      0 3px 1px -2px rgba(156, 39, 176, 0.2),
      0 1px 5px 0 rgba(156, 39, 176, 0.12);
@@ -169,6 +169,13 @@ hr.style-line {
     width: 100px;
 }
 
+.bg-profile{
+    background: #7F00FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #E100FF, #7F00FF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #E100FF, #7F00FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
 .profile-card .card-content{
     padding: 30px 20px;
     position: relative;
@@ -176,6 +183,9 @@ hr.style-line {
 }
 .card-content h4{
     text-align: left;
+    color:white;
+    font-size:15px;
+    margin-bottom:24px;
 }
 .card-content .material-icons{
     vertical-align: middle;
@@ -183,14 +193,30 @@ hr.style-line {
 }
 
 .add-icon .material-icons{
-    font-size: 28px;
+    font-size: 46px;
 }
 
 .profile-name{
     margin-bottom: 30px;
     text-align: left;
+    color:white;
 }
 
 .profile-name .material-icons{
-    color:red;
+    color:white
+}
+
+.add-icon{
+    padding: 54px;
+    color:#9c27b0;
+    cursor: pointer;
+}
+
+.add-icon p{
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+.add-icon .material-icons:focus {
+    outline: 0px!important;
 }

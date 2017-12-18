@@ -290,3 +290,7 @@ form{
       border-radius: 50%;
       border: 1px solid #9128ac;
     }
+
+.no-homework{
+  padding: 10px;
+}

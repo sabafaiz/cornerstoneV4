@@ -17,12 +17,19 @@
           <table class="details table table-hover">
             <thead *ngIf="!EmptyComplaints">
               <tr>
-                <th><i class="material-icons">date_range</i><span>Date</span></th>
-                <th><i class="material-icons">face</i>Details</th>
+                <th>
+                  <i class="material-icons">date_range</i>
+                  <span>Date</span>
+                </th>
+                <th>
+                  <i class="material-icons">face</i>Details</th>
 
-                <th><i class="material-icons">attach_file</i>Title</th>
-                <th><i class="material-icons">pin_drop</i>description</th>
-                <th><i class="material-icons">settings</i>Action</th>
+                <th>
+                  <i class="material-icons">attach_file</i>Title</th>
+                <th>
+                  <i class="material-icons">pin_drop</i>description</th>
+                <th>
+                  <i class="material-icons">settings</i>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -47,8 +54,12 @@
             <tfoot>
               <tr>
                 <td colspan="5">
-                  <span style="text-align: center" *ngIf="(EmptyComplaints)&&(!loader)&&(currentPage==1)"><b>No Appreciations are added to the view.</b></span>
-                  <span style="text-align: center" *ngIf="(EmptyComplaints)&&(!loader)&&(currentPage!=1)"><b>No more Appreciations are added to the view.</b></span>
+                  <span style="text-align: center" *ngIf="(EmptyComplaints)&&(!loader)&&(currentPage==1)">
+                    <b>No Appreciations are added to the view.</b>
+                  </span>
+                  <span style="text-align: center" *ngIf="(EmptyComplaints)&&(!loader)&&(currentPage!=1)">
+                    <b>No more Appreciations are added to the view.</b>
+                  </span>
                 </td>
               </tr>
             </tfoot>
@@ -57,9 +68,12 @@
       </div>
     </div>
   </div>
-  <div class="panel-footer">
-    <div class="text-center"><button (click)="nextComplaint()" type="button" *ngIf="!EmptyComplaints && !noMore" class="btn btn-primary">Load More</button></div>
+</div>
+<div class="panel-footer">
+  <div class="text-center">
+    <button (click)="nextComplaint()" type="button" *ngIf="!EmptyComplaints && !noMore" class="btn btn-primary">Load More</button>
   </div>
+</div>
 </div>
 
 
@@ -68,7 +82,9 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content" *ngIf="selectedComplaint">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
         <h4 class="modal-title" id="gridSystemModalLabel">{{selectedComplaint.title}}</h4>
       </div>
       <div class="modal-body ">

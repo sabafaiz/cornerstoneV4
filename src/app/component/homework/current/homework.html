@@ -70,7 +70,7 @@
       <a [routerLink]="['/homework/homework-add']"><i class="material-icons pull-right" >alarm_add</i></a>
     </div>
     <div class="card-content">
-      <table class="table table-hover">
+      <table class="table table-hover" *ngIf="homeworks.lenght">
         <thead>
           <tr>
             <th>Created At</th>
@@ -94,6 +94,9 @@
           </tr>
         </tbody>
       </table>
+      <div class="no-homework"  *ngIf="!homeworks.lenght">
+        No homeworks are added.
+      </div>
     </div>
 </div>
 

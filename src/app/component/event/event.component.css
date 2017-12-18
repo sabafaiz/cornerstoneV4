@@ -1,10 +1,17 @@
 .calendar-custom{
     background: white;
     padding: 4%;
+    border-radius: 10px;
     /* border-radius: 20px; */
     min-width: 343px;
     /* min-height: 450px; */
 }
+.fc-left h2{
+    font-size: 15px;
+    color:grey;
+}
+
+
 
 .glyphicon-time:before{
     padding-right: 10px;

@@ -8,7 +8,8 @@ import { BarLoaderService } from '../../../providers/bar-loader.service';
 
 @Component({
   selector:'for-student',
-  templateUrl:'./byme.html'
+  templateUrl:'./byme.html',
+  styleUrls:['./../appreciation.component.css']
 })
 
 export class ByMeComponent extends ComplaintComponent implements OnDestroy, OnInit{

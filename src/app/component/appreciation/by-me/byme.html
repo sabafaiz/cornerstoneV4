@@ -1,13 +1,8 @@
 <div class="tab-pane">
-  <div class="panel panel-default">
+  <!-- <div class="panel panel-default">
 
     <div class="panel-body" id="accordion">
       <span><i class="material-icons add-icon" [routerLink]="['/appreciation/add-appreciation']">alarm_add</i></span>
-      <!-- <div class="add-button">
-        <button type="button" class="btn btn-success btn-circle" [routerLink]="['/appreciation/add-appreciation']">
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        </button>
-      </div> -->
       <br>
       <div class="text-center">
          <loader [condition]="loader"></loader>
@@ -36,15 +31,7 @@
                   {{c.title}}
                 </div>
               </div>
-              <div class="row description">{{c.description}}</div>
-              <!-- <hr class="style-line">
-            <div class="row">
-              <div class="date">
-                <label>Date :</label>
-                <span>{{c.createdAt|date}}</span>
-              </div>
-            </div> -->
-              
+              <div class="row description">{{c.description}}</div>              
             </div>
           </div>
         </div>
@@ -54,17 +41,62 @@
 
 
     <div class="panel-footer">
-      <!--<nav aria-label="Page navigation example">
-        <ul class="pagination">
-          <li class="page-item" [ngClass]="{'disabled': currentPage === 1}"><a class="page-link" (click)="previousHomework()" >Previous</a></li>
-          <li class="page-item"><a class="page-link active" >1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item" [ngClass]="{'disabled': EmptyHomeworks}"><a class="page-link" (click)="nextHomework()" >Next</a></li>
-        </ul>
-      </nav>-->
-      <!--<button (click)="previousComplaint()" [disabled]="currentPage === 1" type="button" class="btn btn-primary">Previous</button>-->
       <div class="text-center"><button (click)="nextComplaint()" type="button" *ngIf="!EmptyComplaints && !noMore" class="btn btn-primary">Load More</button></div>
+    </div>
+  </div> -->
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="card table-card">
+        <div class="card-header">
+          <!-- <ul class="nav nav-tabs justify-content-end">
+            <li><a href=""><i class="material-icons">sort</i>Sort</a></li>
+            <li><a href=""><i class="material-icons">filter_list</i>Filter</a></li>
+          </ul> -->
+          Appreciations Added by me
+          <a class="pull-right" [routerLink]="['/appreciation/add-appreciation']"><i class="material-icons" >note_add</i></a>
+        </div>
+        <div class="card-content">
+          <table class="details table table-hover">
+            <thead *ngIf="!EmptyComplaints">
+              <tr>
+                <th><i class="material-icons">date_range</i><span>Date</span></th>
+                <th><i class="material-icons">face</i>Details</th>
+
+                <th><i class="material-icons">attach_file</i>Title</th>
+                <th><i class="material-icons">pin_drop</i>description</th>
+                <th><i class="material-icons">settings</i>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let c of complaints; let i = index;">
+                <td width="10%">
+                  <span>{{c.createdAt | date :'dd-mm-yyyy'}}</span>
+                  <span *ngIf="c.closedOn">-{{c.closedOn | date:'dd-mm-yyyy'}}</span>
+                </td>
+                <td width="10%">
+                  <img src="assets/img/studentpic.png">
+                  <br> {{c.studentName}}
+                  <br>{{c.studentStandardName}}
+                </td>
+                <td width="20%">{{c.title}}</td>
+                <td width="10%">{{c.description}}</td>
+                <td width="10%">
+                  <i class="material-icons">comment</i>
+                  <i class="material-icons" [style.color]="c.statusColor">delete_forever</i>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5">
+                  <span style="text-align: center" *ngIf="(EmptyComplaints)&&(!loader)&&(currentPage==1)"><b>No Appreciations are added to the view.</b></span>
+                  <span style="text-align: center" *ngIf="(EmptyComplaints)&&(!loader)&&(currentPage!=1)"><b>No more Appreciations are added to the view.</b></span>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>

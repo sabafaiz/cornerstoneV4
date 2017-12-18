@@ -1,14 +1,6 @@
-<div class="panel panel-default">
-
-
+<!-- <div class="panel panel-default">
   <div class="panel-body">
       <span><i class="material-icons" [routerLink]="['/poll/add-poll']">alarm_add</i></span>
-    <!-- <div class="add-button">
-
-      <button type="button" class="btn btn-success btn-circle" [routerLink]="['/poll/add-poll']">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-      </button>
-    </div> -->
     <br>
     <div class="row text-center">
       <loader [condition]="loader"></loader>
@@ -94,7 +86,6 @@
                         <div class="col-sm-5">
                           <label class="">Due Date:</label>
                           <div class=""> {{p.expiredAt | date}}</div>
-
                         </div>
                       </li>
                     </ul>
@@ -109,9 +100,42 @@
     <div class="row col-lg-12" style="text-align: center" *ngIf="(emptyPolls)&&(!loader)&&(currentPage==1)"><b>No Polls are added to the view.</b></div>
     <div class="row col-lg-12" style="text-align: center" *ngIf="(emptyPolls)&&(!loader)&&(currentPage!=1)"><b>No more Polls are added to the view.</b></div>
   </div>
-
   <div class="panel-footer">
-    <!--<button type="button" (click)="previousPoll()" [disabled]="currentPage === 1" class="btn btn-primary">Previous</button>-->
     <div class="text-center"><button type="button" (click)="nextPoll()" *ngIf="!emptyPolls && !noMore" class="btn btn-primary">Load More</button></div>
   </div>
+</div> -->
+<div class="card table-card">
+    <div class="card-header">
+      Due Homeworks
+      <a [routerLink]="['/poll/add-poll']"><i class="material-icons pull-right" >alarm_add</i></a>
+    </div>
+    <div class="card-content">
+      <div class="row text-center">
+        <loader [condition]="loader"></loader>
+      </div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Created At</th>
+            <th>Attachments</th>
+            <th>Subject</th>
+            <th>Standard</th>            
+            <th>Due Date</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let a of homeworks; let i = index;">
+          <tr (click)="seletToExpand(a,i)" data-toggle="modal" data-target="#myModal-card" >
+            <td>{{a.createdAt|date}}</td>
+            <td style="padding-bottom: 2px;padding-top: 2px;">
+              <div class="files">
+                <img [style.margin-left]="m?'-35px':'0px'" [attr.src]="fileUrl + file.fileTimestamp" *ngFor="let file of a.files;let m=index;">
+              </div>
+            </td>
+            <td>{{a.subjectName}}</td>
+            <td>{{ a.standardName }}</td>
+            <td>{{a.dueDate|date}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 </div>

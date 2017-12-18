@@ -7,14 +7,15 @@
     <div class="col-lg-12 col-md-12 col-sm-12">
       <div class="card table-card">
         <div class="card-header">
-          <ul class="nav nav-tabs justify-content-end">
+          Appreciations For Me
+          <!-- <ul class="nav nav-tabs justify-content-end">
             <li><a href=""><i class="material-icons">sort</i>Sort</a></li>
             <li><a href=""><i class="material-icons">filter_list</i>Filter</a></li>
-          </ul>
+          </ul> -->
         </div>
         <div class="card-content">
-          <table class="details table-responsive table-striped table-hover">
-            <thead>
+          <table class="details table table-hover">
+            <thead *ngIf="!EmptyComplaints">
               <tr>
                 <th><i class="material-icons">date_range</i><span>Date</span></th>
                 <th><i class="material-icons">face</i>Details</th>
@@ -43,18 +44,20 @@
                 </td>
               </tr>
             </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5">
+                  <span style="text-align: center" *ngIf="(EmptyComplaints)&&(!loader)&&(currentPage==1)"><b>No Appreciations are added to the view.</b></span>
+                  <span style="text-align: center" *ngIf="(EmptyComplaints)&&(!loader)&&(currentPage!=1)"><b>No more Appreciations are added to the view.</b></span>
+                </td>
+              </tr>
+            </tfoot>
           </table>
-          <div class="row col-lg-12" style="text-align: center" *ngIf="(EmptyComplaints)&&(!loader)&&(currentPage==1)"><b>No Appreciations are added to the view.</b></div>
-          <div class="row col-lg-12" style="text-align: center" *ngIf="(EmptyComplaints)&&(!loader)&&(currentPage!=1)"><b>No more Appreciations are added to the view.</b></div>
         </div>
       </div>
     </div>
   </div>
-
-
-
   <div class="panel-footer">
-    <!-- <button (click)="previousComplaint()" [disabled]="currentPage === 1" type="button" class="btn btn-primary">Previous</button> -->
     <div class="text-center"><button (click)="nextComplaint()" type="button" *ngIf="!EmptyComplaints && !noMore" class="btn btn-primary">Load More</button></div>
   </div>
 </div>

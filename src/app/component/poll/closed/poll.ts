@@ -10,7 +10,7 @@ declare let $: any;
 @Component({
   selector: 'closed-poll',
   templateUrl: './poll.html',
-  styleUrls: ['./poll.css'],
+  styleUrls: ['./poll.css','./../poll.component.css'],
 })
 
 export class ClosedPollComponent implements OnInit {

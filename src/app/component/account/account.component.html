@@ -1,84 +1,106 @@
 <!-- new code by saba -->
 <div class="row">
-  <div class="col-sm-12">
+  <div class="col-sm-6">
+  <div class="card profile-card bg-profile">
+      <form>
+        <div class="col-sm-12">
+            <div class="card-header">
+                <img src="https://cdn3.iconfinder.com/data/icons/users-6/100/654854-user-women-512.png" class="admin-pic">
+              </div>
+              <div class="card-content">
+                  <br><h4>{{name}}</h4>
+                  <div class="profile-name">
+                      <div class="row">
+                      <div class="col-sm-6">
+                          <span><i class="material-icons">perm_identity</i>ID</span>
+                        </div>
+                        <div class="col-sm-6">
+                          {{id}}
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <span><i class="material-icons">security</i>PASSWORD</span>
+                        </div>
+                        <div class="col-sm-6">
+                          ********
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <span><i class="material-icons">work</i>ROLE</span>
+                        </div>
+                        <div class="col-sm-6">
+                          {{role}}
+                        </div>
+                      </div>
+                   
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <span><i class="material-icons">email</i>EMAIL</span>
+                        </div>
+                        <div class="col-sm-6">
+                          {{email}}
+                        </div>
+                      </div>
+                    </div>
+              </div>
+        </div>
+          </form>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
     <div class="card profile-card">
       <form>
-        <div class="card-header">
-          <img src="https://cdn3.iconfinder.com/data/icons/users-6/100/654854-user-women-512.png" class="admin-pic">
-        </div>
-        <div class="card-content">
-         
-          <br><h4>{{name}}</h4>
-          <div class="profile-name">
+        <div class=" col-sm-12 add-icon">
           <div class="row">
-          <div class="col-sm-2">
-              <span><i class="material-icons">perm_identity</i>ID</span>
-            </div>
-            <div class="col-sm-6">
-              {{id}}
-            </div>
+              <div class="col-sm-2"  [routerLink]="['/homework/homework-add']">
+                  <span><i class="material-icons">note_add</i></span>
+                  </div>
+                  <div class="col-sm-8">
+                  <p>ADD HOMEWORK</p>
+                </div>
           </div>
           <div class="row">
-            <div class="col-sm-2">
-              <span><i class="material-icons">security</i>PASSWORD</span>
-            </div>
-            <div class="col-sm-6">
-              ********
-            </div>
+              <div class="col-sm-2"  [routerLink]="['/circular/add-circular']">
+                  <span><i class="material-icons">add_alert</i></span>
+                  </div>
+                  <div class="col-sm-8">
+                  <p>ADD CIRCULAR</p>
+                </div>
           </div>
           <div class="row">
-            <div class="col-sm-2">
-              <span><i class="material-icons">work</i>ROLE</span>
-            </div>
-            <div class="col-sm-6">
-              {{role}}
-            </div>
+              <div class="col-sm-2"  [routerLink]="['/appreciation/add-appreciation']">
+                  <span><i class="material-icons">alarm_add</i></span>
+              </div>
+              <div class="col-sm-8">
+                  <p>ADD APPRECIATION</p>
+                </div>
           </div>
-       
-          <div class="row">
-            <div class="col-sm-2">
-              <span><i class="material-icons">email</i>EMAIL</span>
-            </div>
-            <div class="col-sm-6">
-              {{email}}
-            </div>
-          </div>
-        </div>
-          <div class="row add-icon">
-            <div class="col-sm-4">
-              <span><i class="material-icons">note_add</i></span>
-              <p>ADD HOMEWORK</p>
-            </div>
-            <div class="col-sm-4">
-              <span><i class="material-icons">add_alert</i></span>
-              <p>ADD CIRCULAR</p>
-            </div>
-            <div class="col-sm-4">
-              <span><i class="material-icons">alarm_add</i></span>
-              <p>ADD APPRECIATION</p>
-            </div>
-          </div>
-        
         </div>
       </form>
     </div>
   </div>
 </div>
 <!-- new code by saba end -->
-<div class="profile">
+
+
+
+<!-- <div class="profile">
   <div class="row text-center">
     <loader class="centerLoader" [condition]="loader"></loader>
   </div>
   <div class="row img-container">
     <!-- <a data-toggle="modal" data-target="#myModal" style="display:inline-block;" >  -->
-      <!-- <span> -->
+      <!-- <span>
         <img src="{{lg.getData('picUrl')}}" class= "profile-picture">
         <a data-target="#myModal" data-toggle="modal"><i class="glyphicon glyphicon-pencil edit-img"></i></a>
         <div class=" row name">{{name}}</div>
-      <!-- </span></a> -->
-  </div>
+      </span></a>
+  </div> -->
 
-  <div class="row profile-row">
+  <!-- <div class="row profile-row">
     <div for="id" class="col-sm-4"><img src="assets/icons/fingerprint.png"class="fingerprint"></div>
     <div class="id col-sm-8" name="id">
       <label>Id</label>
@@ -94,8 +116,8 @@
       </div>
     </div>
   
-  </div>
-  <div class="row profile-row">
+  </div> -->
+  <!-- <div class="row profile-row">
     <div for="role" class="col-sm-4"><img src="assets/icons/role.png" class="role"></div>
     <div class="id col-sm-8" name="id">
       <label>Role</label>
@@ -118,8 +140,8 @@
         </button>
         </div>
         <div class="row">Add Circular</div>
-      </div>
-      <div class="col-sm-4">
+      </div> -->
+      <!-- <div class="col-sm-4">
         <div class="row">
         <button type="button" class="btn btn-success btn-circle" [routerLink]="['/homework/homework-add']">
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -134,10 +156,10 @@
         </button>
         </div>
         <div class="row">Add Appreciation</div>
-      </div>
-</div>
+      </div> -->
+
 <!-- </div> -->
-<br>
+
 <div class="modal fade" id="myModal" role="dialog">
   <div class="modal-dialog">
     <!-- Update Modal content-->

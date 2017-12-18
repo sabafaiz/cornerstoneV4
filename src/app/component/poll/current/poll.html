@@ -126,12 +126,13 @@
         </thead>
         <tbody *ngFor="let poll of polls;let p=index;">
           <tr>
-            <td rowspan="2">{{poll.createdAt}}</td>
-            <td rowspan="2">{{poll.typeName}}</td>
-            <td rowspan="2">{{poll.optionTypeName}}</td>
-            <!-- <td rowspan="2"><span *ngFor="let std of poll.standards;let s=index;">{{std.name}}</span></td> -->
-            <td rowspan="2">{{poll.expiredAt | date}}</td>
+            <td>{{poll.createdAt| date}}</td>
+            <td>{{poll.typeName}}</td>
+            <td>{{poll.optionTypeName}}</td>
+            <!-- <td><span *ngFor="let std of poll.standards;let s=index;">{{std.name}}</span></td> -->
+            <td>{{poll.expiredAt | date}}</td>
           </tr>
+
         </tbody>
         <tfoot>
 

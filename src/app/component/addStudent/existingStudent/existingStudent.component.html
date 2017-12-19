@@ -1,3 +1,44 @@
+<!-- new code by saba -->
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card existing-card">
+      <div class="header-card">
+        <h5 class="card-title">Existing Students</h5>
+      </div>
+      <div class="card-content">
+        <div class="row" style="margin-top:15px;">
+          <div class="col-sm-2">
+              <label for="standardId">Standard</label>
+          </div>
+          <div class="col-sm-8">
+              <select [(ngModel)]="standardId" (change)="onSelectStandard($event.target.value)" class="form-control">
+                  
+                  <option disabled="disabled" selected="selected" value="" >Select a standard</option>
+                  
+                  <option *ngFor="let s of standards" [value]="s.id" >{{s.name}}</option>
+                </select>
+                <loader [condition]="standardLoader" class="dropdownLoader"></loader>
+          </div>
+          <div class="col-sm-2">
+              <button class="btn btn-success view-btn pull-right" [disabled]="!selectedStandardId" (click)="getStudentsByStd()">View All Students</button> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- new code by saba -->
 <div class="existing">
 <div class="panel panel-default">
   <div class="panel-body">

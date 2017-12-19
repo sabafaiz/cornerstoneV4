@@ -91,3 +91,11 @@
     .table-card .card-header a{
       color: #FFFFFF;
     }
+
+    tr[block]{
+      display: none;
+    }
+
+    .tr-row:hover+tr[block]{
+      display: block;
+    }

@@ -77,26 +77,26 @@
                   <i class="material-icons">note_add</i><span>ADD</span>
              </a>
         <ul class="collapse list-unstyled" id="pageSubmenu" *ngIf="role=='admin'">
-          <li class="sidebar-items" >
+          <!-- <li class="sidebar-items" >
               <a (click)="getSelectedLink('Time Table')" [routerLink]="['/time-table']" routerLinkActive="active">
                  <i class="material-icons">av_timer</i><span> Time Table</span>
              </a>
-          </li>
-          <li class="sidebar-items" >
+          </li> -->
+          <!-- <li class="sidebar-items" >
                <a (click)="getSelectedLink('Food Menu')" [routerLink]="['/foodmenu']" routerLinkActive="active">
                 <i class="material-icons">room_service</i><span> Food Menu</span> 
               </a>
-          </li>
+          </li> -->
           <li class="sidebar-items" >
                    <a (click)="getSelectedLink('Student')" [routerLink]="['/add-student']" routerLinkActive="active">
                     <i class="material-icons">face</i><span>Student</span>        
                   </a>
           </li>
-          <li class="sidebar-items"  style="padding-bottom: 55px;">
+          <!-- <li class="sidebar-items"  style="padding-bottom: 55px;">
                    <a (click)="getSelectedLink('Employee')" [routerLink]="['/add-employee']" routerLinkActive="active">
                     <i class="material-icons">airline_seat_recline_extra</i><span>Employee</span>      
                   </a>
-          </li>
+          </li> -->
         </ul>
       </li>
     </ul>

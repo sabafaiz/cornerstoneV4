@@ -41,6 +41,7 @@ export class AddAppreciation implements OnDestroy{
     public _location: Location,
 
   ) {
+    this.ls.setLoader(false);
     this.getStandards();
   }
 

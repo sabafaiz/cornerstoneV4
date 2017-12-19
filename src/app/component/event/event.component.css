@@ -84,5 +84,10 @@ input[type=file]{
 /* new code by saba */
 
 .modal-header .close{
-    color:black;
+    color:white;
+}
+
+.edit-content .modal-header{
+    background:#9c27b0!important; 
+    color:white;
 }

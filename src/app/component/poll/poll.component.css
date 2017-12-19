@@ -1,93 +1,101 @@
 .poll  ul{
-  width: 100%;  
+width: 100%;  
 }
 .poll  ul li{
-  width:50%;
+width:50%;
 }
 /* 
 .poll > ul>li.active>a, .poll > ul>li.active>a:focus, .poll > ul>li.active>a:hover {
-    color: #f8f8f8;
-    cursor: pointer;
-    background-color: #337ab7;
+color: #f8f8f8;
+cursor: pointer;
+background-color: #337ab7;
 } */
-  
+
 
 
 .nav-option  li{
-  padding: 10px;
-  background: transparent;
-  text-align: center;
-  /* box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28),
-   0 4px 20px 0px rgba(0, 0, 0, 0.12), 
-   0 7px 8px -5px rgba(156, 39, 176, 0.2); */
-   border-radius: 3px;
-   border-top-left-radius: 0px;
-   border-bottom-left-radius: 0px;
-   border-bottom-right-radius: 0px;
-   border-top-right-radius: 0px;
-   border:1px solid black;
-   color:black;
+padding: 10px;
+background: transparent;
+text-align: center;
+/* box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28),
+0 4px 20px 0px rgba(0, 0, 0, 0.12), 
+0 7px 8px -5px rgba(156, 39, 176, 0.2); */
+border-radius: 3px;
+border-top-left-radius: 0px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+border-top-right-radius: 0px;
+border:1px solid black;
+color:black;
 }
 
 .nav-option li a i{
-  margin: -1px 5px 0 0;
-  vertical-align: middle;
-  padding: 0 10px;
+margin: -1px 5px 0 0;
+vertical-align: middle;
+padding: 0 10px;
 }
 .nav-option li:focus {
-  outline: -webkit-focus-ring-color auto 0px!important;
+outline: -webkit-focus-ring-color auto 0px!important;
 }
 .nav-option li a:focus, .nav-option li a:hover{
-  color: black!important;
+color: black!important;
 }
 
 .nav-option li a{
-  background: transparent;
-  box-shadow: 0px;
-  text-decoration: none;
-  box-shadow: 0 0 0 0 rgba(156, 39, 176, 0.28),
-  0 0 0 0 rgba(0, 0, 0, 0.12), 
-  0 0 0 0 rgba(156, 39, 176, 0.2);
-  /* color:black; */
+background: transparent;
+box-shadow: 0px;
+text-decoration: none;
+box-shadow: 0 0 0 0 rgba(156, 39, 176, 0.28),
+0 0 0 0 rgba(0, 0, 0, 0.12), 
+0 0 0 0 rgba(156, 39, 176, 0.2);
+/* color:black; */
 
-  
+
 }
 .activeList{
-  background:#9c27b0!important;
-  box-shadow:  0 12px 20px -10px rgba(156, 39, 176, 0.28),
-  0 4px 20px 0px rgba(0, 0, 0, 0.12), 
-  0 7px 8px -5px rgba(156, 39, 176, 0.2)!important;
-  color:white!important;
-  }
-  
-  .activeList:focus{
-    outline: -webkit-focus-ring-color auto 0px!important;
-  }
+background:#9c27b0!important;
+box-shadow:  0 12px 20px -10px rgba(156, 39, 176, 0.28),
+0 4px 20px 0px rgba(0, 0, 0, 0.12), 
+0 7px 8px -5px rgba(156, 39, 176, 0.2)!important;
+color:white!important;
+}
 
-  .table-card{
-  display: inline-block;
-  position: relative;
-  width: 100%;
-  margin: 25px 0;
-  margin-top: 60px;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
-  border-radius:3px!important;
-  color: rgba(0, 0, 0, 0.87)!important;
-  background: #fff;
-  font-weight: 300;
-  padding: 0px;
-  }
-  
-  .table-card .card-header{
-      background:    linear-gradient(60deg, #ab47bc, #8e24aa);
-        box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 
-        0 4px 20px 0px rgba(0, 0, 0, 0.12)
-        , 0 7px 8px -5px rgba(156, 39, 176, 0.2);
-        color: #FFFFFF;
-        margin: -40px 15px 0;
-        border-radius:3px!important;
-        padding: 15px;
-    }
-    .table-card .card-header a{
-      color: #FFFFFF;
-    }
+.activeList:focus{
+outline: -webkit-focus-ring-color auto 0px!important;
+}
+
+.table-card{
+display: inline-block;
+position: relative;
+width: 100%;
+margin: 25px 0;
+margin-top: 60px;
+box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+border-radius:3px!important;
+color: rgba(0, 0, 0, 0.87)!important;
+background: #fff;
+font-weight: 300;
+padding: 0px;
+}
+
+.table-card .card-header{
+  background:    linear-gradient(60deg, #ab47bc, #8e24aa);
+    box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 
+    0 4px 20px 0px rgba(0, 0, 0, 0.12)
+    , 0 7px 8px -5px rgba(156, 39, 176, 0.2);
+    color: #FFFFFF;
+    margin: -40px 15px 0;
+    border-radius:3px!important;
+    padding: 15px;
+}
+.table-card .card-header a{
+  color: #FFFFFF;
+}
+tr[hidden-tr]{
+  display: none;
+}
+
+.hover-tr:hover tr[hidden-tr]{
+  display: table-row;
+  transition:0.4s ease-in;
+}

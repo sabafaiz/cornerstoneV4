@@ -28,10 +28,3 @@
   display: inline-block;
 }
 
-tr[hidden-tr]{
-    display: none;
-}
-
-.hover-tr:hover tr[hidden-tr]{
-    display: table-row;
-}

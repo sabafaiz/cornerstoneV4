@@ -126,15 +126,15 @@
             <th>Due Date</th>
           </tr>
         </thead>
-        <tbody *ngFor="let poll of polls;let p=index;">
+        <tbody class="hover-tr" *ngFor="let poll of polls;let p=index;">
           <tr>
-            <td>{{poll.createdAt}}</td>
+            <td>{{poll.createdAt | date}}</td>
             <td>{{poll.typeName}}</td>
             <td>{{poll.optionTypeName}}</td>
             <!-- <td><span *ngFor="let std of poll.standards;let s=index;">{{std.name}}</span></td> -->
             <td>{{poll.expiredAt | date}}</td>
           </tr>
-          <tr>
+          <tr hidden-tr>
             <td colspan="4">
               <div class="row">
                 <div class="col-sm-6">

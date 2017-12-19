@@ -36,10 +36,10 @@
           <div class="parent-header">
             <h5 class="card-title">Parent Details</h5>
           </div>
-          <div class="form-group" formArrayName="parent">
-            <div class="row arrayRow" *ngFor="let par of newStudentForm.controls.parent['controls']; let i=index;" [formGroupName]="i">
-              <div class="row arrayForm">
-                <div class="col-sm-2">
+          <div class="form-group" formArrayName="parent" style="margin-top:120px;">
+            <div class="row" *ngFor="let par of newStudentForm.controls.parent['controls']; let i=index;" [formGroupName]="i">
+              <div class="row">
+                <div class="col-sm-4">
                     <label for="fname">Parent's Name</label>
                 </div>
                 <div class="col-sm-8">

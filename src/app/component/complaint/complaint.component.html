@@ -81,13 +81,12 @@
                   <td colspan="8">
                     <span class="empty" *ngIf="(EmptyComplaints)&&(!loader)&&(currentPage==1)">No Complaints are added to the view.</span>
                     <span class="empty" *ngIf="(EmptyComplaints)&&(!loader)&&(currentPage!=1)">No more Complaints are added to the view.</span>
-                    <button (click)="nextComplaint()" type="button" *ngIf="!EmptyComplaints && !noMore" class="btn btn-primary load-btn">Load More</button>
+                    
                   </td>
                 </tr>
               </tfoot>
             </table>
-            <!-- <button class="btn btn-primary btn-block">load</button> -->
-            <!-- load more button -->
+            <button (click)="nextComplaint()" type="button" *ngIf="!EmptyComplaints && !noMore" class="btn btn-primary load-btn">Load More</button>
             <div class="text-center">
               
             </div>

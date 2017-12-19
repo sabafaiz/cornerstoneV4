@@ -28,3 +28,13 @@
   display: inline-block;
 }
 
+.load-btn{
+    margin-bottom: -19px;
+    background: #9c27b0;
+    border-color:#9c27b0; 
+}
+
+.btn-primary:not([disabled]):not(.disabled):active{
+    background: #9c27b0;
+    border-color:#9c27b0; 
+}

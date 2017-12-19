@@ -117,7 +117,7 @@
         <loader [condition]="loader"></loader>
       </div>
       <table class="table table-hover">
-        <thead>
+        <thead *ngIf="!emptyPolls">
           <tr>
             <th>Created At</th>
             <th>Poll For</th>
@@ -126,15 +126,15 @@
             <th>Due Date</th>
           </tr>
         </thead>
-        <tbody *ngFor="let poll of polls;let p=index;">
+        <tbody class="hover-tr" *ngFor="let poll of polls;let p=index;">
           <tr>
-            <td>{{poll.createdAt}}</td>
+            <td>{{poll.createdAt | date}}</td>
             <td>{{poll.typeName}}</td>
             <td>{{poll.optionTypeName}}</td>
             <!-- <td><span *ngFor="let std of poll.standards;let s=index;">{{std.name}}</span></td> -->
             <td>{{poll.expiredAt | date}}</td>
           </tr>
-          <tr>
+          <tr hidden-tr>
             <td colspan="4">
               <div class="row">
                 <div class="col-sm-6">
@@ -145,7 +145,7 @@
                 </div>
                 <div class="col-sm-6">
 
-                  <label>Option</label><br>
+                  <b>Options :</b><br>
                   <div class="option-list" *ngFor="let o of poll.options;let op=index;">
                     {{op+1}}) {{o.name}}
                     <div class="progress">
@@ -159,8 +159,16 @@
           </tr>
         </tbody>
         <tfoot>
-
+          <tr>
+            <td colspan="4">
+              <span class="text-center" *ngIf="(emptyPolls)&&(!loader)&&(currentPage==1)"><b>No Polls are added to the view.</b></span>
+              <span class="text-center" *ngIf="(emptyPolls)&&(!loader)&&(currentPage!=1)"><b>No more Polls are added to the view.</b></span>
+            </td>
+          </tr>          
         </tfoot>
-      </table>
+        </table>
+        <div class="text-center">
+          <button type="button" (click)="nextPoll()" *ngIf="!emptyPolls && !noMore" class="btn btn-primary">Load More</button>
+        </div>
     </div>
 </div>

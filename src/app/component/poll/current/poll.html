@@ -115,7 +115,7 @@
         <loader [condition]="loader"></loader>
       </div>
       <table class="table table-hover">
-        <thead>
+        <thead *ngIf="!emptyPolls">
           <tr>
             <th>Created At</th>
             <th>Poll For</th>
@@ -132,11 +132,41 @@
             <!-- <td><span *ngFor="let std of poll.standards;let s=index;">{{std.name}}</span></td> -->
             <td>{{poll.expiredAt | date}}</td>
           </tr>
+          <tr hidden-tr>
+            <td colspan="4">
+              <div class="row">
+                <div class="col-sm-6">
+                  <label>Question:</label>
+                  <span> {{poll.question}}</span><br>
+                  <label>Standards:</label>
+                  <span *ngFor="let std of poll.standards;let s=index;">{{std.name}}</span>
+                </div>
+                <div class="col-sm-6">
 
+                  <b>Options :</b><br>
+                  <div class="option-list" *ngFor="let o of poll.options;let op=index;">
+                    {{op+1}}) {{o.name}}
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="o.percent" [style.width]="o.percent+'%'" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                  </div>
+
+                </div>
+              </div>
+            </td>
+          </tr>
         </tbody>
         <tfoot>
-
+          <tr>
+            <td colspan="4">
+              <span class="text-center" *ngIf="(emptyPolls)&&(!loader)&&(currentPage==1)"><b>No Polls are added to the view.</b></span>
+              <span class="text-center" *ngIf="(emptyPolls)&&(!loader)&&(currentPage!=1)"><b>No more Polls are added to the view.</b></span>
+            </td>
+          </tr>          
         </tfoot>
       </table>
+      <div class="text-center">
+        <button type="button" (click)="nextPoll()" *ngIf="!emptyPolls && !noMore" class="btn btn-primary">Load More</button>
+      </div>
     </div>
 </div>

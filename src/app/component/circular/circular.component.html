@@ -29,7 +29,7 @@
           </thead>
           <tbody *ngFor="let circular of circulars;let c=index;">
             <tr class="tr-row">
-              <td>{{circular.createdAt| date :'dd-mm-yyyy'}}</td>
+              <td>{{circular.createdAt| date}}</td>
               <td>
                 <img src="assets/img/studentpic.png">
                 <br> {{circular.employeeName}}</td>
@@ -56,6 +56,9 @@
             </tr>
           </tfoot>
         </table>
+        <div class="text-center">
+          <button (click)="nextCircular()" class="btn btn-primary" *ngIf="!EmptyCirculars && !noMore">Load More</button>
+        </div>
       </div>
     </div>
   </div>

@@ -141,6 +141,7 @@ padding: 0px;
     /* border:1px solid blue; */
     overflow:initial;
     /* height:initial; */
-    white-space:initial;
-    text-overflow: initial; 
+    white-space:pre-wrap;
+    text-overflow: initial;
+    text-align: -webkit-auto;
   }

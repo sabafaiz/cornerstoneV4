@@ -38,7 +38,7 @@ export class AccountComponent implements OnInit, OnDestroy {
         public  router: Router,
         public  route: ActivatedRoute,
     private barLoaderService:BarLoaderService ) {
-          
+          this.ls.setLoader(false);
         this.url = this.router.url;
 
     }

@@ -21,6 +21,7 @@ export class ByMeComponent extends ComplaintComponent implements OnDestroy, OnIn
     public  route: ActivatedRoute,
     public barLoaderService:BarLoaderService) {
     super(cs,ls,router,route,barLoaderService);
+    this.ls.setLoader(false);    
     if(this.url == "/appreciation/for-student") this.url = "/appreciation/for-student";
   }  
 

@@ -4,6 +4,7 @@ import { CircularService } from '../../../providers/circular.service';
 import { CommonService } from '../../../providers/common.service';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { LoaderStop } from '../../../providers/loaderstop.service';
 
 declare let $: any;
 
@@ -32,7 +33,10 @@ export class AddCircular implements OnInit, AfterViewInit {
   constructor(public circserv: CircularService,
     public commonService: CommonService,
     public _location: Location,
-    public  router: Router, ) { }
+    public  router: Router,
+    public ls: LoaderStop, ) { 
+      this.ls.setLoader(false);      
+    }
 
   ngOnInit() {
     this.circular = this.initForm();

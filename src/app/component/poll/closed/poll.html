@@ -134,6 +134,29 @@
             <!-- <td><span *ngFor="let std of poll.standards;let s=index;">{{std.name}}</span></td> -->
             <td>{{poll.expiredAt | date}}</td>
           </tr>
+          <tr>
+            <td colspan="4">
+              <div class="row">
+                <div class="col-sm-6">
+                  <label>Question:</label>
+                  <span> {{poll.question}}</span><br>
+                  <label>Standards:</label>
+                  <span *ngFor="let std of poll.standards;let s=index;">{{std.name}}</span>
+                </div>
+                <div class="col-sm-6">
+
+                  <label>Option</label><br>
+                  <div class="option-list" *ngFor="let o of poll.options;let op=index;">
+                    {{op+1}}) {{o.name}}
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="o.percent" [style.width]="o.percent+'%'" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                  </div>
+
+                </div>
+              </div>
+            </td>
+          </tr>
         </tbody>
         <tfoot>
 

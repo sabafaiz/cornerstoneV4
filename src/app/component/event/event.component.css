@@ -82,3 +82,7 @@ input[type=file]{
 }
 
 /* new code by saba */
+
+.modal-header .close{
+    color:black;
+}

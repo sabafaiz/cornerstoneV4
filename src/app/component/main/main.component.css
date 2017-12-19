@@ -575,3 +575,8 @@ left: 50%;
     position: fixed;
     z-index: 999
 }
+.btn-confirm{
+    color: #fff;
+    background-color: #9c27b0!important; 
+    border-color: #9c27b0!important; 
+}

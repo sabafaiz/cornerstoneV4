@@ -31,6 +31,7 @@
    border-top-right-radius: 0px;
    border:1px solid black;
    color:black;
+   cursor: pointer;
 }
 
 .nav-option li a i{
@@ -100,6 +101,7 @@ background:    linear-gradient(60deg, #ab47bc, #8e24aa);
   padding: 0;
   border: 0!important;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .nav-tabs>li>a{

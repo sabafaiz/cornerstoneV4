@@ -36,11 +36,13 @@
           <div class="parent-header">
             <h5 class="card-title">Parent Details</h5>
           </div>
+          
           <div class="form-group" formArrayName="parent" style="margin-top:120px;">
             <div class="row" *ngFor="let par of newStudentForm.controls.parent['controls']; let i=index;" [formGroupName]="i">
-              <div class="row">
-                <div class="col-sm-4">
-                    <label for="fname">Parent's Name</label>
+              <div class="col-sm-12">
+              <div class="row" style="margin-top:15px;">
+                <div class="col-sm-2">
+                    <label>Parent's Name</label>
                 </div>
                 <div class="col-sm-8">
                     <input type="text" id="fname" class="form-control" placeholder="Enter Parent's Name" formControlName="name">
@@ -49,7 +51,7 @@
                 </div>
               </div>
 
-              <div class="row">
+              <div class="row" style="margin-top:15px;">
                 <div class="col-sm-2">
                     <label for="nickname">Parent's Nick Name</label>
                 </div>
@@ -58,7 +60,7 @@
                 </div>
               </div>
 
-              <div class="row">
+              <div class="row" style="margin-top:15px;">
                 <div class="col-sm-2">
                     <label for="ename">Parent's Contact Number</label>
                 </div>
@@ -71,7 +73,7 @@
               </div>
             </div>
 
-            <div class="row">
+            <div class="row" style="margin-top:15px;">
               <div class="col-sm-2">
                   <label for="cname">Parent's Email ID</label>
               </div>
@@ -84,18 +86,17 @@
               </div>
             </div>
 
-            <div class="row">
-                <button type="button" [disabled]="newStudentForm.controls.parent.length == 1" class="btn btn-primary active pull-right" (click)="removeParent(newStudentForm,i)">
+            <div class="row" style="margin-top:20px;">
+                <button type="button" [disabled]="newStudentForm.controls.parent.length == 1" class="btn btn-success active btn-parent" (click)="removeParent(newStudentForm,i)">
                     Delete Parent
                   </button>
-              </div>
-              <div class="row" style="margin:5% 5% 0% 5%;">
-                  <button type="button" [disabled]="((newStudentForm.invalid)||(newStudentForm.controls.parent['controls'].length==3))" class="btn btn-primary active"
+                  <button type="button" [disabled]="((newStudentForm.invalid)||(newStudentForm.controls.parent['controls'].length==3))" class="btn btn-success active btn-parent"
                     (click)="addParent(newStudentForm)">
                             Add Parent
                     </button>
                 </div>
           </div>
+        </div>
         </div>
         </div>
 

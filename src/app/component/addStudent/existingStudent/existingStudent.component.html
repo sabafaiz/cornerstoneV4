@@ -58,144 +58,20 @@
       </div>
       <!-- all -detail card -->
       <div class="row" *ngIf="selectedStudent && showSearch">
-          <ul class="nav nav-tabs" role="tablist" style="width:100%;border:none!important;">
-              <li class="nav-item" style="width:33%">
-                <a class="nav-link active" data-toggle="tab" href="#home">Student Deatils</a>
-              </li>
-              <li class="nav-item" style="width:33%">
-                <a class="nav-link" data-toggle="tab" href="#menu1">Sibling Details</a>
-              </li>
-              <li class="nav-item" style="width:33%">
-                <a class="nav-link" data-toggle="tab" href="#menu2">Praent Details</a>
-              </li>
-            </ul>
-          
-            <!-- Tab panes -->
-            <div class="tab-content" style="width:100%">
-              <div id="home" class="container tab-pane active"><br>
-                <div class="card card-body student-card">
-                    <div class="profile-pic">
-                      <img *ngIf="selectedStudent.picTimestamp" [attr.src]="fileUrl+'/' + selectedStudent.picTimestamp" class="profilePic" data-target='#uploadStudentModal'
-                        data-toggle='modal' (click)="selectedImageUpload=selectedStudent;uploadPicForm.controls['file'].reset();">
-                      <img *ngIf="!selectedStudent.picTimestamp" [attr.src]="fileUrl+'/parent%2f39945169084408330481.jpg?alt=media'" class="profilePic"
-                        data-target='#uploadParentModal' data-toggle='modal' (click)="selectedImageUpload=selectedStudent;uploadPicForm.controls['file'].reset();">
-                      <a data-target='#uploadParentModal' data-toggle='modal'><i class="glyphicon glyphicon-pencil"></i></a>
-                    </div>
-                    <table class="profile-table">
-                      <tbody>
-                        <tr>
-                          <td>Name :</td>
-                          <td> {{selectedStudent.name}}</td>
-                        </tr>
-                        <tr>
-                          <td>Standard :</td>
-                          <td><span *ngFor="let s of standards"><span *ngIf="s.id==selectedStudent.standardId">{{s.name}}</span></span>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <button type="button" class="btn btn-outline-info center-block btn-edit" data-toggle="modal" data-target="#editSiblingModal"
-                      (click)="selectedSibling = selectedStudent;initEditStudentForm()">Edit</button>
-      
-                  </div>
-              </div>
-              <div id="menu1" class="container tab-pane fade"><br>
-                <div class="card card-body student-card" *ngIf="selectedStudent.siblings.length==0">
-                    No Sibling Added.
-                  </div>
-               
-                <div class="card card-body student-card" *ngFor="let s of selectedStudent.siblings">
-                  <div class="profile-pic">
-                    <img *ngIf="s.picTimestamp" [attr.src]="fileUrl+'/' + s.picTimestamp" class="profilePic1" data-target='#uploadStudentModal'
-                      data-toggle='modal' (click)="selectedImageUpload=s;uploadPicForm.controls['file'].reset();">
-                    <img *ngIf="!s.picTimestamp" [attr.src]="fileUrl+'/parent%2f39945169084408330481.jpg?alt=media'" class="profilePic1" data-target='#uploadStudentModal'
-                      data-toggle='modal' (click)="selectedImageUpload=s;uploadPicForm.controls['file'].reset();">
-                    <a data-target='#uploadStudentModal' data-toggle="modal"><i class="glyphicon glyphicon-pencil"></i></a>
-                  </div>
-      
-                  <table class="profile-table">
-                    <tbody>
-                      <tr>
-                        <td>Name :</td>
-                        <td> {{s.name}}</td>
-                      </tr>
-                      <tr>
-                        <td>Standard :</td>
-                        <td><span *ngFor="let p of standards"><span *ngIf="p.id==s.standardId">{{p.name}}</span></span>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <button type="button" class="btn btn-outline-info center-block btn-edit" data-target="#editSiblingModal" (click)="selectedSibling = s;initEditStudentForm()">Edit</button>
-                </div>
-              </div>
-              
-              <div id="menu2" class="container tab-pane fade">
-                <div class="row">
-                <div class="col-sm-6" *ngFor="let p of selectedStudent.parents">
-                  <div class="card card-body student-card">
-                    <div class="profile-pic">
-                      <img *ngIf="p.picTimestamp" [attr.src]="fileUrl+'/' + p.picTimestamp" class="profilePic1" data-target='#uploadParentModal'
-                        (click)="selectedImageUpload=p;uploadPicForm.controls['file'].reset();" data-toggle='modal'>
-                      <img *ngIf="!p.picTimestamp" [attr.src]="fileUrl+'/parent%2f39945169084408330481.jpg?alt=media'" class="profilePic1" data-target='#uploadParentModal'
-                        (click)="selectedImageUpload=p;uploadPicForm.controls['file'].reset();" data-toggle='modal'>
-                      <a data-target='#uploadParentModal' data-toggle='modal'><i class="glyphicon glyphicon-pencil"></i></a>
-                    </div>
-                    <table class="profile-table">
-                      <tbody>
-                        <tr>
-                          <td>Name :</td>
-                          <td><span>
-                              <p *ngIf="(p.name==null)||(p.name=='')"></p>
-                              <p *ngIf="p.name!=null">{{p.name}}-</p>
-                            </span></td>
-                        </tr>
-                        <tr>
-                          <td>Nickname :</td>
-                          <td>
-                            <span>
-                                  <p *ngIf="(p.nickName==null)||(p.nickName=='')">-</p>
-                                  <p *ngIf="p.nickName!=null">{{p.nickName}}</p>
-                                </span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Contact Number :</td>
-                          <td>{{p.contactNo}}</td>
-                        </tr>
-                        <tr>
-                          <td>Email ID :</td>
-                          <td>
-                            <span>
-                                  <p *ngIf="(p.email==null)||(p.email=='')">-</p>
-                                  <p *ngIf="p.email!=null">{{p.email}}</p>
-                                  </span>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <button type="button" class="btn btn-outline-info center-block btn-edit" data-toggle="modal" data-target="#editParentModal"
-                      (click)="selectedParent = p;initEditParentForm()">Edit</button>
-                  </div>
-                </div>
-              </div>
-              </div>
-           
-            </div>
-              
-      </div>
-      <div class="row" *ngIf="selectedStudent && showSearch">
-          <div class="col-sm-12">
-              <button type="button" class="btn btn-warning" (click)="addForm=1;initAddSiblingForm()"  [ngClass]="{'selectedbtn': (addForm === 1) }" *ngIf="siblingLimit!=0">Add sibling</button>
-              <button type="button" class="btn btn-success"(click)="addForm=2;initAddParentForm()"  [ngClass]="{ 'selectedbtn': (addForm === 2) }" *ngIf="parentLimit!=0">Add Parent</button>
-            </div>
-        </div> 
-      <!-- <div class="row" *ngIf="selectedStudent && showSearch">
-        <div class="col-sm-4">
-          <a class="btn btn-primary btn-detail" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            Student Details
-            </a>
-          <div class="collapse" id="collapseExample">
+        <ul class="nav nav-tabs" role="tablist" style="width:100%;border:none!important;">
+          <li class="nav-item" style="width:33%">
+            <a class="nav-link active" data-toggle="tab" href="#home">Student Deatils</a>
+          </li>
+          <li class="nav-item" style="width:33%">
+            <a class="nav-link" data-toggle="tab" href="#menu1">Sibling Details</a>
+          </li>
+          <li class="nav-item" style="width:33%">
+            <a class="nav-link" data-toggle="tab" href="#menu2">Praent Details</a>
+          </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content" style="width:100%">
+          <div id="home" class="container tab-pane active"><br>
             <div class="card card-body student-card">
               <div class="profile-pic">
                 <img *ngIf="selectedStudent.picTimestamp" [attr.src]="fileUrl+'/' + selectedStudent.picTimestamp" class="profilePic" data-target='#uploadStudentModal'
@@ -222,104 +98,95 @@
 
             </div>
           </div>
-
-        </div>
-        <div class="col-sm-4" *ngIf="selectedStudent.siblings">
-          <a class="btn btn-primary  btn-detail" data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
-              Sibling Details
-            </a>
-          <div class="collapse" id="collapseExample2">
+          <div id="menu1" class="container tab-pane fade"><br>
             <div class="card card-body student-card" *ngIf="selectedStudent.siblings.length==0">
               No Sibling Added.
             </div>
-         
-          <div class="card card-body student-card" *ngFor="let s of selectedStudent.siblings">
-            <div class="profile-pic">
-              <img *ngIf="s.picTimestamp" [attr.src]="fileUrl+'/' + s.picTimestamp" class="profilePic1" data-target='#uploadStudentModal'
-                data-toggle='modal' (click)="selectedImageUpload=s;uploadPicForm.controls['file'].reset();">
-              <img *ngIf="!s.picTimestamp" [attr.src]="fileUrl+'/parent%2f39945169084408330481.jpg?alt=media'" class="profilePic1" data-target='#uploadStudentModal'
-                data-toggle='modal' (click)="selectedImageUpload=s;uploadPicForm.controls['file'].reset();">
-              <a data-target='#uploadStudentModal' data-toggle="modal"><i class="glyphicon glyphicon-pencil"></i></a>
-            </div>
-
-            <table class="profile-table">
-              <tbody>
-                <tr>
-                  <td>Name :</td>
-                  <td> {{s.name}}</td>
-                </tr>
-                <tr>
-                  <td>Standard :</td>
-                  <td><span *ngFor="let p of standards"><span *ngIf="p.id==s.standardId">{{p.name}}</span></span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <button type="button" class="btn btn-outline-info center-block btn-edit" data-target="#editSiblingModal" (click)="selectedSibling = s;initEditStudentForm()">Edit</button>
-          </div>
-        </div>
-        </div>
-        <div class="col-sm-4">
-          <a class="btn btn-primary  btn-detail" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
-             Parents Details
-            </a>
-          <div class="collapse" id="collapseExample1">
-            <div class="card card-body student-card" *ngFor="let p of selectedStudent.parents">
+            <div class="card card-body student-card" *ngFor="let s of selectedStudent.siblings">
               <div class="profile-pic">
-                  <img *ngIf="p.picTimestamp" [attr.src]="fileUrl+'/' + p.picTimestamp" class="profilePic1" data-target='#uploadParentModal'
-                  (click)="selectedImageUpload=p;uploadPicForm.controls['file'].reset();" data-toggle='modal'>
-                <img *ngIf="!p.picTimestamp" [attr.src]="fileUrl+'/parent%2f39945169084408330481.jpg?alt=media'" class="profilePic1" data-target='#uploadParentModal'
-                  (click)="selectedImageUpload=p;uploadPicForm.controls['file'].reset();" data-toggle='modal'>
-                <a data-target='#uploadParentModal' data-toggle='modal'><i class="glyphicon glyphicon-pencil"></i></a>
+                <img *ngIf="s.picTimestamp" [attr.src]="fileUrl+'/' + s.picTimestamp" class="profilePic1" data-target='#uploadStudentModal'
+                  data-toggle='modal' (click)="selectedImageUpload=s;uploadPicForm.controls['file'].reset();">
+                <img *ngIf="!s.picTimestamp" [attr.src]="fileUrl+'/parent%2f39945169084408330481.jpg?alt=media'" class="profilePic1" data-target='#uploadStudentModal'
+                  data-toggle='modal' (click)="selectedImageUpload=s;uploadPicForm.controls['file'].reset();">
+                <a data-target='#uploadStudentModal' data-toggle="modal"><i class="glyphicon glyphicon-pencil"></i></a>
               </div>
+
               <table class="profile-table">
                 <tbody>
                   <tr>
                     <td>Name :</td>
-                    <td><span>
-                        <p *ngIf="(p.name==null)||(p.name=='')"></p>
-                        <p *ngIf="p.name!=null">{{p.name}}-</p>
-                      </span></td>
+                    <td> {{s.name}}</td>
                   </tr>
                   <tr>
-                    <td>Nickname :</td>
-                    <td>
-                        <span>
-                            <p *ngIf="(p.nickName==null)||(p.nickName=='')">-</p>
-                            <p *ngIf="p.nickName!=null">{{p.nickName}}</p>
-                          </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Contact Number :</td>
-                    <td>{{p.contactNo}}</td>
-                  </tr>
-                  <tr>
-                    <td>Email ID :</td>
-                    <td>
-                        <span>
-                            <p *ngIf="(p.email==null)||(p.email=='')">-</p>
-                            <p *ngIf="p.email!=null">{{p.email}}</p>
-                            </span>
+                    <td>Standard :</td>
+                    <td><span *ngFor="let p of standards"><span *ngIf="p.id==s.standardId">{{p.name}}</span></span>
                     </td>
                   </tr>
                 </tbody>
               </table>
-              <button type="button" class="btn btn-outline-info center-block btn-edit" data-toggle="modal" data-target="#editParentModal" (click)="selectedParent = p;initEditParentForm()">Edit</button>
+              <button type="button" class="btn btn-outline-info center-block btn-edit" data-target="#editSiblingModal" (click)="selectedSibling = s;initEditStudentForm()">Edit</button>
             </div>
           </div>
-
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-              <button type="button" class="btn btn-warning" (click)="addForm=1;initAddSiblingForm()"  [ngClass]="{'selectedbtn': (addForm === 1) }" *ngIf="siblingLimit!=0">Add sibling</button>
-              <button type="button" class="btn btn-success"(click)="addForm=2;initAddParentForm()"  [ngClass]="{ 'selectedbtn': (addForm === 2) }" *ngIf="parentLimit!=0">Add Parent</button>
+          <div id="menu2" class="container tab-pane fade">
+            <div class="row">
+              <div class="col-sm-6" *ngFor="let p of selectedStudent.parents">
+                <div class="card card-body student-card">
+                  <div class="profile-pic">
+                    <img *ngIf="p.picTimestamp" [attr.src]="fileUrl+'/' + p.picTimestamp" class="profilePic1" data-target='#uploadParentModal'
+                      (click)="selectedImageUpload=p;uploadPicForm.controls['file'].reset();" data-toggle='modal'>
+                    <img *ngIf="!p.picTimestamp" [attr.src]="fileUrl+'/parent%2f39945169084408330481.jpg?alt=media'" class="profilePic1" data-target='#uploadParentModal'
+                      (click)="selectedImageUpload=p;uploadPicForm.controls['file'].reset();" data-toggle='modal'>
+                    <a data-target='#uploadParentModal' data-toggle='modal'><i class="glyphicon glyphicon-pencil"></i></a>
+                  </div>
+                  <table class="profile-table">
+                    <tbody>
+                      <tr>
+                        <td>Name :</td>
+                        <td><span>
+                              <p *ngIf="(p.name==null)||(p.name=='')"></p>
+                              <p *ngIf="p.name!=null">{{p.name}}-</p>
+                            </span></td>
+                      </tr>
+                      <tr>
+                        <td>Nickname :</td>
+                        <td>
+                          <span>
+                                  <p *ngIf="(p.nickName==null)||(p.nickName=='')">-</p>
+                                  <p *ngIf="p.nickName!=null">{{p.nickName}}</p>
+                                </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Contact Number :</td>
+                        <td>{{p.contactNo}}</td>
+                      </tr>
+                      <tr>
+                        <td>Email ID :</td>
+                        <td>
+                          <span>
+                                  <p *ngIf="(p.email==null)||(p.email=='')">-</p>
+                                  <p *ngIf="p.email!=null">{{p.email}}</p>
+                                  </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button type="button" class="btn btn-outline-info center-block btn-edit" data-toggle="modal" data-target="#editParentModal"
+                    (click)="selectedParent = p;initEditParentForm()">Edit</button>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-      </div> -->
-      
-     
-
+      </div>
+      <div class="row" *ngIf="selectedStudent && showSearch" style="margin-top: 25px;">
+        <div class="col-sm-12">
+          <button type="button" class="btn btn-warning" (click)="addForm=1;initAddSiblingForm()" [ngClass]="{'selectedbtn': (addForm === 1) }"
+            *ngIf="siblingLimit!=0" data-toggle="modal" data-target="#exampleModal">Add sibling</button>
+          <button type="button" class="btn btn-success" (click)="addForm=2;initAddParentForm()" [ngClass]="{ 'selectedbtn': (addForm === 2) }"
+            *ngIf="parentLimit!=0">Add Parent</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

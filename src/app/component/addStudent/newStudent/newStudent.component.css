@@ -98,4 +98,11 @@ p{
   color: gray!important; 
   opacity: 1;
 }
+
+.btn-parent{
+  background-color: #de2667;
+  border-color: #e12b6c;
+  margin-left: 16px;
+}
+
 /* new code by saba */

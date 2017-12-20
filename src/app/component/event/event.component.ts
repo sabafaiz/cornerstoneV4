@@ -82,6 +82,7 @@ export class EventComponent implements OnInit, AfterViewInit, OnDestroy {
   }
   ngAfterViewInit() {
     _('#calendar').fullCalendar('renderEvents', this.calendarOptions.events, true);
+    
   }
 
   public calendarOptions: any = {
@@ -747,6 +748,7 @@ export class EventComponent implements OnInit, AfterViewInit, OnDestroy {
     var obj = {
       fileTimestamp: file.fileTimestamp
     }
+    if(confirm("Are you sure you want to remove this file ??"))
     this.eventService.removeimage(this.eventsInfo.id, file.fileTimestamp).subscribe((res: any) => {
       this.selectedEvent.files.splice(i, 1);
       this.getEvents();

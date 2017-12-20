@@ -94,6 +94,15 @@
           <td>{{a.dueDate|date}}</td>
         </tr>
       </tbody>
+      <tfoot *ngIf="!homeworks">
+        <tr>
+          <td colspan="5">
+            <div class="text-center"  >
+              No homeworks are added.
+            </div>
+          </td>
+        </tr>
+      </tfoot>
     </table>
   </div>
 </div>
@@ -101,7 +110,7 @@
 </div>
 
 <div class="modal fade" id="myModal-card" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content" *ngIf="selectedHomework">
       <div class="modal-header">
         <h4 class="modal-title" id="gridSystemModalLabel">{{selectedHomework.subjectName}}</h4>
@@ -109,8 +118,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body card-modal">
-        <div class="modal-heading">
+      <div class="modal-body">
+        <!-- <div class="modal-heading">
           <div class="row">
             <div style="top:20px" class="download-image-modal1">
 
@@ -181,7 +190,40 @@
         <div class=" row modal-class" style="font-size:15px;">
           <label>For : </label>
           <span>{{selectedHomework.standardName}}</span>
+        </div> -->
+
+      <div style="    padding: 0px 50px 0px 50px;">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" *ngIf="!selectedHomework.files"></li>
+            <li data-target="#demo" [attr.data-slide-to]="i" [ngClass]="i?'':'active'" *ngFor=" let x of selectedHomework.files ; let i=index"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item" class="active" *ngIf="!selectedHomework.files">
+              <img class="d-block img-fluid" src="assets/preview.png" alt="No Preview Avalable">
+            </div>
+            <div class="carousel-item" [ngClass]="k?'':'active'" *ngFor="let x of selectedHomework.files ; let k=index">
+              <img [attr.src]="fileUrl + selectedHomework.files[k].fileTimestamp" *ngIf="selectedHomework.files[k].fileOriginalName.substr(selectedHomework.files[k].fileOriginalName.length - 4) != '.pdf'">
+              <img src="assets/pdf1.jpg" *ngIf="selectedHomework.files[k].fileOriginalName.substr(selectedHomework.files[k].fileOriginalName.length - 4) == '.pdf'">
+              <div class="carousel-caption">
+                <h3>
+                  <a [attr.href]="fileUrl + selectedHomework.files[k].fileTimestamp">Download</a>
+                </h3>
+                <!-- <p>We had such a great time in LA!</p> -->
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
         </div>
+      </div>
+
+
+
       </div>
       <div class="row modal-description">
         <span class="white-space">{{selectedHomework.description}}</span>

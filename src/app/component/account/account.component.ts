@@ -105,6 +105,7 @@ export class AccountComponent implements OnInit, OnDestroy {
         formData.append('file', this.imgFile);
         this.au.uploadImage(formData).subscribe((res: any) => {
             localStorage.setItem('picUrl', localStorage.getItem('fileUrl') + "/" + res.fileTimestamp);
+            this.picUrl = localStorage.getItem('fileUrl')+ "/" + res.fileTimestamp;
             $('#myModal').modal('hide');
             this.uploadPicForm.reset();
             this.loader = false;

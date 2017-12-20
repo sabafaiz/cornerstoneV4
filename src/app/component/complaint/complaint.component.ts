@@ -22,7 +22,7 @@ export class ComplaintComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public  commentForm: FormGroup;
   public  EmptyComments: boolean = false;
-  public  complaintStatus: any;
+  public  complaintStatus: any = 0;
   public  complaintCategory: any;
   public  complaintsCOPY: any;
   public  EmptyComplaints: boolean = true;
@@ -38,7 +38,7 @@ export class ComplaintComponent implements OnInit, AfterViewInit, OnDestroy {
   public  fileUrl: string;
 
   public  url: string = "";
-  public  status: string = "";
+  public  status: any[]=["All","New","Assigned","InProgress","Closed","Reopen","Satisfied"];
   public  count: any = 0;
   constructor(public  cs: ComplaintService,
     public  ls : LoaderStop,  
@@ -53,15 +53,6 @@ export class ComplaintComponent implements OnInit, AfterViewInit, OnDestroy {
       if (param['categoryId']) this.complaintCategory = param['categoryId'];
       this.urlForComment = (this.router.url).split('/')[1];
     });
-    switch (this.complaintStatus) {
-      case '1': this.status = "New"; break;
-      case '2': this.status = "Assigned"; break;
-      case '3': this.status = "InProgress"; break;
-      case '4': this.status = "Closed"; break;
-      case '5': this.status = "Reopen"; break;
-      case '6': this.status = "Satisfied"; break;
-      default: this.status = "All"; break;
-    }
   }
 
   ngOnInit() {

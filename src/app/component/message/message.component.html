@@ -251,8 +251,6 @@
             <i class="material-icons">fiber_new</i>
           </button>
         </div>
-
-
       </div>
 
       <h6>Messages</h6>
@@ -296,7 +294,7 @@
       </div>
     </div>
     <div class="col-sm-8">
-      <div class="conversation-list" style="position:relative;" *ngIf="selectedOldRecipient.length">
+      <div class="conversation-list" style="position:relative;" *ngIf="selectedOldRecipient">
         <h4 class="title-head" style="padding-top:10px;">Your Message History with {{recipientName}}
           <button class="btn btn-default pull-right btn-close" data-target="#closeModal" data-toggle="modal" [disabled]="closed">
             <span class="close-btn-text">Close</span>

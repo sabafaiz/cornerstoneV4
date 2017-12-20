@@ -69,6 +69,7 @@
             <a class="nav-link" data-toggle="tab" href="#menu2">Praent Details</a>
           </li>
         </ul>
+
         <!-- Tab panes -->
         <div class="tab-content" style="width:100%">
           <div id="home" class="container tab-pane active"><br>
@@ -102,6 +103,7 @@
             <div class="card card-body student-card" *ngIf="selectedStudent.siblings.length==0">
               No Sibling Added.
             </div>
+
             <div class="card card-body student-card" *ngFor="let s of selectedStudent.siblings">
               <div class="profile-pic">
                 <img *ngIf="s.picTimestamp" [attr.src]="fileUrl+'/' + s.picTimestamp" class="profilePic1" data-target='#uploadStudentModal'
@@ -127,6 +129,7 @@
               <button type="button" class="btn btn-outline-info center-block btn-edit" data-target="#editSiblingModal" (click)="selectedSibling = s;initEditStudentForm()">Edit</button>
             </div>
           </div>
+
           <div id="menu2" class="container tab-pane fade">
             <div class="row">
               <div class="col-sm-6" *ngFor="let p of selectedStudent.parents">
@@ -187,9 +190,10 @@
             *ngIf="parentLimit!=0">Add Parent</button>
         </div>
       </div>
-    </div>
+   </div>
   </div>
 </div>
+<!-- new code by saba end -->
 
 
 
@@ -201,8 +205,7 @@
 
 
 
-<!-- new code by saba -->
-<div class="existing">
+<!-- <div class="existing">
   <div class="panel panel-default">
     <div class="panel-body">
       <div class="fixed">
@@ -230,7 +233,7 @@
         </div> -->
 
 
-          <div class="row searchStu">
+          <!-- <div class="row searchStu">
             <label>Student</label>
             <span class="badge" *ngIf="students && selectedStudent==null ">Total Students : {{totalStudents}}</span>
 
@@ -246,8 +249,8 @@
                       <li class="list-group-item" (click)="addForm=null;getStudentDetails(s.id)"> {{s.name}} </li> 
                   </span>
               </ul>
-            </div>
-
+            </div> -->
+<!-- 
             <div class="studentList" *ngIf="(dropdown)">
               <ul class="list-group">
                 <span *ngFor="let s of studentsCOPY">
@@ -258,9 +261,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- showing a table of detail after selecting view all student start -->
-      <div class="row" *ngIf=" !showSearch && showTable">
+      <!-- <div class="row" *ngIf=" !showSearch && showTable">
         <div>
           <div class="  col-sm-offset-5 col-sm-3 col-xs-6">
             <span class="badge" style="margin-top:32px;">Total Students : {{totalStudents}}</span>
@@ -275,9 +278,9 @@
             <option [value]="4">Only Student List</option>                                   
           </select>
           </div>
-        </div>
+        </div> -->
         <!-- table of all deatils -->
-        <div>
+        <!-- <div>
           <div class="row text-center">
             <loader [condition]="loader"></loader>
           </div>
@@ -295,7 +298,7 @@
                 <td><a><img class="student-image" [attr.src]="fileUrl+'/' + s.picTimestamp"></a></td>
                 <td>{{s.name}}</td>
                 <!-- <td *ngFor="let p of s.parents">{{p.name}}</td> -->
-                <td *ngIf="showParent && !showStudentOnly">
+                <!-- <td *ngIf="showParent && !showStudentOnly">
                   <table class="inner-table">
                     <thead>
                       <tr>
@@ -337,15 +340,15 @@
             </tbody>
           </table>
         </div>
-      </div>
+      </div> -->
       <!-- showing a table of detail after selecting view all student end-->
 
 
-      <div class="row" *ngIf="selectedStudent && showSearch">
+      <!-- <div class="row" *ngIf="selectedStudent && showSearch">
         <div class="panel-group" id="accordion" *ngIf="selectedStudent" style="margin:5%;">
           <div class="panel panel-default">
             <!-- <div class="row text-center"><loader [condition]="loader"></loader></div> -->
-            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
+            <!-- <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
               <h4 class="panel-title">
                 Student Details
               </h4>
@@ -362,9 +365,9 @@
                           data-target='#uploadParentModal' data-toggle='modal' (click)="selectedImageUpload=selectedStudent;uploadPicForm.controls['file'].reset();">
                         <a data-target='#uploadParentModal' data-toggle='modal'><i class="glyphicon glyphicon-pencil"></i></a>
                       </td>
-                    </tr>
+                    </tr> -->
 
-                    <tr>
+                    <!-- <tr>
                       <td>
                         <label for="sname1">Name</label>
                         <p>{{selectedStudent.name}}</p>
@@ -382,8 +385,8 @@
                 </table>
               </div>
             </div>
-          </div>
-          <div class="panel panel-default" *ngIf="selectedStudent.siblings">
+          </div> -->
+          <!-- <div class="panel panel-default" *ngIf="selectedStudent.siblings">
             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo">
               <h4 class="panel-title">
                 Sibling Details
@@ -423,8 +426,8 @@
 
               </div>
             </div>
-          </div>
-          <div class="panel panel-default">
+          </div> -->
+          <!-- <div class="panel panel-default">
             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree">
               <h4 class="panel-title">
                 Parent Details
@@ -448,8 +451,8 @@
                       <p *ngIf="p.name!=null">{{p.name}}</p>
                     </span>
                     </td>
-                    <td>
-                      <label for="stnd3">Nickname</label>
+                    <td> -->
+                      <!-- <label for="stnd3">Nickname</label>
                       <span>
                       <p *ngIf="(p.nickName==null)||(p.nickName=='')">-</p>
                       <p *ngIf="p.nickName!=null">{{p.nickName}}</p>
@@ -477,9 +480,9 @@
               </table>
             </div>
           </div>
-        </div>
+        </div> -->
 
-
+<!-- 
         <div class="row">
           <div style="position:relative;margin:auto;left:0;right:0;width:300px">
             <a (click)="addForm=1;initAddSiblingForm()" class="button" [ngClass]="{'selectedbtn': (addForm === 1) }" *ngIf="siblingLimit!=0">
@@ -490,11 +493,11 @@
             <span>Add Parents</span>
           </a>
           </div>
-        </div>
+        </div> --> 
 
         <!--Add Sibling Form-->
 
-        <div style="border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;" *ngIf="addForm === 1">
+        <!-- <div style="border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;" *ngIf="addForm === 1">
           <form [formGroup]="addSiblingForm" (submit)="submitSibling();addForm=null;">
             <br>
             <div class="form-group col-sm-12" formArrayName="students">
@@ -506,8 +509,8 @@
                     <div [hidden]="addSiblingForm.controls.students.controls[i].controls.name.valid || addSiblingForm.controls.students.controls[i].controls.name.untouched || addSiblingForm.controls.students.controls[i].controls.name.pristine"
                       class="alert alert-warning">This field is required</div>
 
-                  </div>
-                  <div class="form-group col-sm-5">
+                  </div> -->
+                  <!-- <div class="form-group col-sm-5">
                     <label for="stnd5">Select Standard</label>
                     <select id="stnd" class="form-control" formControlName="standardId">
                         <option disabled="disabled" selected="selected">Select Standard</option>                                 
@@ -524,9 +527,9 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
-            <div class="row" style="margin:5% 5% 0% 5%;">
+            <!-- <div class="row" style="margin:5% 5% 0% 5%;">
               <button type="submit" [disabled]="addSiblingForm.invalid" class="btn btn-success pull-right">Submit</button>
               <button type="button" [disabled]="((addSiblingForm.invalid)||(addSiblingForm.controls.students.length==5))" class="btn btn-primary active"
                 (click)="addSibling(addSiblingForm);">
@@ -534,24 +537,20 @@
                </button>
             </div>
           </form>
-        </div>
+        </div> -->
 
         <!--Add Parent Form-->
-        <div style="border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;" *ngIf="addForm === 2">
+        <!-- <div style="border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;" *ngIf="addForm === 2">
 
           <form [formGroup]="addParentForm" (submit)="submitParentForm();addForm=null;">
 
             <br>
 
-            <div class="form-group col-sm-12">
+            <div class="form-group col-sm-12"> -->
 
-              <!--
-              <label for="stnd">Select Parent</label>
-              <select id="stnd" class="form-control" [(ngModel)]="parent" [ngModelOptions]="{standalone: true}" (ngModelChange)="onParent($event,i)">
-            <option *ngFor="let p of parents" [value]="p.name">{{p.name}}</option>
-          </select>-->
+              
 
-              <div class="arrayForm">
+              <!-- <div class="arrayForm">
                 <div class="form-group col-sm-12">
                   <label for="fname1">Parent's Name</label>
                   <input type="text" id="fname1" class="form-control" placeholder="Enter Parent's Name" formControlName="name">
@@ -585,7 +584,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
 
@@ -769,4 +768,4 @@
       </div>
     </div>
   </div>
-</div>
+<!-- </div> -->

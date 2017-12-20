@@ -1,3 +1,12 @@
+@keyframes dropDown{
+    from{
+        height:0px;
+    }
+    to{
+        height:
+    }
+}
+
 .form-group{
     border-style: none;
     background-color: inherit;
@@ -134,7 +143,7 @@ padding: 0px;
       text-overflow: ellipsis; 
       /* border: 1px solid #000000; */
       max-width: 500px;
-      transition:0.4s ease-in;
+   transition: 10s ;
   }
   
   .tr-row:hover td[block] {

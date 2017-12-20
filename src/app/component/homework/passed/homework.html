@@ -79,7 +79,7 @@
         <tr (click)="seletToExpand(a,i)" data-toggle="modal" data-target="#myModal-card">
           <td>{{a.createdAt|date}}</td>
           <td style="padding-bottom: 2px;padding-top: 2px;">
-            <div class="files">
+            <div class="files" *ngIf="a.files">
               <span *ngFor="let file of a.files;let m=index;">
                 <img [style.margin-left]="m?'-35px':'0px'" *ngIf="a.files[0].fileOriginalName.substr(a.files[0].fileOriginalName.length - 4) != '.pdf'" [attr.src]="fileUrl + file.fileTimestamp">
                 <img [style.margin-left]="m?'-35px':'0px'" *ngIf="a.files[0].fileOriginalName.substr(a.files[0].fileOriginalName.length - 4) == '.pdf'" src="assets/pdf.png">
@@ -87,7 +87,8 @@
               <span class="files" *ngIf="!a.files">
                 <img src="assets/preview.png" alt="No Preview Avalable" >
               </span>
-            </div>            
+            </div>   
+            <span *ngIf="!a.files">None</span>         
           </td>
           <td>{{a.subjectName}}</td>
           <td>{{ a.standardName }}</td>
@@ -193,18 +194,15 @@
         </div> -->
 
       <div style="    padding: 0px 50px 0px 50px;">
-        <div id="demo" class="carousel slide" data-ride="carousel">
+        <div id="demo" class="carousel slide" data-ride="carousel" >
           <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" *ngIf="!selectedHomework.files"></li>
             <li data-target="#demo" [attr.data-slide-to]="i" [ngClass]="i?'':'active'" *ngFor=" let x of selectedHomework.files ; let i=index"></li>
           </ol>
           <div class="carousel-inner" role="listbox">
-            <div class="carousel-item" class="active" *ngIf="!selectedHomework.files">
-              <img class="d-block img-fluid" src="assets/preview.png" alt="No Preview Avalable">
-            </div>
             <div class="carousel-item" [ngClass]="k?'':'active'" *ngFor="let x of selectedHomework.files ; let k=index">
               <img [attr.src]="fileUrl + selectedHomework.files[k].fileTimestamp" *ngIf="selectedHomework.files[k].fileOriginalName.substr(selectedHomework.files[k].fileOriginalName.length - 4) != '.pdf'">
               <img src="assets/pdf1.jpg" *ngIf="selectedHomework.files[k].fileOriginalName.substr(selectedHomework.files[k].fileOriginalName.length - 4) == '.pdf'">
+              <img src="assets/pdf1.jpg" *ngIf="selectedHomework.files[k].fileOriginalName.substr(selectedHomework.files[k].fileOriginalName.length - 4) == '.pdf.docx'">
               <div class="carousel-caption">
                 <h3>
                   <a [attr.href]="fileUrl + selectedHomework.files[k].fileTimestamp">Download</a>
@@ -221,12 +219,10 @@
           </a>
         </div>
       </div>
-
-
-
       </div>
       <div class="row modal-description">
-        <span class="white-space">{{selectedHomework.description}}</span>
+        <b>Description :</b>
+        <span style="white-space: pre-wrap;text-align: justify;">{{selectedHomework.description}}</span>
       </div>
       <hr class="style-line">
       <div class="row modal-date">

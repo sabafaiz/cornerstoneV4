@@ -215,9 +215,6 @@ tr,td,table
   margin-top:15px !important;
 }
 
-.row{
-  margin:0 !important;
-}
 
 .list-btn{
   float: right;
@@ -287,4 +284,8 @@ tr,td,table
   background:linear-gradient(60deg,#ec407a,#d81b60);
   color: gray!important; 
   opacity: 1;
+}
+
+.margin-top{
+  margin-top:15px;
 }

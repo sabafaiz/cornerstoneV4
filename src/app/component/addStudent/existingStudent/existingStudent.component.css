@@ -289,3 +289,29 @@ tr,td,table
 .margin-top{
   margin-top:15px;
 }
+
+.student-card{
+  width: 100%;
+}
+
+.btn-edit{
+  width: 30%;
+  margin: auto;
+  display: block;
+}
+
+.profile-table{
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.btn-detail{
+  background-color: #9c27b0!important;
+  border-color: #9c27b0!important;
+  box-shadow: 0 0 0 0.2rem rgb(156, 39, 176)!important;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #9c27b0!important;
+  color:white;
+}

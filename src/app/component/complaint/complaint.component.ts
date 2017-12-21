@@ -274,7 +274,7 @@ this.barLoaderService.hideBarLoader();
   currentUser = this.cs.getUserId();
 
   getComplaintCommentById(complaint: any) {
-
+    $('.panel.panel-chat').show();
     this.comments=null;
     this.loaderComment = true;
     if (complaint == undefined)

@@ -48,6 +48,7 @@ h1{
     margin: 25px 0;
     height: 130px;
     padding: 10px;
+    cursor: pointer;
 }
 .stats-card .card-header{
     background: linear-gradient(60deg, #ffa726, #fb8c00);

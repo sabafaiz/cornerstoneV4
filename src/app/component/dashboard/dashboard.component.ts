@@ -28,6 +28,7 @@ export class DashboardComponent implements OnDestroy {
     this.loader = true;
     this.loader1 = true;
     this.loader2 = true;
+    this.getCounts();
     cs.getComplaintByCategoryAndStatus().subscribe((response:any) => {
       if(response.status === 204){
         this.loader=false;
@@ -215,5 +216,13 @@ export class DashboardComponent implements OnDestroy {
   }
   ngOnDestroy(){
      this.ls.setLoader(true); 
+    }
+
+    public allCounts:any = {};
+    getCounts(){
+      this.cs.getAllCounts().subscribe((response:any)=>{
+        console.log(response);
+        this.allCounts = response;
+      })
     }
 }

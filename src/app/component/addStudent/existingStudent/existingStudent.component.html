@@ -12,11 +12,11 @@
           </div>
           <div class="col-sm-8">
             <select [(ngModel)]="standardId" (change)="onSelectStandard($event.target.value)" class="form-control">
-                  
-                  <option disabled="disabled" selected="selected" value="" >Select a standard</option>
-                  
-                  <option *ngFor="let s of standards" [value]="s.id" >{{s.name}}</option>
-                </select>
+
+              <option disabled="disabled" selected="selected" value="">Select a standard</option>
+
+              <option *ngFor="let s of standards" [value]="s.id">{{s.name}}</option>
+            </select>
             <loader [condition]="standardLoader" class="dropdownLoader"></loader>
           </div>
           <div class="col-sm-2">
@@ -32,13 +32,15 @@
             <input *ngIf="selectedStudent" class="form-control" type="text" value="{{selectedStudent.name}}" onfocus="this.value= ''"
               (keyup)="searchStudents($event)">
             <loader [condition]="studentLoader" class="dropdownLoader"></loader>
-            <button class="list-btn" (click)="dropdown ? dropdown = false : dropdown = true;selected=false"> <span class="glyphicon glyphicon-chevron-down custom-icon" ></span></button>
+            <button class="list-btn" (click)="dropdown ? dropdown = false : dropdown = true;selected=false">
+              <span class="glyphicon glyphicon-chevron-down custom-icon"></span>
+            </button>
             <div class="studentList" *ngIf="(selected)">
               <ul class="list-group">
                 <li class="list-group-item" *ngIf="(emptySearchResult && !loader) || noStudents">No Data to Display</li>
                 <span *ngFor="let s of students">
-                      <li class="list-group-item" (click)="addForm=null;getStudentDetails(s.id)"> {{s.name}} </li> 
-                  </span>
+                  <li class="list-group-item" (click)="addForm=null;getStudentDetails(s.id)"> {{s.name}} </li>
+                </span>
               </ul>
             </div>
           </div>
@@ -48,9 +50,9 @@
           <div class="studentList" *ngIf="(dropdown)">
             <ul class="list-group">
               <span *ngFor="let s of studentsCOPY">
-                      <li *ngIf="noStudents">No students are added in this class</li>
-                      <li class="list-group-item" (click)="dropdown=false;addForm=null;getStudentDetails(s.id)"> {{s.name}} </li> 
-                </span>
+                <li *ngIf="noStudents">No students are added in this class</li>
+                <li class="list-group-item" (click)="dropdown=false;addForm=null;getStudentDetails(s.id)"> {{s.name}} </li>
+              </span>
             </ul>
           </div>
         </div>
@@ -72,14 +74,17 @@
 
         <!-- Tab panes -->
         <div class="tab-content" style="width:100%">
-          <div id="home" class="container tab-pane active"><br>
+          <div id="home" class="container tab-pane active">
+            <br>
             <div class="card card-body student-card">
               <div class="profile-pic">
                 <img *ngIf="selectedStudent.picTimestamp" [attr.src]="fileUrl+'/' + selectedStudent.picTimestamp" class="profilePic" data-target='#uploadStudentModal'
                   data-toggle='modal' (click)="selectedImageUpload=selectedStudent;uploadPicForm.controls['file'].reset();">
                 <img *ngIf="!selectedStudent.picTimestamp" [attr.src]="fileUrl+'/parent%2f39945169084408330481.jpg?alt=media'" class="profilePic"
                   data-target='#uploadParentModal' data-toggle='modal' (click)="selectedImageUpload=selectedStudent;uploadPicForm.controls['file'].reset();">
-                <a data-target='#uploadParentModal' data-toggle='modal'><i class="glyphicon glyphicon-pencil"></i></a>
+                <a data-target='#uploadParentModal' data-toggle='modal'>
+                  <i class="glyphicon glyphicon-pencil"></i>
+                </a>
               </div>
               <table class="profile-table">
                 <tbody>
@@ -89,7 +94,10 @@
                   </tr>
                   <tr>
                     <td>Standard :</td>
-                    <td><span *ngFor="let s of standards"><span *ngIf="s.id==selectedStudent.standardId">{{s.name}}</span></span>
+                    <td>
+                      <span *ngFor="let s of standards">
+                        <span *ngIf="s.id==selectedStudent.standardId">{{s.name}}</span>
+                      </span>
                     </td>
                   </tr>
                 </tbody>
@@ -99,7 +107,8 @@
 
             </div>
           </div>
-          <div id="menu1" class="container tab-pane fade"><br>
+          <div id="menu1" class="container tab-pane fade">
+            <br>
             <div class="card card-body student-card" *ngIf="selectedStudent.siblings.length==0">
               No Sibling Added.
             </div>
@@ -110,7 +119,9 @@
                   data-toggle='modal' (click)="selectedImageUpload=s;uploadPicForm.controls['file'].reset();">
                 <img *ngIf="!s.picTimestamp" [attr.src]="fileUrl+'/parent%2f39945169084408330481.jpg?alt=media'" class="profilePic1" data-target='#uploadStudentModal'
                   data-toggle='modal' (click)="selectedImageUpload=s;uploadPicForm.controls['file'].reset();">
-                <a data-target='#uploadStudentModal' data-toggle="modal"><i class="glyphicon glyphicon-pencil"></i></a>
+                <a data-target='#uploadStudentModal' data-toggle="modal">
+                  <i class="glyphicon glyphicon-pencil"></i>
+                </a>
               </div>
 
               <table class="profile-table">
@@ -121,7 +132,10 @@
                   </tr>
                   <tr>
                     <td>Standard :</td>
-                    <td><span *ngFor="let p of standards"><span *ngIf="p.id==s.standardId">{{p.name}}</span></span>
+                    <td>
+                      <span *ngFor="let p of standards">
+                        <span *ngIf="p.id==s.standardId">{{p.name}}</span>
+                      </span>
                     </td>
                   </tr>
                 </tbody>
@@ -139,24 +153,28 @@
                       (click)="selectedImageUpload=p;uploadPicForm.controls['file'].reset();" data-toggle='modal'>
                     <img *ngIf="!p.picTimestamp" [attr.src]="fileUrl+'/parent%2f39945169084408330481.jpg?alt=media'" class="profilePic1" data-target='#uploadParentModal'
                       (click)="selectedImageUpload=p;uploadPicForm.controls['file'].reset();" data-toggle='modal'>
-                    <a data-target='#uploadParentModal' data-toggle='modal'><i class="glyphicon glyphicon-pencil"></i></a>
+                    <a data-target='#uploadParentModal' data-toggle='modal'>
+                      <i class="glyphicon glyphicon-pencil"></i>
+                    </a>
                   </div>
                   <table class="profile-table">
                     <tbody>
                       <tr>
                         <td>Name :</td>
-                        <td><span>
-                              <p *ngIf="(p.name==null)||(p.name=='')"></p>
-                              <p *ngIf="p.name!=null">{{p.name}}-</p>
-                            </span></td>
+                        <td>
+                          <span>
+                            <p *ngIf="(p.name==null)||(p.name=='')"></p>
+                            <p *ngIf="p.name!=null">{{p.name}}-</p>
+                          </span>
+                        </td>
                       </tr>
                       <tr>
                         <td>Nickname :</td>
                         <td>
                           <span>
-                                  <p *ngIf="(p.nickName==null)||(p.nickName=='')">-</p>
-                                  <p *ngIf="p.nickName!=null">{{p.nickName}}</p>
-                                </span>
+                            <p *ngIf="(p.nickName==null)||(p.nickName=='')">-</p>
+                            <p *ngIf="p.nickName!=null">{{p.nickName}}</p>
+                          </span>
                         </td>
                       </tr>
                       <tr>
@@ -167,9 +185,9 @@
                         <td>Email ID :</td>
                         <td>
                           <span>
-                                  <p *ngIf="(p.email==null)||(p.email=='')">-</p>
-                                  <p *ngIf="p.email!=null">{{p.email}}</p>
-                                  </span>
+                            <p *ngIf="(p.email==null)||(p.email=='')">-</p>
+                            <p *ngIf="p.email!=null">{{p.email}}</p>
+                          </span>
                         </td>
                       </tr>
                     </tbody>
@@ -190,7 +208,7 @@
             *ngIf="parentLimit!=0">Add Parent</button>
         </div>
       </div>
-   </div>
+    </div>
   </div>
 </div>
 
@@ -199,120 +217,125 @@
   <div class="col-sm-12">
     <div class="detail-card">
       <div class="header-card">
-         <div class="card-titile">Total Students : {{totalStudents}}</div>
+        <div class="card-titile">Total Students : {{totalStudents}}</div>
       </div>
       <br>
-       <div class="row fliter">
-         <div class="col-sm-1">
-       <p>Filter</p></div>
+      <div class="row fliter">
+        <div class="col-sm-1">
+          <p>Filter</p>
+        </div>
         <div class="col-sm-6">
-        <select (ngModelChange)="filterDetails($event)" [(ngModel)]="filter" class="form-control">
-        <option [value]="1">All Details</option>
-        <option [value]="2">Only Sibling Details</option>
-        <option [value]="3">Only Parent Details</option> 
-        <option [value]="4">Only Student List</option>                                   
-      </select>
-    </div>
-    </div>
+          <select (ngModelChange)="filterDetails($event)" [(ngModel)]="filter" class="form-control">
+            <option [value]="1">All Details</option>
+            <option [value]="2">Only Sibling Details</option>
+            <option [value]="3">Only Parent Details</option>
+            <option [value]="4">Only Student List</option>
+          </select>
+        </div>
+      </div>
       <div class="row text-center">
-          <loader [condition]="loader"></loader>
-        </div>
-      
-        <div class="card-content">
-            <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">student's Details</th>
-                    <th scope="col" *ngIf="showParent && !showStudentOnly">Parent's Details</th>
-                    <th  scope="col"  *ngIf="showSibling && !showStudentOnly">Sibling's Details</th>
-                  </tr>
-                </thead>
-                <tbody  *ngFor="let s of studentsInfo">
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@TwBootstrap</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-              </table>
+        <loader [condition]="loader"></loader>
+      </div>
 
-            <table class="table detail-table">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Student's Name</th>
-                    <th *ngIf="showParent && !showStudentOnly">Parent's Details</th>
-                    <th *ngIf="showSibling && !showStudentOnly">Sibling's Details</th>
-                  </tr>
-                </thead>
-                <tbody *ngFor="let s of studentsInfo">
-                  <tr (click)="getStudentDetails(s.id)" class="pointer">
-                    <td><a><img class="student-image" [attr.src]="fileUrl+'/' + s.picTimestamp"></a></td>
-                    <td>{{s.name}}</td>
-                    <td *ngIf="showParent && !showStudentOnly">
-                      <table class="inner-table">
-                        <thead>
-                          <tr>
-                            <td>Name</td>
-                            <td>Contact No</td>
-                            <td style="border-right:none !important">Email</td>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor="let p of s.parents">
-                            <td>{{p.name}}</td>
-                            <td>{{p.contactNo}}</td>
-                            <td *ngIf="p.email" style="border-right:none !important">{{p.email}}</td>
-                            <td *ngIf="!p.email" style="border-right:none !important">-</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                    <td *ngIf="showSibling && !showStudentOnly">
-                      <table class=" inner-table" *ngIf="s.siblings.length>0">
-                        <thead>
-                          <tr>
-                            <td>Name</td>
-                            <td style="border-right:none !important">Standard</td>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor="let sibling of s.siblings">
-                            <td>{{sibling.name}}</td>
-                            <td style="border-right:none !important">{{sibling.standardName}}</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <table *ngIf="s.siblings.length<=0">
-                        <tr>No Siblings added</tr>
-                      </table>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-        </div>
+      <div class="card-content">
+        <!-- <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">student's Details</th>
+                <th scope="col" *ngIf="showParent && !showStudentOnly">Parent's Details</th>
+                <th  scope="col"  *ngIf="showSibling && !showStudentOnly">Sibling's Details</th>
+              </tr>
+            </thead>
+            <tbody  *ngFor="let s of studentsInfo">
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@TwBootstrap</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table> -->
+
+        <table class="table detail-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Student's Name</th>
+              <th *ngIf="showParent && !showStudentOnly">Parent's Details</th>
+              <th *ngIf="showSibling && !showStudentOnly">Sibling's Details</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let s of studentsInfo">
+            <tr (click)="getStudentDetails(s.id)" class="pointer">
+              <td>
+                <a>
+                  <img class="student-image" [attr.src]="fileUrl+'/' + s.picTimestamp">
+                </a>
+              </td>
+              <td>{{s.name}}</td>
+              <td *ngIf="showParent && !showStudentOnly">
+                <table class="inner-table">
+                  <thead>
+                    <tr>
+                      <td>Name</td>
+                      <td>Contact No</td>
+                      <td style="border-right:none !important">Email</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let p of s.parents">
+                      <td>{{p.name}}</td>
+                      <td>{{p.contactNo}}</td>
+                      <td *ngIf="p.email" style="border-right:none !important">{{p.email}}</td>
+                      <td *ngIf="!p.email" style="border-right:none !important">-</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td *ngIf="showSibling && !showStudentOnly">
+                <table class=" inner-table" *ngIf="s.siblings.length>0">
+                  <thead>
+                    <tr>
+                      <td>Name</td>
+                      <td style="border-right:none !important">Standard</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let sibling of s.siblings">
+                      <td>{{sibling.name}}</td>
+                      <td style="border-right:none !important">{{sibling.standardName}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table *ngIf="s.siblings.length<=0">
+                  <tr>No Siblings added</tr>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
+</div>
 
 
 
@@ -359,7 +382,7 @@
         </div> -->
 
 
-          <!-- <div class="row searchStu">
+<!-- <div class="row searchStu">
             <label>Student</label>
             <span class="badge" *ngIf="students && selectedStudent==null ">Total Students : {{totalStudents}}</span>
 
@@ -388,8 +411,8 @@
           </div>
         </div>
       </div> -->
-      <!-- showing a table of detail after selecting view all student start -->
-     <!-- <div class="row" *ngIf=" !showSearch && showTable">
+<!-- showing a table of detail after selecting view all student start -->
+<!-- <div class="row" *ngIf=" !showSearch && showTable">
         <div>
           <div class="  col-sm-offset-5 col-sm-3 col-xs-6">
             <span class="badge" style="margin-top:32px;">Total Students : {{totalStudents}}</span>
@@ -405,8 +428,8 @@
           </select>
           </div>
         </div>  -->
-        <!-- table of all deatils --> 
-        <!-- <div>
+<!-- table of all deatils -->
+<!-- <div>
           <div class="row text-center">
             <loader [condition]="loader"></loader>
           </div>
@@ -423,8 +446,8 @@
               <tr (click)="getStudentDetails(s.id)" class="pointer">
                 <td><a><img class="student-image" [attr.src]="fileUrl+'/' + s.picTimestamp"></a></td>
                 <td>{{s.name}}</td> -->
-            
-                <!-- <td *ngIf="showParent && !showStudentOnly">
+
+<!-- <td *ngIf="showParent && !showStudentOnly">
                   <table class="inner-table">
                     <thead>
                       <tr>
@@ -467,14 +490,14 @@
           </table>
         </div>
       </div> -->
-      <!-- showing a table of detail after selecting view all student end-->
+<!-- showing a table of detail after selecting view all student end-->
 
 
-      <!-- <div class="row" *ngIf="selectedStudent && showSearch">
+<!-- <div class="row" *ngIf="selectedStudent && showSearch">
         <div class="panel-group" id="accordion" *ngIf="selectedStudent" style="margin:5%;">
           <div class="panel panel-default">
             <!-- <div class="row text-center"><loader [condition]="loader"></loader></div> -->
-            <!-- <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
+<!-- <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
               <h4 class="panel-title">
                 Student Details
               </h4>
@@ -493,7 +516,7 @@
                       </td>
                     </tr> -->
 
-                    <!-- <tr>
+<!-- <tr>
                       <td>
                         <label for="sname1">Name</label>
                         <p>{{selectedStudent.name}}</p>
@@ -512,7 +535,7 @@
               </div>
             </div>
           </div> -->
-          <!-- <div class="panel panel-default" *ngIf="selectedStudent.siblings">
+<!-- <div class="panel panel-default" *ngIf="selectedStudent.siblings">
             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo">
               <h4 class="panel-title">
                 Sibling Details
@@ -553,7 +576,7 @@
               </div>
             </div>
           </div> -->
-          <!-- <div class="panel panel-default">
+<!-- <div class="panel panel-default">
             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree">
               <h4 class="panel-title">
                 Parent Details
@@ -578,7 +601,7 @@
                     </span>
                     </td>
                     <td> -->
-                      <!-- <label for="stnd3">Nickname</label>
+<!-- <label for="stnd3">Nickname</label>
                       <span>
                       <p *ngIf="(p.nickName==null)||(p.nickName=='')">-</p>
                       <p *ngIf="p.nickName!=null">{{p.nickName}}</p>
@@ -619,11 +642,11 @@
             <span>Add Parents</span>
           </a>
           </div>
-        </div> --> 
+        </div> -->
 
-        <!--Add Sibling Form-->
+<!--Add Sibling Form-->
 
-        <!-- <div style="border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;" *ngIf="addForm === 1">
+<!-- <div style="border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;" *ngIf="addForm === 1">
           <form [formGroup]="addSiblingForm" (submit)="submitSibling();addForm=null;">
             <br>
             <div class="form-group col-sm-12" formArrayName="students">
@@ -636,7 +659,7 @@
                       class="alert alert-warning">This field is required</div>
 
                   </div> -->
-                  <!-- <div class="form-group col-sm-5">
+<!-- <div class="form-group col-sm-5">
                     <label for="stnd5">Select Standard</label>
                     <select id="stnd" class="form-control" formControlName="standardId">
                         <option disabled="disabled" selected="selected">Select Standard</option>                                 
@@ -655,7 +678,7 @@
               </div>
             </div> -->
 
-            <!-- <div class="row" style="margin:5% 5% 0% 5%;">
+<!-- <div class="row" style="margin:5% 5% 0% 5%;">
               <button type="submit" [disabled]="addSiblingForm.invalid" class="btn btn-success pull-right">Submit</button>
               <button type="button" [disabled]="((addSiblingForm.invalid)||(addSiblingForm.controls.students.length==5))" class="btn btn-primary active"
                 (click)="addSibling(addSiblingForm);">
@@ -665,8 +688,8 @@
           </form>
         </div> -->
 
-        <!--Add Parent Form-->
-        <!-- <div style="border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;" *ngIf="addForm === 2">
+<!--Add Parent Form-->
+<!-- <div style="border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;" *ngIf="addForm === 2">
 
           <form [formGroup]="addParentForm" (submit)="submitParentForm();addForm=null;">
 
@@ -674,9 +697,9 @@
 
             <div class="form-group col-sm-12"> -->
 
-              
 
-              <!-- <div class="arrayForm">
+
+<!-- <div class="arrayForm">
                 <div class="form-group col-sm-12">
                   <label for="fname1">Parent's Name</label>
                   <input type="text" id="fname1" class="form-control" placeholder="Enter Parent's Name" formControlName="name">
@@ -716,182 +739,182 @@
 
 
 
-  <div class="modal fade  " id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalLabel">Student Updated</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<div class="modal fade  " id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Student Updated</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        </div>
-        <div class="modal-body">
-          You have successfully updated the information.
-        </div>
+      </div>
+      <div class="modal-body">
+        You have successfully updated the information.
       </div>
     </div>
   </div>
+</div>
 
-  <div class="modal fade  " id="errModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalLabel">Parent Already exists</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<div class="modal fade  " id="errModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Parent Already exists</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        </div>
-        <div class="modal-body">
-          Parent is already added to our records.
-        </div>
+      </div>
+      <div class="modal-body">
+        Parent is already added to our records.
       </div>
     </div>
   </div>
+</div>
 
-  <div class="modal fade  " id="editSiblingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalLabel">Edit Details</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<div class="modal fade  " id="editSiblingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Edit Details</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        </div>
-        <form *ngIf="selectedSibling" [formGroup]="editStudentForm">
-          <div class="modal-body">
-            <label for="sname8">Name</label>
-            <input type="text" id="sname8" class="form-control" formControlName="name">
-            <label for="stnd8">Standard</label>
-            <select id="stnd8" class="form-control" formControlName="standardId">
-            <option disabled="disabled" selected="selected">Select Standard</option>                         
+      </div>
+      <form *ngIf="selectedSibling" [formGroup]="editStudentForm">
+        <div class="modal-body">
+          <label for="sname8">Name</label>
+          <input type="text" id="sname8" class="form-control" formControlName="name">
+          <label for="stnd8">Standard</label>
+          <select id="stnd8" class="form-control" formControlName="standardId">
+            <option disabled="disabled" selected="selected">Select Standard</option>
             <option *ngFor="let s of standards" [value]="s.id">{{s.name}}</option>
-           </select>
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-success pull-right" type="button" [disabled]="(!editStudentForm.dirty)||(editStudentForm.invalid)"
-              (click)="submitEditStudentForm()" data-dismiss="modal">Submit</button>
-          </div>
-        </form>
-      </div>
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success pull-right" type="button" [disabled]="(!editStudentForm.dirty)||(editStudentForm.invalid)"
+            (click)="submitEditStudentForm()" data-dismiss="modal">Submit</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
 
-  <div class="modal fade  " id="editParentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalLabel">Edit Details</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<div class="modal fade  " id="editParentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Edit Details</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        </div>
-        <form [formGroup]="editParentForm" *ngIf="selectedParent">
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="sname9">Name</label>
-              <input type="text" id="sname9" class="form-control" formControlName="name">
-            </div>
-            <div class="form-group">
-              <label for="stnd8">Nick Name</label>
-              <input type="text" id="stnd8" class="form-control" formControlName="nickName">
-            </div>
+      </div>
+      <form [formGroup]="editParentForm" *ngIf="selectedParent">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="sname9">Name</label>
+            <input type="text" id="sname9" class="form-control" formControlName="name">
+          </div>
+          <div class="form-group">
+            <label for="stnd8">Nick Name</label>
+            <input type="text" id="stnd8" class="form-control" formControlName="nickName">
+          </div>
 
-            <div class="form-group">
-              <label for="mail">Email</label>
-              <input type="text" id="mail" class="form-control" formControlName="email">
-              <div [hidden]="editParentForm.controls.email.valid||editParentForm.controls.email.untouched" class="alert alert-warning">Please enter a valid Email Id</div>
+          <div class="form-group">
+            <label for="mail">Email</label>
+            <input type="text" id="mail" class="form-control" formControlName="email">
+            <div [hidden]="editParentForm.controls.email.valid||editParentForm.controls.email.untouched" class="alert alert-warning">Please enter a valid Email Id</div>
 
-            </div>
+          </div>
 
-            <div class="form-group">
-              <label for="contactNo">Contact No</label>
-              <input type="text" maxlength="12" minlength="9" id="contactNo" class="form-control" name="contactNo" value="selectedParent.contactNo"
-                [(ngModel)]="contactNo" (ngModelChange)="onContact($event)" [ngModelOptions]="{standalone:true}">
+          <div class="form-group">
+            <label for="contactNo">Contact No</label>
+            <input type="text" maxlength="12" minlength="9" id="contactNo" class="form-control" name="contactNo" value="selectedParent.contactNo"
+              [(ngModel)]="contactNo" (ngModelChange)="onContact($event)" [ngModelOptions]="{standalone:true}">
 
-              <div *ngIf="contactControl">
-                <div *ngIf="!editParentForm.controls.contactNo.valid||!editParentForm.controls.contactNo.untouched" class="alert alert-warning">Please enter a valid Contact Number
-                  <div>The contact no should be between 9 to 12 digits</div>
-                </div>
+            <div *ngIf="contactControl">
+              <div *ngIf="!editParentForm.controls.contactNo.valid||!editParentForm.controls.contactNo.untouched" class="alert alert-warning">Please enter a valid Contact Number
+                <div>The contact no should be between 9 to 12 digits</div>
               </div>
             </div>
           </div>
-          <div class="modal-footer">
-            <button id="submitBtn" class="btn btn-success pull-right" type="button" [disabled]="(editParentForm.invalid)" (click)="submitEditParentForm()"
-              data-dismiss="modal">Submit</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade  " id="uploadStudentModal" role="dialog">
-    <div class="modal-dialog">
-      <!-- Update Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Update Profile Picture </h4>
-        </div>
-        <form [formGroup]="uploadPicForm">
-          <div class="modal-body">
-            <div class="row text-center">
-              <loader [condition]="loader"></loader>
-            </div>
-            <div class="form-group">
-              <input type="file" class="form-control-file" accept="image/*" id="exampleInputFile" aria-describedby="fileHelp" (change)="getFile($event)"
-                formControlName='file'>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" (click)="uploadStudentImage()" class="btn btn-default" data-dismiss='modal'>Submit</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="modal fade  " id="uploadParentModal" role="dialog">
-    <div class="modal-dialog">
-      <!-- Update Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Update Profile Picture </h4>
-        </div>
-        <form [formGroup]="uploadPicForm">
-          <div class="modal-body">
-            <div class="row text-center">
-              <loader [condition]="loader"></loader>
-            </div>
-            <div class="form-group">
-              <input type="file" class="form-control-file" accept="image/*" id="exampleInputFile" aria-describedby="fileHelp" (change)="getFile($event)"
-                formControlName='file'>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" (click)="uploadParentImage()" class="btn btn-default" data-dismiss='modal'>Submit</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade  " id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalLabel">File Type Error</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
-        <div class="modal-body">
-          Kindly upload an image file.
         </div>
         <div class="modal-footer">
+          <button id="submitBtn" class="btn btn-success pull-right" type="button" [disabled]="(editParentForm.invalid)" (click)="submitEditParentForm()"
+            data-dismiss="modal">Submit</button>
         </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade  " id="uploadStudentModal" role="dialog">
+  <div class="modal-dialog">
+    <!-- Update Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Update Profile Picture </h4>
+      </div>
+      <form [formGroup]="uploadPicForm">
+        <div class="modal-body">
+          <div class="row text-center">
+            <loader [condition]="loader"></loader>
+          </div>
+          <div class="form-group">
+            <input type="file" class="form-control-file" accept="image/*" id="exampleInputFile" aria-describedby="fileHelp" (change)="getFile($event)"
+              formControlName='file'>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="uploadStudentImage()" class="btn btn-default" data-dismiss='modal'>Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade  " id="uploadParentModal" role="dialog">
+  <div class="modal-dialog">
+    <!-- Update Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Update Profile Picture </h4>
+      </div>
+      <form [formGroup]="uploadPicForm">
+        <div class="modal-body">
+          <div class="row text-center">
+            <loader [condition]="loader"></loader>
+          </div>
+          <div class="form-group">
+            <input type="file" class="form-control-file" accept="image/*" id="exampleInputFile" aria-describedby="fileHelp" (change)="getFile($event)"
+              formControlName='file'>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="uploadParentImage()" class="btn btn-default" data-dismiss='modal'>Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade  " id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">File Type Error</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Kindly upload an image file.
+      </div>
+      <div class="modal-footer">
       </div>
     </div>
   </div>
+</div>
 <!-- </div> -->

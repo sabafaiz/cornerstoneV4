@@ -16,6 +16,12 @@ export class ChartService {
     this.baseUrl = con.Server;
   }
 
+  getAllCounts(){
+    return this.http.get(this.con.Server + "/dashboard/counts")
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
+
   public  getComplaintByStatus() {
     // console.log("sx");
     // console.log(this.con.Server);

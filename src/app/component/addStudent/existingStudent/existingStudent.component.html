@@ -219,7 +219,7 @@
         </div>
       
         <div class="card-content">
-            <table class="table table-bordered">
+            <!-- <table class="table table-bordered">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -229,7 +229,7 @@
                   </tr>
                 </thead>
                 <tbody  *ngFor="let s of studentsInfo">
-                  <tr>
+                  <tr (click)="getStudentDetails(s.id)" class="pointer">
                     <th scope="row">1</th>
                     <td>Mark</td>
                     <td>Otto</td>
@@ -253,7 +253,7 @@
                     <td>@twitter</td>
                   </tr>
                 </tbody>
-              </table>
+              </table> -->
 
             <table class="table detail-table">
                 <thead>

@@ -11,7 +11,7 @@ declare let $: any;
   templateUrl: './complaint.component.html',
   styleUrls: ['./complaint.component.css']
 })
-export class ComplaintComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ComplaintComponent implements AfterViewInit, OnDestroy {
 
   public  editForm: FormGroup;
   public  closeForm: FormGroup;
@@ -53,12 +53,12 @@ export class ComplaintComponent implements OnInit, AfterViewInit, OnDestroy {
       if (param['categoryId']) this.complaintCategory = param['categoryId'];
       this.urlForComment = (this.router.url).split('/')[1];
     });
+    if(this.url == "/appreciation/for-me") this.url = "/appreciation";    
+    this.ngInit();
   }
 
-  ngOnInit() {
-
-this.barLoaderService.hideBarLoader();
-
+  ngInit() {
+    this.barLoaderService.hideBarLoader();
     this.fileUrl = localStorage.getItem("fileUrl") + "/";
     this.fetchComplaints();
     this.ls.setLoader(false);

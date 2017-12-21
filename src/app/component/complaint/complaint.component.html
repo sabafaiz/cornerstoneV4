@@ -66,7 +66,7 @@
                       (click)="selectComplaint(c,selectedIndex)" data-dismiss="modal">
                       <i class="material-icons" [style.color]="c.statusColor">border_color</i>
                     </button>
-                    <button class="btn btn-link" onclick="$('.panel.panel-chat').show();" (click)="getComplaintCommentById(c)" data-dismiss="modal">
+                    <button class="btn btn-link" (click)="getComplaintCommentById(c)" data-dismiss="modal">
                       <i class="material-icons" [style.color]="c.statusColor">chat_bubble</i>
                     </button>
                     <button class="btn btn-link" [disabled]="(c.statusId == 4) || (c.statusId == 6)" data-target="#myModal3" data-toggle="modal"
@@ -400,7 +400,8 @@
       <span>{{complaintTitleOfCommentModel | uppercase}}</span>
     </a>
     <a href="#" class="chatClose" onclick="return false">
-      <i class="glyphicon glyphicon-remove"></i>
+      <!-- <i class="glyphicon glyphicon-remove"></i> -->
+      <i class="material-icons">close</i>
     </a>
     <div class="clearFix"></div>
   </div>
@@ -448,11 +449,9 @@
     </div>
     <form [formGroup]="commentForm" (submit)="submitComment()" *ngIf="!closed">
       <input type="text" name="comment" formControlName="comment" class="comment-text">
-      <span class="send-button">
-        <button type="submit" class="btn btn-success btn-circle btn-lg">
-          <i class="glyphicon glyphicon-share-alt"></i>
-        </button>
-      </span>
+      <button type="submit" class="btn btn-success">
+          <i class="material-icons">send</i>
+      </button>
     </form>
   </div>
 </div>

@@ -66,8 +66,10 @@
   </div> -->
   <div class="card table-card">
     <div class="card-header">
-       Homeworks
-      <a [routerLink]="['/homework/homework-add']"><i class="material-icons pull-right" >alarm_add</i></a>
+      Homeworks
+      <a [routerLink]="['/homework/homework-add']">
+        <i class="material-icons pull-right">alarm_add</i>
+      </a>
     </div>
     <div class="card-content">
       <table class="table table-hover">
@@ -76,24 +78,27 @@
             <th>Created At</th>
             <th>Attachments</th>
             <th>Subject</th>
-            <th>Standard</th>            
+            <th>Standard</th>
             <th>Due Date</th>
           </tr>
         </thead>
         <tbody *ngFor="let a of homeworks; let i = index;">
-          <tr (click)="seletToExpand(a,i)" data-toggle="modal" data-target="#myModal-card" >
+          <tr (click)="seletToExpand(a,i)" data-toggle="modal" data-target="#myModal-card">
             <td>{{a.createdAt|date}}</td>
             <td style="padding-bottom: 2px;padding-top: 2px;">
-              <div class="files" *ngIf="a.files">
+              <!-- <div class="files" *ngIf="a.files">
                 <span *ngFor="let file of a.files;let m=index;">
-                  <img [style.margin-left]="m?'-35px':'0px'" *ngIf="a.files[0].fileOriginalName.substr(a.files[0].fileOriginalName.length - 4) != '.pdf'" [attr.src]="fileUrl + file.fileTimestamp">
-                  <img [style.margin-left]="m?'-35px':'0px'" *ngIf="a.files[0].fileOriginalName.substr(a.files[0].fileOriginalName.length - 4) == '.pdf'" src="assets/pdf.png">
+                  <img [style.margin-left]="m?'-35px':'0px'" *ngIf="a.files[0].fileOriginalName.substr(a.files[0].fileOriginalName.length - 4) != '.pdf'"
+                    [attr.src]="fileUrl + file.fileTimestamp">
+                  <img [style.margin-left]="m?'-35px':'0px'" *ngIf="a.files[0].fileOriginalName.substr(a.files[0].fileOriginalName.length - 4) == '.pdf'"
+                    src="assets/pdf.png">
                 </span>
                 <span class="files" *ngIf="!a.files">
-                  <img src="assets/preview.png" alt="No Preview Avalable" >
-                </span>
-              </div>
+                  <img src="assets/preview.png" alt="No Preview Avalable">
+                </span>                
+              </div> -->
               <span *ngIf="!a.files">None</span>
+              <span *ngIf="a.files">{{a.fileCount}} Files</span>
             </td>
             <td>{{a.subjectName}}</td>
             <td>{{ a.standardName }}</td>
@@ -103,27 +108,27 @@
         <tfoot *ngIf="!homeworks">
           <tr>
             <td colspan="5">
-              <div class="text-center"  >
+              <div class="text-center">
                 No homeworks are added.
               </div>
             </td>
           </tr>
         </tfoot>
-      </table>      
+      </table>
     </div>
-</div>
+  </div>
 
-<div class="modal fade" id="myModal-card" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
-  <div class="modal-dialog model-lg" role="document">
-    <div class="modal-content" *ngIf="selectedHomework">
-      <div class="modal-header">
-        <h4 class="modal-title" id="gridSystemModalLabel">{{selectedHomework.subjectName}}</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- <div class="modal-heading">
+  <div class="modal fade" id="myModal-card" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog model-lg" role="document">
+      <div class="modal-content" *ngIf="selectedHomework">
+        <div class="modal-header">
+          <h4 class="modal-title" id="gridSystemModalLabel">{{selectedHomework.subjectName}}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!-- <div class="modal-body">
+        <div class="modal-heading">
           <div class="row">
             <div style="top:20px" class="download-image-modal1">
               <span *ngIf="selectedHomework.files && selectedHomework.files[imgindex-1]">
@@ -177,9 +182,9 @@
         <div class=" row modal-class" style="font-size:15px;">
           <label>For : </label>
           <span>{{selectedHomework.standardName}}</span>
-        </div> -->
+        </div>
         <div style="padding: 0px 50px 0px 50px;" *ngIf="selectedHomework.files">
-          <div id="demo" class="carousel slide" data-ride="carousel" >
+          <div id="demo" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#demo" [attr.data-slide-to]="i" [ngClass]="i?'':'active'" *ngFor=" let x of selectedHomework.files ; let i=index"></li>
             </ol>
@@ -191,7 +196,6 @@
                   <h3>
                     <a [attr.href]="fileUrl + selectedHomework.files[k].fileTimestamp">Download</a>
                   </h3>
-                  <!-- <p>We had such a great time in LA!</p> -->
                 </div>
               </div>
             </div>
@@ -203,27 +207,37 @@
             </a>
           </div>
         </div>
-      </div>
-      <div class="row modal-description">
-        <b>Description :</b>
-        <span style="white-space: pre-wrap;text-align: justify;">{{selectedHomework.description}}</span>
-      </div>
-      <hr class="style-line">
-      <div class="row modal-date">
-        <div class="col-sm-2 col-xs-2">
-          <i class="glyphicon glyphicon-calendar pull-right calendar-custom"></i>
+      </div> -->
+        <div class="modal-body" style="margin-left: 15px;margin-right: 15px;">
+          <div class="form-group">
+            <label>Standard : </label>
+            <span>{{selectedHomework.standardName}}</span>
+          </div>
+          <div class="form-group">
+            <label>Created At :</label>
+            <span>{{selectedHomework.createdAt | date}}</span>
+          </div>
+          <div class="form-group">
+            <label>Due date :</label>
+            <span>{{selectedHomework.dueDate | date}}</span>
+          </div>
+          <div class="form-group">
+            <label>Description :</label>
+            <span style="white-space: pre-wrap;text-align: justify;">{{selectedHomework.description}}</span>
+          </div>
+          <div class="form-group">
+            <label>Attachment Files :</label>
+            <ul style="list-style: none;text-align: left;padding-left: 10px;">
+              <li *ngFor=" let x of selectedHomework.files ; let i=index">
+                <a [attr.href]="fileUrl + selectedHomework.files[i].fileTimestamp">{{x.fileOriginalName}}</a>
+              </li>
+              <li *ngIf="!selectedHomework.files">No Files are added</li>
+            </ul>
+          </div>
         </div>
-        <div class="col-sm-5 col-xs-5">
-          <label class="heading">Created At</label>
-          <div class="result">{{selectedHomework.createdAt | date}}</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
         </div>
-        <div class="col-sm-5 col-xs-5">
-          <label class="heading">Due date</label>
-          <div class="result">{{selectedHomework.dueDate | date}}</div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

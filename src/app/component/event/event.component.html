@@ -14,37 +14,36 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div id="modalBody" class="modal-body" *ngIf="eventsInfo">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" *ngIf="!selectedEvent.files"></li>
-                        <li data-target="#carouselExampleIndicators" [attr.data-slide-to]="i" [ngClass]="i?'':'active'" *ngFor=" let x of selectedEvent.files ; let i=index "></li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item" class="active" *ngIf="!selectedEvent.files">
-                            <img class="d-block img-fluid" src="assets/preview.png" alt="No Preview Avalable">
-                        </div>
-                        <div class="carousel-item" [ngClass]="k?'':'active'" *ngFor=" let x of selectedEvent.files ; let k=index ">
-                            <img class="d-block img-fluid" [attr.src]="fileUrl + selectedEvent.files[k].fileTimestamp" width="1100" height="500" *ngIf="selectedEvent.files[k]?.fileOriginalName.substr(selectedEvent.files[k].fileOriginalName.length - 4) != '.pdf'">
-                            <img class="d-block img-fluid" *ngIf="selectedEvent.files[k]?.fileOriginalName.substr(selectedEvent.files[k].fileOriginalName.length - 4) == '.pdf'"
-                                src="assets/pdf1.jpg" width="1100" height="500">
-                            <div class="carousel-caption">
-                                <h3>
-                                    <a [attr.href]="fileUrl + selectedEvent.files[k].fileTimestamp">DownLoad</a>
-                                </h3>
-                                <p>
-                                    <button class="btn btn-link" data-toggle="modal" data-dismiss="modal" data-target="#modal-edit-image" *ngIf="!disable" (click)="imgArray()">Add/Remove </button>
-                                </p>
+                <div style="padding: 1% 10% 1% 10%;">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" [attr.data-slide-to]="i" [ngClass]="i?'':'active'" *ngFor=" let x of selectedEvent.files ; let i=index "></li>
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item" [ngClass]="k?'':'active'" *ngFor=" let x of selectedEvent.files ; let k=index ">
+                                <img class="d-block img-fluid" [attr.src]="fileUrl + selectedEvent.files[k].fileTimestamp" *ngIf="selectedEvent.files[k]?.fileOriginalName.substr(selectedEvent.files[k].fileOriginalName.length - 4) != '.pdf'" width="1100" height="500">
+                                <div class="d-block img-fluid" *ngIf="selectedEvent.files[k]?.fileOriginalName.substr(selectedEvent.files[k].fileOriginalName.length - 4) == '.pdf'">
+                                <img  src="assets/pdf1.jpg">
+                                </div>
+                                <div class="carousel-caption">
+                                    <h3>
+                                        <a [attr.href]="fileUrl + selectedEvent.files[k].fileTimestamp">DownLoad</a>
+                                    </h3>
+                                    <p>
+                                        <button class="btn btn-link" data-toggle="modal" data-dismiss="modal" data-target="#modal-edit-image" *ngIf="!disable" (click)="imgArray()">Add/Remove </button>
+                                    </p>
+                                </div>
                             </div>
                         </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
                 </div>
                 <div style="overflow:hidden">
                     <span style="float:right;margin-right:20px;" [title]=" disable == true ? 'You Cannot edit' : '' " data-toggle="modal" data-dismiss="modal"

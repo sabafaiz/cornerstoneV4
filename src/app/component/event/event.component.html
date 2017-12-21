@@ -137,9 +137,9 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button [title]=" disable == true ? 'You Cannot Delete' : '' " type="button" class="btn btn-primary" data-toggle="modal"
+                <button [title]=" disable == true ? 'You Cannot Delete' : '' " type="button" class="btn btn-primary load-btn" data-toggle="modal"
                     data-dismiss="modal" data-target="#modal-delete" (click)="deleteEvent()" [disabled]="disable">Delete</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary load-btn" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -253,8 +253,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" (click)="createFormData()" class="btn btn-primary" [disabled]="!event.valid || maxfile" data-dismiss="modal">Submit</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                <button type="button" (click)="createFormData()" class="btn btn-primary load-btn" [disabled]="!event.valid || maxfile" data-dismiss="modal">Submit</button>
+                <button type="button" class="btn btn-primary load-btn" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -350,9 +350,9 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" (click)="resetForm()" class="btn btn-primary">Reset</button>
-                <button type="button" [disabled]="maxfileE" (click)="updateEvent()" class="btn btn-primary" data-dismiss="modal">Submit</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                <button type="button" (click)="resetForm()" class="btn btn-primary load-btn">Reset</button>
+                <button type="button" [disabled]="maxfileE" (click)="updateEvent()" class="btn btn-primary load-btn" data-dismiss="modal">Submit</button>
+                <button type="button" class="btn btn-primary load-btn" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

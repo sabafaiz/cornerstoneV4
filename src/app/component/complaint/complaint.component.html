@@ -447,8 +447,8 @@
     <div class=" badge closed-comment" *ngIf="closed">
       <div>This complaint has been closed.</div>
     </div>
-    <form [formGroup]="commentForm" (submit)="submitComment()" *ngIf="!closed">
-      <input type="text" name="comment" formControlName="comment" class="comment-text">
+    <form [formGroup]="commentForm" (submit)="submitComment()" *ngIf="!closed" class="form-message">
+      <input type="text" name="comment" formControlName="comment" class="comment-text" placeholder="Your Message">
       <button type="submit" class="btn btn-success">
           <i class="material-icons">send</i>
       </button>

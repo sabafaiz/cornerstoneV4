@@ -309,3 +309,15 @@ form{
   width: 100%;
   height: 100%;
 }
+
+.bold label{
+  font-weight: bold;
+}
+
+.table-hover td{
+  cursor: pointer;
+}
+.load-btn{
+  background: #9c27b0;
+  border-color:#9c27b0; 
+}

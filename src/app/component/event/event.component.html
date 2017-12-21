@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="carousel-caption">
                                     <h3>
-                                        <a [attr.href]="fileUrl + x.fileTimestamp">DownLoad</a>
+                                        <a [attr.href]="fileUrl + x.fileTimestamp"><i class="material-icons">cloud_download</i></a>
                                     </h3>
                                     <p>
                                         <button class="btn btn-link" data-toggle="modal" data-dismiss="modal" data-target="#modal-edit-image" *ngIf="!disable" (click)="imgArray()">Add/Remove </button>
@@ -51,7 +51,7 @@
                 <div style="overflow:hidden">
                     <span style="float:right;margin-right:20px;" [title]=" disable == true ? 'You Cannot edit' : '' " data-toggle="modal" data-dismiss="modal"
                         data-target="#modal-edit" *ngIf="!disable" (click)="imgArray()">
-                        <i class="material-icons">border_color</i>
+                        <i class="material-icons" style="cursor:pointer">border_color</i>
                     </span>
                 </div>
                 <br>

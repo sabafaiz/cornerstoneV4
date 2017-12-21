@@ -60,7 +60,7 @@
       <div class="row" *ngIf="selectedStudent && showSearch">
         <ul class="nav nav-tabs" role="tablist" style="width:100%;border:none!important;">
           <li class="nav-item" style="width:33%">
-            <a class="nav-link active" data-toggle="tab" href="#home">Student Deatils</a>
+            <a class="nav-link active" data-toggle="tab" href="#home">Student Details</a>
           </li>
           <li class="nav-item" style="width:33%">
             <a class="nav-link" data-toggle="tab" href="#menu1">Sibling Details</a>
@@ -193,6 +193,132 @@
    </div>
   </div>
 </div>
+
+<!-- view all student details table start -->
+<div class="row" *ngIf=" !showSearch && showTable">
+  <div class="col-sm-12">
+    <div class="detail-card">
+      <div class="header-card">
+         <div class="card-titile">Total Students : {{totalStudents}}</div>
+      </div>
+      <br>
+       <div class="row fliter">
+         <div class="col-sm-1">
+       <p>Filter</p></div>
+        <div class="col-sm-6">
+        <select (ngModelChange)="filterDetails($event)" [(ngModel)]="filter" class="form-control">
+        <option [value]="1">All Details</option>
+        <option [value]="2">Only Sibling Details</option>
+        <option [value]="3">Only Parent Details</option> 
+        <option [value]="4">Only Student List</option>                                   
+      </select>
+    </div>
+    </div>
+      <div class="row text-center">
+          <loader [condition]="loader"></loader>
+        </div>
+      
+        <div class="card-content">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">student's Details</th>
+                    <th scope="col" *ngIf="showParent && !showStudentOnly">Parent's Details</th>
+                    <th  scope="col"  *ngIf="showSibling && !showStudentOnly">Sibling's Details</th>
+                  </tr>
+                </thead>
+                <tbody  *ngFor="let s of studentsInfo">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@TwBootstrap</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            <table class="table detail-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Student's Name</th>
+                    <th *ngIf="showParent && !showStudentOnly">Parent's Details</th>
+                    <th *ngIf="showSibling && !showStudentOnly">Sibling's Details</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let s of studentsInfo">
+                  <tr (click)="getStudentDetails(s.id)" class="pointer">
+                    <td><a><img class="student-image" [attr.src]="fileUrl+'/' + s.picTimestamp"></a></td>
+                    <td>{{s.name}}</td>
+                    <td *ngIf="showParent && !showStudentOnly">
+                      <table class="inner-table">
+                        <thead>
+                          <tr>
+                            <td>Name</td>
+                            <td>Contact No</td>
+                            <td style="border-right:none !important">Email</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let p of s.parents">
+                            <td>{{p.name}}</td>
+                            <td>{{p.contactNo}}</td>
+                            <td *ngIf="p.email" style="border-right:none !important">{{p.email}}</td>
+                            <td *ngIf="!p.email" style="border-right:none !important">-</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                    <td *ngIf="showSibling && !showStudentOnly">
+                      <table class=" inner-table" *ngIf="s.siblings.length>0">
+                        <thead>
+                          <tr>
+                            <td>Name</td>
+                            <td style="border-right:none !important">Standard</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let sibling of s.siblings">
+                            <td>{{sibling.name}}</td>
+                            <td style="border-right:none !important">{{sibling.standardName}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table *ngIf="s.siblings.length<=0">
+                        <tr>No Siblings added</tr>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<!-- view all student details table end -->
+
 <!-- new code by saba end -->
 
 
@@ -263,7 +389,7 @@
         </div>
       </div> -->
       <!-- showing a table of detail after selecting view all student start -->
-      <!-- <div class="row" *ngIf=" !showSearch && showTable">
+     <!-- <div class="row" *ngIf=" !showSearch && showTable">
         <div>
           <div class="  col-sm-offset-5 col-sm-3 col-xs-6">
             <span class="badge" style="margin-top:32px;">Total Students : {{totalStudents}}</span>
@@ -278,8 +404,8 @@
             <option [value]="4">Only Student List</option>                                   
           </select>
           </div>
-        </div> -->
-        <!-- table of all deatils -->
+        </div>  -->
+        <!-- table of all deatils --> 
         <!-- <div>
           <div class="row text-center">
             <loader [condition]="loader"></loader>
@@ -296,8 +422,8 @@
             <tbody *ngFor="let s of studentsInfo">
               <tr (click)="getStudentDetails(s.id)" class="pointer">
                 <td><a><img class="student-image" [attr.src]="fileUrl+'/' + s.picTimestamp"></a></td>
-                <td>{{s.name}}</td>
-                <!-- <td *ngFor="let p of s.parents">{{p.name}}</td> -->
+                <td>{{s.name}}</td> -->
+            
                 <!-- <td *ngIf="showParent && !showStudentOnly">
                   <table class="inner-table">
                     <thead>

@@ -126,10 +126,7 @@ p{
     opacity: 0.5;
 }
 
-tr,td,table
-{
-  border: none !important;
-}
+
 
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
     vertical-align: middle !important;
@@ -190,9 +187,7 @@ tr,td,table
   .inner-table>thead>tr>td{
     border-bottom:1px solid #ddd !important;
   }
-/* td{
-  border-right-style: solid !important;
-} */
+
 
  .detail-table>tbody>tr>td{
   border-right:1px solid #ddd !important;
@@ -200,16 +195,6 @@ tr,td,table
 .glyphicon-pencil{
   top:-32px !important;
 }
-
-.fixed{
-  /* position: fixed; */
-}
-/* .table{
-  display: block;
-  height: 100px;
-  overflow-x: auto;
-  overflow-y: auto;
-} */
 
 .searchStu{
   margin-top:15px !important;
@@ -314,4 +299,48 @@ tr,td,table
 .nav-tabs .nav-link.active {
   background-color: #9c27b0!important;
   color:white;
+}
+
+.fliter{
+  margin-top: 32px;
+  text-align: right
+}
+
+.detail-card{
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  margin: 25px 0;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+  border-radius: 6px;
+  color: rgba(0,0,0,.87);
+  background: #fff;
+}
+
+.detail-card .header-card{
+  background: linear-gradient(60deg,#ec407a,#d81b60);
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(233,30,99,.4);
+  display: inline-block;
+  color: #fff;
+  margin: -20px 42px 0;
+  border-radius: 3px;
+  padding: 12px;
+  background-color: #999;
+  position: relative;
+  z-index:2;
+  float: left;
+}
+
+.detail-card .card-title{
+  margin-top: 0;
+  margin-bottom: 3px;
+  color: #fff;
+  font-weight: 300;
+  line-height: 1.5em;
+}
+
+.detail-card .card-content{
+  padding: 30px 20px;
+  position: relative;
+  text-align: left;
 }

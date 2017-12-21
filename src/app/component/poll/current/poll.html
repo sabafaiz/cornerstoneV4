@@ -124,9 +124,9 @@
             <th>Due Date</th>
           </tr>
         </thead>
-        <tbody *ngFor="let poll of polls;let p=index;">
+        <tbody class="hover-tr" *ngFor="let poll of polls;let p=index;">
           <tr>
-            <td>{{poll.createdAt| date}}</td>
+            <td>{{poll.createdAt | date}}</td>
             <td>{{poll.typeName}}</td>
             <td>{{poll.optionTypeName}}</td>
             <!-- <td><span *ngFor="let std of poll.standards;let s=index;">{{std.name}}</span></td> -->
@@ -147,7 +147,7 @@
                   <div class="option-list" *ngFor="let o of poll.options;let op=index;">
                     {{op+1}}) {{o.name}}
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="o.percent" [style.width]="o.percent+'%'" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="o.percent" [style.width]="o.percent+'%'" aria-valuemin="0" aria-valuemax="100">100%</div>
                       </div>
                   </div>
 

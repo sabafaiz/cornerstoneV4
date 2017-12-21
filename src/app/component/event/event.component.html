@@ -21,13 +21,16 @@
                         </ol>
                         <div class="carousel-inner" role="listbox">
                             <div class="carousel-item" [ngClass]="k?'':'active'" *ngFor=" let x of selectedEvent.files ; let k=index ">
-                                <img class="d-block img-fluid" [attr.src]="fileUrl + selectedEvent.files[k].fileTimestamp" *ngIf="selectedEvent.files[k]?.fileOriginalName.substr(selectedEvent.files[k].fileOriginalName.length - 4) != '.pdf'" width="1100" height="500">
-                                <div class="d-block img-fluid" *ngIf="selectedEvent.files[k]?.fileOriginalName.substr(selectedEvent.files[k].fileOriginalName.length - 4) == '.pdf'">
+                                <img class="d-block img-fluid" [attr.src]="fileUrl + x.fileTimestamp" *ngIf="x?.fileOriginalName.includes('.png')||x?.fileOriginalName.includes('.jpg')||x?.fileOriginalName.includes('.jpeg')||x?.fileOriginalName.includes('.bmp')" width="1100" height="500">
+                                <div class="d-block img-fluid text-center" *ngIf="x?.fileOriginalName.includes('.pdf')">
                                 <img  src="assets/pdf1.jpg">
+                                </div>
+                                <div class="d-block img-fluid text-center" *ngIf="x?.fileOriginalName.includes('.docx')||x?.fileOriginalName.includes('.doc')">
+                                    <img  src="assets/docx.png">    
                                 </div>
                                 <div class="carousel-caption">
                                     <h3>
-                                        <a [attr.href]="fileUrl + selectedEvent.files[k].fileTimestamp">DownLoad</a>
+                                        <a [attr.href]="fileUrl + x.fileTimestamp">DownLoad</a>
                                     </h3>
                                     <p>
                                         <button class="btn btn-link" data-toggle="modal" data-dismiss="modal" data-target="#modal-edit-image" *ngIf="!disable" (click)="imgArray()">Add/Remove </button>

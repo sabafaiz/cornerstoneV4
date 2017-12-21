@@ -149,7 +149,7 @@
                   <div class="option-list" *ngFor="let o of poll.options;let op=index;">
                     {{op+1}}) {{o.name}}
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="o.percent" [style.width]="o.percent+'%'" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="o.percent" [style.width]="o.percent+'%'" aria-valuemin="0" aria-valuemax="100">100%</div>
                       </div>
                   </div>
 

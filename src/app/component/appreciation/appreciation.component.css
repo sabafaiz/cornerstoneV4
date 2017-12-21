@@ -280,5 +280,33 @@ input[type="text"]{
 }
 
 
+.load-btn{
+    margin-bottom: -19px;
+    background: #9c27b0;
+    border-color:#9c27b0; 
+    border-radius:3px!important;
+}
+.btn-primary:not([disabled]):not(.disabled):active{
+    background: #9c27b0;
+    border-color:#9c27b0; 
+}
 
+td[block]{
+  white-space: nowrap; 
+  width: inherit; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  /* border: 1px solid #000000; */
+  max-width: 500px;
+transition: 10s ;
+}
+
+.tr-row:hover td[block] {
+/* border:1px solid blue; */
+overflow:initial;
+/* height:initial; */
+white-space:pre-wrap;
+text-overflow: initial;
+text-align: -webkit-auto;
+}
 /* add-appreciation css end */

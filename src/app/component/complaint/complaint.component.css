@@ -116,6 +116,7 @@ color: white;
     margin-bottom: -19px;
     background: #9c27b0;
     border-color:#9c27b0; 
+    border-radius:3px!important;
 }
 .btn-primary:not([disabled]):not(.disabled):active{
     background: #9c27b0;

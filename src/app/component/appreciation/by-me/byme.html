@@ -64,11 +64,11 @@
 
                 <th><i class="material-icons">attach_file</i>Title</th>
                 <th><i class="material-icons">pin_drop</i>description</th>
-                <th><i class="material-icons">settings</i>Action</th>
+              
               </tr>
             </thead>
-            <tbody>
-              <tr *ngFor="let c of complaints; let i = index;">
+            <tbody *ngFor="let c of complaints; let i = index;">
+              <tr  class="tr-row">
                 <td width="10%">
                   <span>{{c.createdAt | date :'dd-mm-yyyy'}}</span>
                   <span *ngIf="c.closedOn">-{{c.closedOn | date:'dd-mm-yyyy'}}</span>
@@ -79,11 +79,7 @@
                   <br>{{c.studentStandardName}}
                 </td>
                 <td width="20%">{{c.title}}</td>
-                <td width="10%">{{c.description}}</td>
-                <td width="10%">
-                  <i class="material-icons">comment</i>
-                  <i class="material-icons" [style.color]="c.statusColor">delete_forever</i>
-                </td>
+                <td block width="10%">{{c.description}}</td>
               </tr>
             </tbody>
             <tfoot>
@@ -95,6 +91,9 @@
               </tr>
             </tfoot>
           </table>
+          <div class="text-center">
+            <button (click)="nextComplaint()" type="button" *ngIf="!EmptyComplaints && !noMore" class="btn btn-primary load-btn">Load More</button>
+          </div>
         </div>
       </div>
     </div>

@@ -38,3 +38,11 @@
     background: #9c27b0;
     border-color:#9c27b0; 
 }
+
+.progress{
+    background-color: #dcdcae;
+}
+
+.progress:hover{
+    background-color: #dcdcae;
+}

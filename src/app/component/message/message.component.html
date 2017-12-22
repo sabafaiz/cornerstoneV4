@@ -1,4 +1,4 @@
-<div class="container-fluid">
+
   <!-- <div class="row component-body"> -->
   <!--Message Screen-->
   <!-- <div class="col-sm-8 col-xs-8 message-area">
@@ -240,11 +240,16 @@
       </ul>
     </div> -->
   <!-- </div> -->
+
+
+<!-- new code -->
+
+  <!-- <div class="container-fluid"> -->
   <div class="row conversation-screen">
-    <div class="col-sm-4">
+    <div class="col-sm-4 contact-list">
       <div class="row form-group">
         <div class="col-sm-10" style="padding: 0px;">
-          <input type="search" class="form-control" placeholder="Search Messages..." (keyup)="searchMessages($event)">
+          <input type="search" class="form-control serach-bar" placeholder="Search Messages..." (keyup)="searchMessages($event)">
         </div>
         <div class="col-sm-2">
           <button class="col-sm-1 btn btn-link pull-right btn-new" (click)="newMessage()">
@@ -253,7 +258,7 @@
         </div>
       </div>
 
-      <h6>Messages</h6>
+      <h6 class="name">Messages</h6>
       <ul class="list-group msg-list">
         <li style="margin-top:-20px">
           <loader [condition]="loader1" class="centerLoader" style="left:45%"></loader>
@@ -293,7 +298,7 @@
         </button>
       </div>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-8 screen">
       <div class="conversation-list" style="position:relative;" *ngIf="selectedOldRecipient">
         <h4 class="title-head" style="padding-top:10px;">Your Message History with {{recipientName}}
           <button class="btn btn-default pull-right btn-close" data-target="#closeModal" data-toggle="modal" [disabled]="closed">
@@ -426,7 +431,7 @@
       </div>
     </div>
   </div>
-</div>
+<!-- </div> -->
 
 <!-- Modals -->
 <div class="modal fade" id="getFileModal" tabindex="-1" role="dialog" *ngIf="file">

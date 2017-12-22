@@ -233,7 +233,7 @@
               <div class="carousel-inner" role="listbox">
                 <div class="carousel-item" [ngClass]="k?'':'active'" *ngFor=" let x of selectedCircular.files ; let k=index ">
                   <img class="d-block img-fluid" [attr.src]="fileUrl + x.fileTimestamp" *ngIf="x?.fileOriginalName.includes('.png')||x?.fileOriginalName.includes('.jpg')||x?.fileOriginalName.includes('.jpeg')||x?.fileOriginalName.includes('.bmp')"
-                    width="1100" height="500">
+                    width="800" height="400">
                   <div class="d-block img-fluid text-center" *ngIf="x?.fileOriginalName.includes('.pdf')">
                     <img src="assets/pdf1.jpg">
                   </div>

@@ -45,7 +45,7 @@
             </div>
           </div>
           <div class="col-sm-2">
-            <span class="badge" *ngIf="students && selectedStudent==null ">Total Students : {{totalStudents}}</span>
+            <span class="badge student-badge" *ngIf="students && selectedStudent==null ">Total Students : {{totalStudents}}</span>
           </div>
           <div class="studentList" *ngIf="(dropdown)">
             <ul class="list-group">
@@ -238,52 +238,16 @@
       </div>
 
       <div class="card-content">
-        <!-- <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">student's Details</th>
-                <th scope="col" *ngIf="showParent && !showStudentOnly">Parent's Details</th>
-                <th  scope="col"  *ngIf="showSibling && !showStudentOnly">Sibling's Details</th>
-              </tr>
-            </thead>
-            <tbody  *ngFor="let s of studentsInfo">
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@TwBootstrap</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table> -->
-
         <table class="table detail-table">
-          <thead>
+          <thead class="head-only">
             <tr>
-              <th>#</th>
+              <th></th>
               <th>Student's Name</th>
               <th *ngIf="showParent && !showStudentOnly">Parent's Details</th>
               <th *ngIf="showSibling && !showStudentOnly">Sibling's Details</th>
             </tr>
           </thead>
-          <tbody *ngFor="let s of studentsInfo">
+          <tbody *ngFor="let s of studentsInfo" style="text-align: -webkit-center;">
             <tr (click)="getStudentDetails(s.id)" class="pointer">
               <td>
                 <a>
@@ -292,26 +256,31 @@
               </td>
               <td>{{s.name}}</td>
               <td *ngIf="showParent && !showStudentOnly">
-                <table class="inner-table">
+                <table class="inner-table table-bordered"  *ngIf="s.parents.length>0">
                   <thead>
                     <tr>
                       <td>Name</td>
                       <td>Contact No</td>
-                      <td style="border-right:none !important">Email</td>
+                      <td>Email</td>
                     </tr>
                   </thead>
                   <tbody>
                     <tr *ngFor="let p of s.parents">
                       <td>{{p.name}}</td>
                       <td>{{p.contactNo}}</td>
-                      <td *ngIf="p.email" style="border-right:none !important">{{p.email}}</td>
-                      <td *ngIf="!p.email" style="border-right:none !important">-</td>
-                    </tr>
+                      <td *ngIf="p.email">{{p.email}}</td>
+                      <td *ngIf="!p.email">-</td>
+                    </tr>      
                   </tbody>
+                </table>
+                <table  *ngIf="s.parents.length<=0">
+                  <tr>
+                    <td style="border-top:0px!important"> No Details Added</td>
+                   </tr>
                 </table>
               </td>
               <td *ngIf="showSibling && !showStudentOnly">
-                <table class=" inner-table" *ngIf="s.siblings.length>0">
+                <table class=" inner-table table-bordered" *ngIf="s.siblings.length>0">
                   <thead>
                     <tr>
                       <td>Name</td>
@@ -337,6 +306,32 @@
   </div>
 </div>
 
+
+
+<!-- modal for sibling-form -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- modal gor sibling form -->
 
 
 
@@ -645,8 +640,7 @@
         </div> -->
 
 <!--Add Sibling Form-->
-
-<!-- <div style="border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;" *ngIf="addForm === 1">
+ <div style="border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;" *ngIf="addForm === 1">
           <form [formGroup]="addSiblingForm" (submit)="submitSibling();addForm=null;">
             <br>
             <div class="form-group col-sm-12" formArrayName="students">
@@ -658,8 +652,8 @@
                     <div [hidden]="addSiblingForm.controls.students.controls[i].controls.name.valid || addSiblingForm.controls.students.controls[i].controls.name.untouched || addSiblingForm.controls.students.controls[i].controls.name.pristine"
                       class="alert alert-warning">This field is required</div>
 
-                  </div> -->
-<!-- <div class="form-group col-sm-5">
+                  </div> 
+ <div class="form-group col-sm-5">
                     <label for="stnd5">Select Standard</label>
                     <select id="stnd" class="form-control" formControlName="standardId">
                         <option disabled="disabled" selected="selected">Select Standard</option>                                 
@@ -676,9 +670,9 @@
                   </div>
                 </div>
               </div>
-            </div> -->
+            </div> 
 
-<!-- <div class="row" style="margin:5% 5% 0% 5%;">
+ <div class="row" style="margin:5% 5% 0% 5%;">
               <button type="submit" [disabled]="addSiblingForm.invalid" class="btn btn-success pull-right">Submit</button>
               <button type="button" [disabled]="((addSiblingForm.invalid)||(addSiblingForm.controls.students.length==5))" class="btn btn-primary active"
                 (click)="addSibling(addSiblingForm);">
@@ -686,7 +680,7 @@
                </button>
             </div>
           </form>
-        </div> -->
+        </div>
 
 <!--Add Parent Form-->
 <!-- <div style="border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;" *ngIf="addForm === 2">

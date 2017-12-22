@@ -174,7 +174,7 @@ p{
 .inner-table{
   width: 100%;
     max-width: 100%;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .inner-table>tbody>tr>td, .inner-table>tbody>tr>th, .inner-table>thead>tr>td, .inner-table>thead>tr>th {
@@ -302,8 +302,13 @@ p{
 }
 
 .fliter{
-  margin-top: 32px;
-  text-align: right
+  margin: auto;
+  text-align: right;
+  padding-top: 23px;
+}
+
+.fliter p{
+  margin-top: 10px;
 }
 
 .detail-card{
@@ -343,4 +348,21 @@ p{
   padding: 30px 20px;
   position: relative;
   text-align: left;
+}
+
+.student-badge{
+  background-color: #e02a6b;
+  padding:10px;
+  color:white;
+}
+
+.head-only{
+  background: #9c27b0;
+  color: white;
+  text-align: center;
+}
+
+.detail-table{
+  border: 1px solid #dddddd;
+
 }

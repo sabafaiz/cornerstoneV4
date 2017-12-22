@@ -112,6 +112,7 @@ p{
   padding:15px;
   position:relative;
   margin-bottom: 5px;
+  background: aliceblue;
 }
 
 .parent-list-element .add-remove-btn{

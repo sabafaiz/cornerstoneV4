@@ -310,3 +310,20 @@ text-overflow: initial;
 text-align: -webkit-auto;
 }
 /* add-appreciation css end */
+
+
+/* css for modal */
+app.modal{
+  background: #9c27b0;
+  box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 
+  0 4px 20px 0px rgba(0, 0, 0, 0.12), 
+  0 7px 8px -5px rgba(156, 39, 176, 0.2); 
+  border-color: #9c27b0;
+  /* position: absolute; */
+  width: 95%;
+  margin: -46px 14px 0px;
+  border-radius: 3px;
+}
+
+
+/* css for modal */

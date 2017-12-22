@@ -192,6 +192,10 @@ p{
  .detail-table>tbody>tr>td{
   border-right:1px solid #ddd !important;
 } 
+
+.detail-table{
+  border:1px solid #e9ecef;
+}
 .glyphicon-pencil{
   top:-32px !important;
 }
@@ -367,4 +371,18 @@ p{
 
 .sibling-list-element .add-remove-btn .btn{
   cursor: pointer;
+}
+
+.head-only{
+ background: #9c27b0;
+ color: white;
+ text-align: center;
+ padding: 10px;
+
+}
+
+.student-badge{
+  background-color: #e63673;
+  color: white;
+  padding: 10px;
 }

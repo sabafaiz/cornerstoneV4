@@ -350,19 +350,21 @@ p{
   text-align: left;
 }
 
-.student-badge{
-  background-color: #e02a6b;
-  padding:10px;
-  color:white;
+.sibling-list-element{
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+  border-radius:6px;
+  padding:15px;
+  position:relative;
+  margin-bottom: 5px;
+  padding-right: 100px;
 }
 
-.head-only{
-  background: #9c27b0;
-  color: white;
-  text-align: center;
+.sibling-list-element .add-remove-btn{
+  position: absolute;
+  right: 0;
+  z-index: 1;
 }
 
-.detail-table{
-  border: 1px solid #dddddd;
-
+.sibling-list-element .add-remove-btn .btn{
+  cursor: pointer;
 }

@@ -28,7 +28,7 @@
             </tr>
           </thead>
           <tbody *ngFor="let circular of circulars;let c=index;">
-            <tr class="tr-row">
+            <tr class="tr-row" data-toggle="modal" data-target="#myModal" (click)="seletToExpand(circular)">
               <td>{{circular.createdAt| date}}</td>
               <td>
                 <img src="assets/img/studentpic.png">
@@ -37,15 +37,6 @@
               <td>{{circular.circularTypeName}}</td>
               <td block>{{circular.description}}</td>
             </tr>
-            <!-- <tr class="tr-row">
-              <td>{{circular.createdAt| date :'dd-mm-yyyy'}}</td>
-              <td>
-                <img src="assets/img/studentpic.png">
-                <br> {{circular.employeeName}}</td>
-              <td>{{circular.title}}</td>
-              <td>{{circular.circularTypeName}}</td>
-              <td block>{{circular.description}}</td>
-            </tr> -->
           </tbody>
           <tfoot>
             <tr>
@@ -219,3 +210,98 @@
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" *ngIf="selectedCircular">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title" style="text-transform: capitalize;">{{selectedCircular.title}}</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div style="padding: 1% 10% 1% 10%;">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" [attr.data-slide-to]="i" [ngClass]="i?'':'active'" *ngFor=" let x of selectedCircular.files ; let i=index "></li>
+              </ol>
+              <div class="carousel-inner" role="listbox">
+                <div class="carousel-item" [ngClass]="k?'':'active'" *ngFor=" let x of selectedCircular.files ; let k=index ">
+                  <img class="d-block img-fluid" [attr.src]="fileUrl + x.fileTimestamp" *ngIf="x?.fileOriginalName.includes('.png')||x?.fileOriginalName.includes('.jpg')||x?.fileOriginalName.includes('.jpeg')||x?.fileOriginalName.includes('.bmp')"
+                    width="1100" height="500">
+                  <div class="d-block img-fluid text-center" *ngIf="x?.fileOriginalName.includes('.pdf')">
+                    <img src="assets/pdf1.jpg">
+                  </div>
+                  <div class="d-block img-fluid text-center" *ngIf="x?.fileOriginalName.includes('.docx')||x?.fileOriginalName.includes('.doc')">
+                    <img src="assets/docx.png">
+                  </div>
+                  <div class="carousel-caption">
+                    <h3>
+                      <a [attr.href]="fileUrl + x.fileTimestamp">
+                        <i class="material-icons">cloud_download</i>
+                      </a>
+                    </h3>
+                    <!-- <p>
+                      <button class="btn btn-link" data-toggle="modal" data-dismiss="modal" data-target="#modal-edit-image" *ngIf="!disable" (click)="imgArray()">Add/Remove </button>
+                    </p> -->
+                  </div>
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Circular For :</label>
+            <div class="col-10" *ngIf="selectedCircular.standards">
+                <div class="form-control">{{selectedCircular.standards}}</div>
+            </div>
+            <div class="col-10" *ngIf="!selectedCircular.standards">
+                <div class="form-control">{{selectedCircular.circularTypeName}}</div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Created By :</label>
+            <div class="col-10">
+                <div class="form-control">{{selectedCircular.employeeName}}</div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Description :</label>
+            <div class="col-10">
+                <div class="form-control">{{selectedCircular.description}}</div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Created At :</label>
+            <div class="col-10">
+                <div class="form-control">{{selectedCircular.createdAt | date}}</div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Start Date :</label>
+            <div class="col-10">
+                <div class="form-control">{{selectedCircular.start | date}}</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>

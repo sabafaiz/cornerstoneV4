@@ -102,19 +102,3 @@ input[type=file]{
     background: #9c27b0;
     border-color:#9c27b0; 
 }
-
-.carousel-control-prev{
-  background: #9c27b061!important;
-}
-
-.carousel-control-next{
-    background: #9c27b061!important;
-}
-
-.carousel-caption i{
-    font-size: 70px;
-}
-
-.carousel-inner img{
-    max-height: 400px;
-}

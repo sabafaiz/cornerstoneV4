@@ -203,9 +203,9 @@
       <div class="row" *ngIf="selectedStudent && showSearch" style="margin-top: 25px;">
         <div class="col-sm-12">
           <button type="button" class="btn btn-warning" (click)="addForm=1;initAddSiblingForm()" [ngClass]="{'selectedbtn': (addForm === 1) }"
-            *ngIf="siblingLimit!=0" data-toggle="modal" data-target="#exampleModal">Add sibling</button>
+            *ngIf="siblingLimit!=0" data-toggle="modal" data-target="#add-siblings-Modal">Add sibling</button>
           <button type="button" class="btn btn-success" (click)="addForm=2;initAddParentForm()" [ngClass]="{ 'selectedbtn': (addForm === 2) }"
-            *ngIf="parentLimit!=0">Add Parent</button>
+          *ngIf="parentLimit!=0" data-toggle="modal" data-target="#add-parent-Modal"> Add Parent</button>
         </div>
       </div>
     </div>
@@ -305,38 +305,7 @@
     </div>
   </div>
 </div>
-
-
-
-<!-- modal for sibling-form -->
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary">Save changes</button>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- modal gor sibling form -->
-
-
-
 <!-- view all student details table end -->
-
 <!-- new code by saba end -->
 
 
@@ -639,228 +608,230 @@
           </div>
         </div> -->
 
-<!--Add Sibling Form-->
- <div style="border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;" *ngIf="addForm === 1">
-          <form [formGroup]="addSiblingForm" (submit)="submitSibling();addForm=null;">
-            <br>
-            <div class="form-group col-sm-12" formArrayName="students">
-              <div class="row arrayRow" *ngFor="let stu of addSiblingForm.controls.students.controls; let i=index;" [formGroupName]="i">
-                <div class="arrayForm">
-                  <div class="form-group col-sm-5">
-                    <label for="sname5">Name</label>
-                    <input type="text" id="sname" class="form-control" formControlName="name" placeholder="Enter Student's Name">
-                    <div [hidden]="addSiblingForm.controls.students.controls[i].controls.name.valid || addSiblingForm.controls.students.controls[i].controls.name.untouched || addSiblingForm.controls.students.controls[i].controls.name.pristine"
-                      class="alert alert-warning">This field is required</div>
 
-                  </div> 
- <div class="form-group col-sm-5">
-                    <label for="stnd5">Select Standard</label>
-                    <select id="stnd" class="form-control" formControlName="standardId">
-                        <option disabled="disabled" selected="selected">Select Standard</option>                                 
-                        <option *ngFor="let s of standards" [value]="s.id">{{s.name}}</option>
-                    </select>
-                    <div [hidden]="addSiblingForm.controls.students.controls[i].controls.standardId.valid || addSiblingForm.controls.students.controls[i].controls.standardId.untouched"
-                      class="alert alert-warning">This field is required</div>
 
-                  </div>
-                  <div class="col-sm-2">
-                    <button type="button" class="btn btn-primary active pull-right" (click)="removeSibling(addSiblingForm,i)">
-                    <span class="glyphicon glyphicon-trash"></span>
-                  </button>
-                  </div>
-                </div>
-              </div>
-            </div> 
-
- <div class="row" style="margin:5% 5% 0% 5%;">
-              <button type="submit" [disabled]="addSiblingForm.invalid" class="btn btn-success pull-right">Submit</button>
-              <button type="button" [disabled]="((addSiblingForm.invalid)||(addSiblingForm.controls.students.length==5))" class="btn btn-primary active"
-                (click)="addSibling(addSiblingForm);">
-                Add Sibling
-               </button>
-            </div>
-          </form>
+  <div class="modal fade  " id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">Student Updated</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-
-<!--Add Parent Form-->
-<!-- <div style="border: 1px solid #dddddd;margin: 3% 1%;padding: 1%;" *ngIf="addForm === 2">
-
-          <form [formGroup]="addParentForm" (submit)="submitParentForm();addForm=null;">
-
-            <br>
-
-            <div class="form-group col-sm-12"> -->
-
-
-
-<!-- <div class="arrayForm">
-                <div class="form-group col-sm-12">
-                  <label for="fname1">Parent's Name</label>
-                  <input type="text" id="fname1" class="form-control" placeholder="Enter Parent's Name" formControlName="name">
-                  <div class="alert alert-warning" [hidden]="addParentForm.controls.name.valid ||addParentForm.controls.name.untouched || addParentForm.controls.name.pristine">This field is required</div>
-                </div>
-                <div class="form-group col-sm-12">
-                  <label for="fname2">Parent's Nick Name</label>
-                  <input type="text" id="fname2" class="form-control" placeholder="Enter Parent's Nick Name" formControlName="nickName">
-                </div>
-                <div class="form-group col-sm-12">
-                  <label for="fname3">Parent's Contact Number</label>
-                  <input type="text" id="fname3" class="form-control" placeholder="Enter Parent's Contact Number" formControlName="contactNo">
-                  <div class="alert alert-warning" [hidden]="addParentForm.controls.contactNo.valid ||addParentForm.controls.contactNo.untouched || addParentForm.controls.contactNo.pristine">This field is required
-                    <div style="color:red">Contact No should be of 10 dogits</div>
-                  </div>
-                </div>
-                <div class="form-group col-sm-12">
-                  <label for="fname4">Parent's Email ID</label>
-                  <input type="text" id="fname4" class="form-control" placeholder="Enter Parent's Email ID" formControlName="email">
-                  <div class="alert alert-warning" [hidden]="addParentForm.controls.email.valid ||addParentForm.controls.email.untouched || addParentForm.controls.email.pristine">This field is required
-                    <div style="color:red">Please enter valid email-address</div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <div class="row" style="margin:5% 5% 0% 5%;">
-              <button type="submit" [disabled]="addParentForm.invalid" class="btn btn-success pull-right">Submit</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-
-
-
-
-<div class="modal fade  " id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">Student Updated</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        You have successfully updated the information.
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade  " id="errModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">Parent Already exists</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Parent is already added to our records.
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade  " id="editSiblingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">Edit Details</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form *ngIf="selectedSibling" [formGroup]="editStudentForm">
         <div class="modal-body">
-          <label for="sname8">Name</label>
-          <input type="text" id="sname8" class="form-control" formControlName="name">
-          <label for="stnd8">Standard</label>
-          <select id="stnd8" class="form-control" formControlName="standardId">
-            <option disabled="disabled" selected="selected">Select Standard</option>
-            <option *ngFor="let s of standards" [value]="s.id">{{s.name}}</option>
-          </select>
+          You have successfully updated the information.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade  " id="errModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">Parent Already exists</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Parent is already added to our records.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade  " id="editSiblingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">Edit Details</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form *ngIf="selectedSibling" [formGroup]="editStudentForm">
+          <div class="modal-body">
+            <label for="sname8">Name</label>
+            <input type="text" id="sname8" class="form-control" formControlName="name">
+            <label for="stnd8">Standard</label>
+            <select id="stnd8" class="form-control" formControlName="standardId">
+              <option disabled="disabled" selected="selected">Select Standard</option>
+              <option *ngFor="let s of standards" [value]="s.id">{{s.name}}</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-success pull-right" type="button" [disabled]="(!editStudentForm.dirty)||(editStudentForm.invalid)"
+              (click)="submitEditStudentForm()" data-dismiss="modal">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade  " id="editParentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">Edit Details</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form [formGroup]="editParentForm" *ngIf="selectedParent">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="sname9">Name</label>
+              <input type="text" id="sname9" class="form-control" formControlName="name">
+            </div>
+            <div class="form-group">
+              <label for="stnd8">Nick Name</label>
+              <input type="text" id="stnd8" class="form-control" formControlName="nickName">
+            </div>
+  
+            <div class="form-group">
+              <label for="mail">Email</label>
+              <input type="text" id="mail" class="form-control" formControlName="email">
+              <div [hidden]="editParentForm.controls.email.valid||editParentForm.controls.email.untouched" class="alert alert-warning">Please enter a valid Email Id</div>
+            </div>
+  
+            <div class="form-group">
+              <label for="contactNo">Contact No</label>
+              <input type="text" maxlength="12" minlength="9" id="contactNo" class="form-control" name="contactNo" value="selectedParent.contactNo"
+                [(ngModel)]="contactNo" (ngModelChange)="onContact($event)" [ngModelOptions]="{standalone:true}">
+              <div *ngIf="contactControl">
+                <div *ngIf="!editParentForm.controls.contactNo.valid||!editParentForm.controls.contactNo.untouched" class="alert alert-warning">Please enter a valid Contact Number
+                  <div>The contact no should be between 9 to 12 digits</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button id="submitBtn" class="btn btn-success pull-right" type="button" [disabled]="(editParentForm.invalid)" (click)="submitEditParentForm()"
+              data-dismiss="modal">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade  " id="uploadStudentModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Update Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Update Profile Picture </h4>
+        </div>
+        <form [formGroup]="uploadPicForm">
+          <div class="modal-body">
+            <div class="row text-center">
+              <loader [condition]="loader"></loader>
+            </div>
+            <div class="form-group">
+              <input type="file" class="form-control-file" accept="image/*" id="exampleInputFile" aria-describedby="fileHelp" (change)="getFile($event)"
+                formControlName='file'>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" (click)="uploadStudentImage()" class="btn btn-default" data-dismiss='modal'>Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade  " id="uploadParentModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Update Profile Picture </h4>
+        </div>
+        <form [formGroup]="uploadPicForm">
+          <div class="modal-body">
+            <div class="row text-center">
+              <loader [condition]="loader"></loader>
+            </div>
+            <div class="form-group">
+              <input type="file" class="form-control-file" accept="image/*" id="exampleInputFile" aria-describedby="fileHelp" (change)="getFile($event)"
+                formControlName='file'>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" (click)="uploadParentImage()" class="btn btn-default" data-dismiss='modal'>Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade  " id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">File Type Error</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Kindly upload an image file.
         </div>
         <div class="modal-footer">
-          <button class="btn btn-success pull-right" type="button" [disabled]="(!editStudentForm.dirty)||(editStudentForm.invalid)"
-            (click)="submitEditStudentForm()" data-dismiss="modal">Submit</button>
         </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade  " id="editParentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">Edit Details</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
       </div>
-      <form [formGroup]="editParentForm" *ngIf="selectedParent">
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="sname9">Name</label>
-            <input type="text" id="sname9" class="form-control" formControlName="name">
-          </div>
-          <div class="form-group">
-            <label for="stnd8">Nick Name</label>
-            <input type="text" id="stnd8" class="form-control" formControlName="nickName">
-          </div>
-
-          <div class="form-group">
-            <label for="mail">Email</label>
-            <input type="text" id="mail" class="form-control" formControlName="email">
-            <div [hidden]="editParentForm.controls.email.valid||editParentForm.controls.email.untouched" class="alert alert-warning">Please enter a valid Email Id</div>
-
-          </div>
-
-          <div class="form-group">
-            <label for="contactNo">Contact No</label>
-            <input type="text" maxlength="12" minlength="9" id="contactNo" class="form-control" name="contactNo" value="selectedParent.contactNo"
-              [(ngModel)]="contactNo" (ngModelChange)="onContact($event)" [ngModelOptions]="{standalone:true}">
-
-            <div *ngIf="contactControl">
-              <div *ngIf="!editParentForm.controls.contactNo.valid||!editParentForm.controls.contactNo.untouched" class="alert alert-warning">Please enter a valid Contact Number
-                <div>The contact no should be between 9 to 12 digits</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button id="submitBtn" class="btn btn-success pull-right" type="button" [disabled]="(editParentForm.invalid)" (click)="submitEditParentForm()"
-            data-dismiss="modal">Submit</button>
-        </div>
-      </form>
     </div>
   </div>
-</div>
 
-<div class="modal fade  " id="uploadStudentModal" role="dialog">
-  <div class="modal-dialog">
-    <!-- Update Modal content-->
-    <div class="modal-content">
+<!-- The Modal for add siblings-->
+<div class="modal fade" id="add-siblings-Modal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" *ngIf="addForm === 1">
+
+      <!-- Modal Header -->
       <div class="modal-header">
+        <h4 class="modal-title">Add Sibling</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Update Profile Picture </h4>
       </div>
-      <form [formGroup]="uploadPicForm">
-        <div class="modal-body">
-          <div class="row text-center">
-            <loader [condition]="loader"></loader>
-          </div>
-          <div class="form-group">
-            <input type="file" class="form-control-file" accept="image/*" id="exampleInputFile" aria-describedby="fileHelp" (change)="getFile($event)"
-              formControlName='file'>
+      <form [formGroup]="addSiblingForm" (submit)="submitSibling();addForm=null;">
+        <!-- Modal body -->
+        <div class="modal-body" formArrayName="students">
+          <div class="sibling-list-element" *ngFor="let stu of addSiblingForm.controls.students.controls; let i=index;" [formGroupName]="i">
+            <div class="add-remove-btn">
+              <button class="btn btn-link" [disabled]="((addSiblingForm.invalid)||(addSiblingForm.controls.students.length==5))" (click)="addSibling(addSiblingForm);"
+                *ngIf="i==addSiblingForm.controls.students.controls.length-1">
+                <i class="material-icons">add_circle</i>
+              </button>
+              <button class="btn btn-link" [disabled]="addSiblingForm.controls.students.controls.length == 1" (click)="removeSibling(addSiblingForm,i)">
+                <i class="material-icons">delete_sweep</i>
+              </button>
+            </div>
+            <div class="form-group row">
+              <label for="example-text-input" class="col-4 col-form-label">Student Name</label>
+              <div class="col-8">
+                <input class="form-control" type="text" formControlName="name">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="exampleSelect1" class="col-4 col-form-label">Text</label>
+              <div class="col-8">
+                <select id="exampleSelect1" class="form-control" formControlName="standardId">
+                  <option disabled="disabled" selected="selected">Select Standard</option>
+                  <option *ngFor="let s of standards" [value]="s.id">{{s.name}}</option>
+                </select>
+                <div [hidden]="addSiblingForm.controls.students.controls[i].controls.standardId.valid || addSiblingForm.controls.students.controls[i].controls.standardId.untouched"
+                  class="alert alert-warning">This field is required</div>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" (click)="uploadStudentImage()" class="btn btn-default" data-dismiss='modal'>Submit</button>
+          <button type="submit" [disabled]="addSiblingForm.invalid" class="btn btn-success">Submit</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </form>
     </div>
@@ -868,49 +839,59 @@
 </div>
 
 
-<div class="modal fade  " id="uploadParentModal" role="dialog">
-  <div class="modal-dialog">
-    <!-- Update Modal content-->
-    <div class="modal-content">
+<!-- The Modal -->
+<div class="modal fade" id="add-parent-Modal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" *ngIf="addForm === 2">
+
+      <!-- Modal Header -->
       <div class="modal-header">
+        <h4 class="modal-title">Add Parent</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Update Profile Picture </h4>
       </div>
-      <form [formGroup]="uploadPicForm">
+
+      <form [formGroup]="addParentForm" (submit)="submitParentForm();addForm=null;">
+        <!-- Modal body -->
         <div class="modal-body">
-          <div class="row text-center">
-            <loader [condition]="loader"></loader>
+          <div class="form-group row">
+            <label for="fname1" class="col-4 col-form-label">Parent's Name</label>
+            <div class="col-8">
+              <input class="form-control" type="text" id="fname1" placeholder="Enter Parent's Name" formControlName="name">
+              <div class="alert alert-warning" [hidden]="addParentForm.controls.name.valid ||addParentForm.controls.name.untouched || addParentForm.controls.name.pristine">This field is required</div>
+            </div>
           </div>
-          <div class="form-group">
-            <input type="file" class="form-control-file" accept="image/*" id="exampleInputFile" aria-describedby="fileHelp" (change)="getFile($event)"
-              formControlName='file'>
+          <div class="form-group row">
+            <label for="fname2" class="col-4 col-form-label">Parent's Nick Name</label>
+            <div class="col-8">
+              <input class="form-control" type="text" id="fname2" placeholder="Enter Parent's Nick Name" formControlName="nickName">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="fname3" class="col-4 col-form-label">Parent's Contact Number</label>
+            <div class="col-8">
+              <input class="form-control" type="text" id="fname3" placeholder="Enter Parent's Contact Number" formControlName="contactNo">
+              <div class="alert alert-warning" [hidden]="addParentForm.controls.contactNo.valid ||addParentForm.controls.contactNo.untouched || addParentForm.controls.contactNo.pristine">This field is required
+                <div style="color:red">Contact No should be of 10 dogits</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="fname4" class="col-4 col-form-label">Parent's Email ID</label>
+            <div class="col-8">
+              <input class="form-control" type="text" id="fname4" placeholder="Enter Parent's Email ID" formControlName="email">
+              <div class="alert alert-warning" [hidden]="addParentForm.controls.email.valid ||addParentForm.controls.email.untouched || addParentForm.controls.email.pristine">This field is required
+                <div style="color:red">Please enter valid email-address</div>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" (click)="uploadParentImage()" class="btn btn-default" data-dismiss='modal'>Submit</button>
+          <button type="submit" [disabled]="addParentForm.invalid" class="btn btn-success">Submit</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"> Close</button>
         </div>
       </form>
     </div>
   </div>
 </div>
-
-<div class="modal fade  " id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">File Type Error</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Kindly upload an image file.
-      </div>
-      <div class="modal-footer">
-      </div>
-    </div>
-  </div>
-</div>
-<!-- </div> -->
-
-

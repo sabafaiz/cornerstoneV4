@@ -120,7 +120,7 @@ p{
   z-index: 1;
 }
 
-.parent-list-element .add-remove-btn btn{
+.parent-list-element .add-remove-btn .btn{
   cursor: pointer;
 }
 

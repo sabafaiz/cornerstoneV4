@@ -262,7 +262,7 @@ color: grey;
 }
 #sidebar-wrapper .overlay{
 width:100%;
-height: 142%;
+height: 100%;
 position: absolute;
 top: 0;
 background: hsla(0, 0%, 100%, 0.93);

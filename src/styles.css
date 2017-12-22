@@ -550,3 +550,19 @@ z-index: 1000 !important;
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     font-family: "Roboto", "Helvetica", "Arial", sans-serif!important;
   }
+
+  .carousel-control-prev{
+    background: #9c27b061!important;
+  }
+  
+  .carousel-control-next{
+      background: #9c27b061!important;
+  }
+  
+  .carousel-caption i{
+      font-size: 70px;
+  }
+  
+  .carousel-inner img{
+      max-height: 400px;
+  }

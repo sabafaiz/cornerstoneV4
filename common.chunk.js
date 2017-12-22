@@ -754,9 +754,9 @@ var Configuration = (function () {
         // public  url: string = " https://cornerstone.ind-cloud.everdata.com";
         // public  baseUrl: string = " https://cornerstone.ind-cloud.everdata.com/";
         // public  Server: string = " https://cornerstone.ind-cloud.everdata.com/";
-        this.url = "http://nxtlife-testing.ind-cloud.everdata.com";
-        this.baseUrl = "http://nxtlife-testing.ind-cloud.everdata.com/";
-        this.Server = "http://nxtlife-testing.ind-cloud.everdata.com/";
+        this.url = "https://nxtlife-testing.ind-cloud.everdata.com";
+        this.baseUrl = "https://nxtlife-testing.ind-cloud.everdata.com/";
+        this.Server = "https://nxtlife-testing.ind-cloud.everdata.com/";
         this.setAccessToken();
     }
     // set access_token after user login

@@ -154,3 +154,24 @@ padding: 0px;
     text-overflow: initial;
     text-align: -webkit-auto;
   }
+
+  /* modal css */
+  .modal-header .close{
+    color:white;
+}
+
+.modal-header{
+    background:#9c27b0!important; 
+    color:white;
+}
+
+.load-btn{
+  
+    background: #9c27b0;
+    border-color:#9c27b0; 
+    border-radius:3px!important;
+}
+.btn-primary:not([disabled]):not(.disabled):active{
+    background: #9c27b0;
+    border-color:#9c27b0; 
+}

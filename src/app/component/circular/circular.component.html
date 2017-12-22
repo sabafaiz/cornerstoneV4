@@ -263,43 +263,48 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="example-text-input" class="col-2 col-form-label">Circular For :</label>
-            <div class="col-10" *ngIf="selectedCircular.standards">
+            <label for="example-text-input" class="col-2 col-form-label" style="text-align: right;">Circular For :</label>
+            <div class="col-sm-8" *ngIf="selectedCircular.standards">
                 <div class="form-control">{{selectedCircular.standards}}</div>
             </div>
-            <div class="col-10" *ngIf="!selectedCircular.standards">
+            <div class="col-sm-8" *ngIf="!selectedCircular.standards">
                 <div class="form-control">{{selectedCircular.circularTypeName}}</div>
             </div>
           </div>
           <div class="form-group row">
-            <label for="example-text-input" class="col-2 col-form-label">Created By :</label>
-            <div class="col-10">
+            <label for="example-text-input" class="col-2 col-form-label"  style="text-align: right;">Created By :</label>
+            <div class="col-sm-8">
                 <div class="form-control">{{selectedCircular.employeeName}}</div>
             </div>
           </div>
           <div class="form-group row">
-            <label for="example-text-input" class="col-2 col-form-label">Description :</label>
-            <div class="col-10">
+            <label for="example-text-input" class="col-2 col-form-label"  style="text-align: right;">Description :</label>
+            <div class="col-sm-8">
                 <div class="form-control">{{selectedCircular.description}}</div>
             </div>
           </div>
           <div class="form-group row">
-            <label for="example-text-input" class="col-2 col-form-label">Created At :</label>
-            <div class="col-10">
+            <div class="col-sm-6">
+              <div class="row" style="text-align: center;">
+            <label for="example-text-input" class="col-4 col-form-label">Created At :</label>
+            <div class="col-sm-8">
                 <div class="form-control">{{selectedCircular.createdAt | date}}</div>
             </div>
           </div>
-          <div class="form-group row">
-            <label for="example-text-input" class="col-2 col-form-label">Start Date :</label>
-            <div class="col-10">
+          </div>
+          <div class="col-sm-6">
+            <div class="row" style="text-align: center;">
+            <label for="example-text-input" class="col-4 col-form-label">Start Date :</label>
+            <div class="col-sm-8">
                 <div class="form-control">{{selectedCircular.start | date}}</div>
             </div>
+          </div>
           </div>
         </div>
         
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary load-btn" data-dismiss="modal">Close</button>
         </div>
         
       </div>

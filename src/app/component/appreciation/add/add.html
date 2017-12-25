@@ -20,7 +20,7 @@
           </div>
           <div class="col-sm-8">
             <select class="form-control" id="standardId" name="standardId" (ngModelChange)="getStudents($event)" [(ngModel)]="standardId"
-              [ngModelOptions]="{standalone: true}">
+              [ngModelOptions]="{standalone: true}" style="margin-left: 7px;">
       
                 <option disabled *ngIf="emptyStandards">No standards are added. Try again later</option>
                 <option selected="true" disabled="true" value=''>Select Standard</option>
@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="row" style="margin-top:15px;">
-          <div class="col-sm-2">
+          <div class="col-sm-2 badge-color">
             <label for="title">Title</label>
             <span class="badge">{{50 - appreciation.value.title.length}}</span>
           </div>
@@ -61,7 +61,7 @@
           </div>
         </div>
         <div class="row" style="margin-top:15px;">
-          <div class="col-sm-2">
+          <div class="col-sm-2 badge-color">
             <label for="description">Description</label>
             <span class="badge">{{2000 - appreciation.value.description.length}}</span>
           </div>

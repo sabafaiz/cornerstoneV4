@@ -386,3 +386,32 @@ p{
   color: white;
   padding: 10px;
 }
+
+/* modal */
+.modal-header{
+background:#9c27b0;
+color:white;
+}
+
+
+.load-btn{
+ background: #9c27b0;
+ border-color:#9c27b0; 
+ border-radius:3px!important;
+}
+.btn-primary:not([disabled]):not(.disabled):active{
+    background: #9c27b0;
+    border-color:#9c27b0; 
+}
+
+.close{
+  color:white;
+}
+
+
+.btn-success:not([disabled]):not(.disabled).active, .btn-success:not([disabled]):not(.disabled):active{
+  color: #fff;
+  background-color: #db2064;
+  border-color: #db2164;
+  box-shadow: 0 0 0 0.2rem rgba(219, 33, 100, 0.34);
+}

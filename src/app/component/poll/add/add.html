@@ -99,11 +99,11 @@
                   Minimum two options are required.
                 </div>
               </div>
-              <div class="col-sm-4">
+              <div class="col-sm-4 poll-number">
                   <span class="badge">{{40 - addPollForm.value.subOptions[i].choice.length}}</span>
               
                   <button type="button" class="btn btn-primary active" [disabled]="addPollForm.controls.subOptions.length<=2" (click)="removeOptions(addPollForm,i)" style="margin-left: 10px;">
-                      <span class="glyphicon glyphicon-remove"></span>
+                    <i class="material-icons">delete_forever</i>
                   </button>
                 
              

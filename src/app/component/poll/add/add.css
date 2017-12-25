@@ -80,5 +80,22 @@ background-color: transparent;
     border-color: rgba(40, 167, 68, 0);
 }
 
+.btn-primary:disabled {
+    background-color: #007bff00;
+    border-color: #007bff00;
+}
 
+.btn-primary .material-icons{
+    color:#dd2567;
+}
+
+.poll-number .badge {
+    background-color: #de2567;
+    color: white;
+}
+
+.badge{
+    background-color: #de2567;
+    color: white;
+}
 /* code by saba */

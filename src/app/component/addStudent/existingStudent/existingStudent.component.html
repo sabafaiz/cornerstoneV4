@@ -662,7 +662,7 @@
             </select>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-success pull-right" type="button" [disabled]="(!editStudentForm.dirty)||(editStudentForm.invalid)"
+            <button class="btn btn-primary pull-right load-btn" type="button" [disabled]="(!editStudentForm.dirty)||(editStudentForm.invalid)"
               (click)="submitEditStudentForm()" data-dismiss="modal">Submit</button>
           </div>
         </form>
@@ -708,7 +708,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button id="submitBtn" class="btn btn-success pull-right" type="button" [disabled]="(editParentForm.invalid)" (click)="submitEditParentForm()"
+            <button id="submitBtn" class="btn btn-primary pull-right load-btn" type="button" [disabled]="(editParentForm.invalid)" (click)="submitEditParentForm()"
               data-dismiss="modal">Submit</button>
           </div>
         </form>
@@ -760,7 +760,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" (click)="uploadParentImage()" class="btn btn-default" data-dismiss='modal'>Submit</button>
+            <button type="button" (click)="uploadParentImage()" class="btn btn-default load-btn" data-dismiss='modal'>Submit</button>
           </div>
         </form>
       </div>
@@ -830,8 +830,8 @@
 
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="submit" [disabled]="addSiblingForm.invalid" class="btn btn-success">Submit</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" [disabled]="addSiblingForm.invalid" class="btn btn-primary load-btn">Submit</button>
+          <button type="button" class="btn btn-secondary load-btn" data-dismiss="modal">Close</button>
         </div>
       </form>
     </div>
@@ -839,7 +839,7 @@
 </div>
 
 
-<!-- The Modal -->
+<!-- The Modal for add-parent -->
 <div class="modal fade" id="add-parent-Modal">
   <div class="modal-dialog modal-lg">
     <div class="modal-content" *ngIf="addForm === 2">
@@ -888,8 +888,8 @@
 
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="submit" [disabled]="addParentForm.invalid" class="btn btn-success">Submit</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal"> Close</button>
+          <button type="submit" [disabled]="addParentForm.invalid" class="btn btn-primary load-btn">Submit</button>
+          <button type="button" class="btn btn-secondary load-btn" data-dismiss="modal"> Close</button>
         </div>
       </form>
     </div>

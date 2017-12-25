@@ -566,3 +566,8 @@ z-index: 1000 !important;
   .carousel-inner img{
       max-height: 400px;
   }
+
+.text-center{
+    margin: auto;
+    display: block;
+}

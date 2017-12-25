@@ -52,7 +52,7 @@
             <li><a href=""><i class="material-icons">sort</i>Sort</a></li>
             <li><a href=""><i class="material-icons">filter_list</i>Filter</a></li>
           </ul> -->
-          Appreciations Added by me
+          Appreciations Added By Us
           <a class="pull-right" [routerLink]="['/appreciation/add-appreciation']"><i class="material-icons" >note_add</i></a>
         </div>
         <div class="card-content">
@@ -63,7 +63,7 @@
                 <th><i class="material-icons">face</i>Details</th>
 
                 <th><i class="material-icons">attach_file</i>Title</th>
-                <th><i class="material-icons">pin_drop</i>description</th>
+                <th><i class="material-icons">pin_drop</i>Description</th>
               
               </tr>
             </thead>
@@ -74,9 +74,8 @@
                   <span *ngIf="c.closedOn">-{{c.closedOn | date:'dd-mm-yyyy'}}</span>
                 </td>
                 <td width="10%">
-                  <img src="assets/img/studentpic.png">
-                  <br> {{c.studentName}}
-                  <br>{{c.studentStandardName}}
+                   {{c.studentName}}
+                  <br>{{c.standardName}}
                 </td>
                 <td width="20%">{{c.title}}</td>
                 <td block width="10%">{{c.description}}</td>

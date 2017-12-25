@@ -68,7 +68,7 @@
             <a class="nav-link" data-toggle="tab" href="#menu1">Sibling Details</a>
           </li>
           <li class="nav-item" style="width:33%">
-            <a class="nav-link" data-toggle="tab" href="#menu2">Praent Details</a>
+            <a class="nav-link" data-toggle="tab" href="#menu2">Parent Details</a>
           </li>
         </ul>
 
@@ -203,7 +203,7 @@
       <div class="row" *ngIf="selectedStudent && showSearch" style="margin-top: 25px;">
         <div class="col-sm-12">
           <button type="button" class="btn btn-warning" (click)="addForm=1;initAddSiblingForm()" [ngClass]="{'selectedbtn': (addForm === 1) }"
-            *ngIf="siblingLimit!=0" data-toggle="modal" data-target="#add-siblings-Modal">Add sibling</button>
+            *ngIf="siblingLimit!=0" data-toggle="modal" data-target="#add-siblings-Modal">Add Sibling</button>
           <button type="button" class="btn btn-success" (click)="addForm=2;initAddParentForm()" [ngClass]="{ 'selectedbtn': (addForm === 2) }"
           *ngIf="parentLimit!=0" data-toggle="modal" data-target="#add-parent-Modal"> Add Parent</button>
         </div>
